@@ -1,0 +1,67 @@
+
+<html>
+<title>Dataset</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>    
+
+<body>
+<h5 style="padding-left: 120px;"><blockquote>Datasets for our explicit method</blockquote></h5>
+<p style="padding-left: 120px; padding-right: 120px; text-align:justify; text-justify:inter-ideograph;">
+We test our approach on block stacking task, since there is no applicable public database, we collect videos and images to build our own datasets. The details are described as follows.<br /><br />
+<b>Data for CNet</b><br />
+We use a Kinect camera to capture raw videos that contain human actions, and then segment these videos into 5,980 short clips (approximately3–6 seconds long). For each short clip, we annotate it with a grammar-free command sentence that describes the human action.
+</p>
+<center><img src="image/1.png" width="65%" alt=""><br><br>
+Examples of human demonstration video clips and labeled groundtruth
+</center>
+<p style="padding-left: 120px; padding-right: 120px; text-align:justify; text-justify:inter-ideograph;">
+<b>Data for GNet</b><br />
+The dataset contains the images of our testing scenarios and their labels at pixel level. The RGB-D images are captured with a Kinect camera. In total, the dataset has 5,160 images, covering 35,986 annotated object regions. Examples of the collected dataset are available at <a href="https://drive.google.com/open?id=1JLBuXgxJOpRN-PEF3t2HCavn_IPVbUdj" target="_blank">Google Drive</a>.
+</p>
+<br>
+<h5 style="padding-left: 120px;"><blockquote>Datasets for our implicit method</blockquote></h5>
+<p style="padding-left: 120px; padding-right: 120px; text-align:justify; text-justify:inter-ideograph;">
+For our CCV-IL system, the neural network is trained in a self-supervised manner which avoids tedious and time-consuming manual annotation. Moreover, we employ a transfer scheme in which we first collect a large amount of data in simulation environment to pre-train the networks and then finetune the networks with just a small amount of data collected in real world. The scheme effectively alleviate the data hungry in deep learning. Details of data collection are as follows.<br /><br />
+<b>Collect multi-context demonstration pairs</b><br />
+We collect pairs of demonstrations from source context and target context respectively to train our context translation model. The two contexts may include changes in viewpoints, backgrounds and object positions and appearances. Finally, we collect 15,200 pairs of demonstrations in simulation and 2,860 pairs of demonstrations in real world.
+</p>
+<center><img src="image/2.png" width="65%" alt=""><br><br>
+  Example of our collected demonstration pairs in simulation and real-world
+</center>
+<p style="padding-left: 120px; padding-right: 120px; text-align:justify; text-justify:inter-ideograph;">
+<b>Collect multi-modal observation-action pairs</b><br />
+We deploy random exploration by a UR5 robotic arm both in simulation and real world to collect training data for our depth prediction model and multi-modal inverse model. In every interaction, we record the initial and goal observations (color and depth) and corresponding actions. We finally collect 15,200 pairs of data in simulation and 2,860 pairs of data in real world. Examples of the collected dataset are available at <a href="https://drive.google.com/file/d/1-GseGGbzfKHML0Cs8O18ACbpYO5Z6j8i/view?usp=sharing" target="_blank">Google Drive</a>.
+</p>
+<br>
+<center>
+<img src="image/3.gif" width="20%" alt="">
+<img src="image/4.gif" width="20%" alt="">
+<img src="image/5.gif" width="20%" alt="">
+<img src="image/6.gif" width="20%" alt="">
+<br>
+Data collection in V-REP simulator
+<br><br>
+<img src="image/7.gif" width="20%" alt="">
+<img src="image/8.gif" width="20%" alt="">
+<img src="image/9.gif" width="20%" alt="">
+<img src="image/10.gif" width="20%" alt="">
+<br>
+Data collection in real world
+</center>
+
+<br><br>
+<!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+</body>
+</html>
