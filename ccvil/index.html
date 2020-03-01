@@ -1,51 +1,83 @@
 
-<html>
-<title>Cross-context Visual Imitation Learning from Demonstrations</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta name="format-detection" content="telephone=no">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <!--Import Google Icon Font-->
-      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>    
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">  
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Cross-context Visual Imitation Learning from Demonstrations</title>
+    <!-- CSS -->
+        <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+    <!-- ENDS CSS -->
 
-<body bgcolor="#F5F5F5">
-	<br />
-<center><h4 class="black-text" style="padding-left: 210px; padding-right: 210px;">Cross-context Visual Imitation Learning from Demonstrations</h4></center>
-<center><h6 class="gray-text">Shuo Yang, Wei Zhang<sup>*</sup>, Weizhi Lu, Hesheng Wang, and Yibin Li</h6></center>
-<p style="padding-left: 210px;"><b>Abstract</b></p>       
-<p style="padding-left: 210px; padding-right: 210px; text-align:justify; text-justify:inter-ideograph;">
-Imitation learning enables robots to learn a task by simply watching the demonstration of the task. Current imitation learning methods usually require the learner and demonstrator to occur in the same context. This limits their scalability to practical applications. In this paper, we propose a more general imitation learning method which allows the learner and the demonstrator to come from different contexts, such as different viewpoints, backgrounds, and object positions and appearances. Specifically, we design a robotic system consisting of three models: context translation model, depth prediction model and multi-modal inverse dynamics model. First, the context translation model translates the demonstration to the context of learner from a different context. Then combining the color observation and depth observation as inputs, the inverse model maps the multi-modal observations into actions to reproduce the demonstration, where the depth observation is provided by
+        <!--script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-89797207-1', 'auto');
+          ga('send', 'pageview');
+
+        </script-->
+
+        <!-- ENDS JS -->  
+  </head> 
+  <body>
+    <!-- MAIN -->
+    <div id="main">
+
+            <div id="match-nav-wrapper">
+                <div id="match-nav-bar">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th width="11%"><a href="#">Home</a></th>
+                                <th width="13%"><a href="#demo-video">Video</a></th>
+                                <th width="16%"><a href="#data-code">Data & Code</a></th>
+                                <th width="60%"></th>
+                            </tr>
+                        </thead>
+                    </table>
+
+                </div>
+            </div>
+
+      <!-- HEADER -->
+      <div id="home-header">
+      
+            <div id="match-wrapper">
+
+                <h5><a href="#"><img src="image/logo.png"></a></h5>
+
+                <br><br>
+
+                <h2>Cross-context Visual Imitation Learning from Demonstrations</h2>
+                <center>
+                  Shuo Yang<sup>1</sup>, Wei Zhang<sup>1*</sup>, Weizhi Lu<sup>1</sup>, Hesheng Wang<sup>2</sup>, and Yibin Li<sup>1</sup><br>
+<font size=2><sup>1</sup>School of Control Science and Engineering, Shandong University&nbsp;&nbsp;<sup>2</sup>Department of Automation, Shanghai Jiao Tong University</font>                
+                </center>
+                <br><strong>Abstract</strong>
+                <p style="text-align:justify; text-justify:inter-ideograph;">
+                Imitation learning enables robots to learn a task by simply watching the demonstration of the task. Current imitation learning methods usually require the learner and demonstrator to occur in the same context. This limits their scalability to practical applications. In this paper, we propose a more general imitation learning method which allows the learner and the demonstrator to come from different contexts, such as different viewpoints, backgrounds, and object positions and appearances. Specifically, we design a robotic system consisting of three models: context translation model, depth prediction model and multi-modal inverse dynamics model. First, the context translation model translates the demonstration to the context of learner from a different context. Then combining the color observation and depth observation as inputs, the inverse model maps the multi-modal observations into actions to reproduce the demonstration, where the depth observation is provided by
 a depth prediction model. By performing the block stacking tasks both in simulation and real world, we prove the cross-context learning advantage of  the proposed robotic system over other systems.
 </p>
-<!--p style="padding-left: 210px;"><b>● Data: <a href="data.html" target="_blank">View our datasets</a></b></p-->
-<center><img src="image/overview.png" width="35%">
-<br> Overview of our approach
-</center>
+                <br>
+                <h1>Overview</h1>
+                <center><img src="image/overview.png" width="60%"></center>
+                <p style="text-align:justify; text-justify:inter-ideograph;">
+                 We proposed a cross-context visual imitation learning method, which consists of three models: context translation model that translates the observation image to the context of robot from a different context; depth prediction model that generates predictive depth observation to provide depth input for the inverse model; multi-modal inverse dynamics model that maps the multi-modal observations into actions to reproduce the behaviours in demonstrations.</p>
+              
+                <div id="demo-video"></div>
+                <br><br><h1>Video</h1>
+                <iframe width="880" height="495" src="https://www.youtube.com/embed/5z5C8prTRmg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<p style="padding-left: 210px;"><b>● Video:</b></p>
-<!--h5 style="padding-left: 210px;"><blockquote>Explicit method for robot imitation learning</blockquote></h5>
-<div style="padding-left: 210px; padding-right: 210px;"><hr></div-->
-<center>
- <iframe width="560" height="315" src="https://www.youtube.com/embed/5z5C8prTRmg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  <br><br>
-  
-</center>
-
-<!--iframe width="640" height="359" src="https://www.youtube.com/embed/uaJXXVa31wU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe-->
-<br><br>
-
-
-<!--h5 style="padding-left: 210px;"><blockquote>Implicit method for robot imitation learning</blockquote></h5
-Simulation and real-world experiments video of our implicit method for robot imitation learning
-Real world experiments video of our explicit method for robot imitation learning
--->
-<!--Import jQuery before materialize.js-->
-      <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
-      <script type="text/javascript" src="js/materialize.min.js"></script>
-</body>
+                <div id="data-code"></div>
+                <br><br><h1>Data & Code</h1>
+                The data and code will be released soon!
+                <br><br><br>
+              </div>
+      <!-- ENDS Footer -->
+  </body>
 </html>
