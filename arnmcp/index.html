@@ -19,13 +19,21 @@
 <center><h6 class="gray-text">Kunyan Zhu, Wei Chen, Wei Zhang, Ran Song, and Yibin Li</h6></center>
 <p style="padding-left: 210px;"><b>Abstract</b></p>       
 <p style="padding-left: 210px; padding-right: 210px; text-align:justify; text-justify:inter-ideograph;">
-In this paper, we propose an autonomous system for robot navigation based on a specifically designed multicamera setup that takes advantage of the wide field of view to
-obtain the state of the robot. Such system enables the robot to act properly by comprehensively estimating both its own
-state and the high-level control commands extracted from the map. The visual information supplied by the left, middle and
-right cameras is subsequently refined for multiple sub-tasks, including behavior reflex and scene perception. Our system
-combines the mediated perception, the direct perception and the behavior reflex to reliably generate navigation indicators as well
-as robot actions, which are then fed into the driving controller. Experiments in real-world environments demonstrates that our
-system accomplishes both local path planning for obstacle avoidance and global goal-directed navigation.
+In this paper, we propose an autonomous method 
+for robot navigation based on a multi-camera setup that takes 
+advantage of a wide field of view. A new multi-task network 
+is designed for handling the visual information supplied by the 
+left, central and right cameras separately to find the passable 
+area, detect the intersection and infer the steering. Based 
+on the outputs of the networks, three navigation indicators 
+are generated and then combined with the high-level control 
+commands extracted by the proposed MapNet, which are finally 
+fed into the driving controller. The indicators are also used 
+through the controller for adjusting the driving velocity, which 
+assists the robot to adjust the speed for smoothly bypassing 
+obstacles. Experiments in real-world environments demonstrate 
+that our system accomplishes both local path planning and 
+global goal-directed navigation. 
 
 </p>
 <!--p style="padding-left: 210px;"><b>● Data: <a href="data.html" target="_blank">View our datasets</a></b></p-->
