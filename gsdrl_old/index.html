@@ -1,0 +1,48 @@
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Grasp for Stacking via Deep Reinforcement Learning</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+
+  <!--Import Google Icon Font-->
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection">
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+
+</head><body>
+	<br>
+<center><h4 class="black-text" style="padding-left: 210px; padding-right: 210px;">Grasp for Stacking via Deep Reinforcement Learning</h4></center>
+<center><h6 class="gray-text">Junhao Zhang, Wei Zhang, Ran Song, Lin Ma and Yibin Li</h6></center>
+<p style="padding-left: 210px;"><b>Abstract</b></p>       
+<p style="padding-left: 210px; padding-right: 210px; text-align:justify; text-justify:inter-ideograph;">
+Integrated robotic arm system should contain both grasp and place actions. However, most grasping methods focus more on how to grasp objects, while ignoring the placement of the grasped objects, which limits their applications in various industrial environments. In this research, we propose a model-free deep Q-learning method to learn the grasping-stacking strategy end-to-end from scratch. Our method maps the images to the actions of the robotic arm through two deep networks: the grasping network (GNet) using the observation of the desk and the pile to infer the gripper's position and orientation for grasping, and the stacking network (SNet) using the observation of the platform to infer the optimal location when placing the grasped object. To make a long-range planning, the two observations are integrated in the grasping for stacking network (GSN). We evaluate the proposed GSN on a grasping-stacking task in both simulated and real-world scenarios.
+</p>
+<!--p style="padding-left: 210px;"><b>● Data: <a href="data.html" target="_blank">View our datasets</a></b></p-->
+<center><img src="image/overview.png" width="60%">
+<br> Overview of our approach
+</center>
+
+<p style="padding-left: 210px;"><b>● Video:</b></p>
+<!--h5 style="padding-left: 210px;"><blockquote>Explicit method for robot imitation learning</blockquote></h5>
+<div style="padding-left: 210px; padding-right: 210px;"><hr></div-->
+<center>
+ <iframe width="560" height="315" src="https://www.youtube.com/embed/moUs1UhIunM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <br><br>
+  
+</center>
+
+<!--iframe width="640" height="359" src="https://www.youtube.com/embed/uaJXXVa31wU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe-->
+<br><br>
+
+
+<!--h5 style="padding-left: 210px;"><blockquote>Implicit method for robot imitation learning</blockquote></h5
+Simulation and real-world experiments video of our implicit method for robot imitation learning
+Real world experiments video of our explicit method for robot imitation learning
+-->
+<!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+
+</body></html>
