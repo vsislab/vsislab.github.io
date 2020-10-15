@@ -1,0 +1,69 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">  
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Dataset</title>
+    <!-- CSS -->
+        <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />  
+  </head> 
+  <body>
+    <!-- MAIN -->
+    <div id="main">
+
+            <div id="match-nav-wrapper">
+                <div id="match-nav-bar">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th width="10%"><a href="#">Dataset</a></th>
+                                <th width="30%"></th>
+                                <th width="30%"></th>
+                                <th width="15%"></th>
+                                <th width="15%"></th>
+                            </tr>
+                        </thead>
+                    </table>
+
+                </div>
+            </div>
+
+      <!-- HEADER -->
+      <div id="home-header">
+      
+            <div id="match-wrapper">
+
+                <!--h5><a href="#"><img src="image/logo.png"></a></h5-->
+
+                <h2>Data Collection and Synthetic Scene Generation</h2>
+<br>
+                <p style="text-align:justify; text-justify:inter-ideograph;">
+                Here we give detailed descriptions of the dataset for dense descriptor learning. As mentioned in the paper, we synthetically create the scenes using raw data from publicly available datasets and the Internet without any human or robot labor. In total, we collected 130 distinct instances of 16 object classes as shown in Fig.1. It is noteworthy that the corresponding object binary masks are also collected from the publicly available datasets.
+</p><br><center>
+<div id="match-teaser-img"><img src="image/fig1_new5.png">Fig.1 Overview of the collected objects used for dense descriptor learning.</div></center>
+<br>
+<p style="text-align:justify; text-justify:inter-ideograph;">
+                For synthetic data generation, we employ a simple yet reliable scheme as prior work, that is, overlaying object instance masks on randomly selected background images and establishing pixel correspondences accordingly. Details are described as below.
+</p>
+<center>
+<div id="match-teaser-img"><img src="image/fig_data_create2.png">Fig.2 Illustration of the synthetic scene generation.</div></center>
+<br>
+<p style="text-align:justify; text-justify:inter-ideograph;">
+                As shown in Fig.2, we first randomly select N objects of N classes from the collected raw data. Thus for each selected object, its category label and binary mask are known at the beginning. Then the object is randomly rotated by θ<font size="2">a</font> and θ<font size="2">b</font> and resized by two scale factors λ<font size="2">a</font> and λ<font size="2">b</font> respectively. Afterwards, the two rotated and resized instances are overlaid on two randomly selected scene images I<font size="2">a</font> and I<font size="2">b</font> at the locations (x<font size="2">a</font>,y<font size="2">a</font>) and (x<font size="2">b</font>,y<font size="2">b</font>) respectively. Since both of the two instances are the regular variants of the same object, we can establish precise pixel correspondences between them without extra efforts. Besides, by overlaying the corresponding rotated and resized binary masks on two black images, the ground-truth segmentation maps for the training of the segmentation branch are also available.
+</p><br>		 
+<div id="match-teaser-img"><img src="image/fig_crossdata_and_example.png">Fig.3 (a) illustrates the generation of cross-instance synthetic scenes; (b) shows some samples of the created synthetic scene images and the corresponding binary masks.</div></center>
+<br>	 
+<p style="text-align:justify; text-justify:inter-ideograph;">
+                To further improve the matching performance of our multi-object dense descriptor, we also introduce cross-instance training data which are rarely considered in prior work. As illustrated in Fig.3(a), two different instances within one class are overlaid on two background images with random rotation and scaling. Similarly, object category label and binary segmentation map could be easily obtained. However, it is hard to derive matched pixel pairs from cross-instance data in the aforementioned manner. Instead, we sample grasping-based matched pixel pairs from cross-instance data using the grasp affordance prediction model.
+</p>		 
+		 
+               
+
+                <br><br><br>
+              </div>
+      <!-- ENDS Footer -->
+  </body>
+</html>
