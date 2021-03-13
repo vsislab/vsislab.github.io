@@ -6,7 +6,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>PackerBot: Variable-Sized Product Packing with Heuristic Deep Reinforcement Learning</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="w3.css">
+  <link rel="stylesheet" href="css/w3.css">
+  <script src="index.js"></script>
 </head>
 
 <body>
@@ -18,13 +19,13 @@
     <h2 class="w3-center w3-padding-32"><b>PackerBot: Variable-Sized Product Packing<br>with Heuristic Deep Reinforcement Learning</b></h2>
 	<center>
         Zifei Yang, Shuo Yang, Shuai Song, Wei Zhang, Ran Song, Jiyu Cheng, and Yibin Li<br>
-		<font size=3>School of Control Science and Engineering, Shandong University, China</font>                
+		<font size=3>School of Control Science and Engineering, Shandong University, 250061, Jinan, China</font>                
     </center>
     <h3><b>Abstract</b></h3>
     <p style="text-align:justify; text-justify:inter-ideograph;">
     Product packing is a typical application in warehouse automation that aims to pick objects from unstructured piles and place them into bins with optimized placing policy. However, it still remains a significant challenge to finish the product packing tasks in general logistics scenarios where the objects are variable-sized and the configurations are complex. In this work, we present the PackerBot, a complete robotic pipeline for performing variable-sized product packing in unstructured scenes. First, by leveraging the imperfect experience of human packer, we propose a heuristic DRL framework for learning optimal online 3D bin packing policy. Then we integrate it with a 6-DoF suction-based picking module and a product size estimation module, leading to a complete product packing system, namely the PackerBot. Extensive experimental results show that our method achieves the state-of-the-art performance in both simulated and real-world tests.
 	</p>
-	<center><img src="architecture.png" style="width: 100%;"><br>Overview of our heuristic deep reinforcement learning model for variable-sized 3D product packing.</center>
+	<center><img src="image/architecture.png" style="width: 100%;"><br>Overview of our heuristic deep reinforcement learning model for variable-sized 3D product packing.</center>
 	<!-- <h3><b>Overview of our heuristic deep reinforcement learning model for variable-sized 3D product packing</b></h3> -->
     <h3 class="w3-left-align"><b>Video</b></h3>
     <iframe width="850" height="478" src="https://www.youtube.com/embed/ch3rLGNf23c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -34,5 +35,12 @@
 
 <br><br><br>
 
+<!--h5 style="padding-left: 210px;"><blockquote>Implicit method for robot imitation learning</blockquote></h5
+Simulation and real-world experiments video of our implicit method for robot imitation learning
+Real world experiments video of our explicit method for robot imitation learning
+-->
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
 </body>
 </html>
