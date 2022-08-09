@@ -1,51 +1,54 @@
-
-<html>
-<title>A Hierarchical Framework for Quadruped Locomotion Based on Reinforcement Learning</title>
+<!-- saved from url=(0032)https://vsislab.github.io/hfqol/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>A Hierarchical Framework for Quadruped Locomotion Based on Reinforcement Learning</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="format-detection" content="telephone=no">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
   <!--Import Google Icon Font-->
-      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link href="./A Hierarchical Framework for Quadruped Locomotion Based on Reinforcement Learning_files/icon" rel="stylesheet">
       <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="./A Hierarchical Framework for Quadruped Locomotion Based on Reinforcement Learning_files/materialize.min.css" media="screen,projection">
       <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>    
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">    
 
-<body>
-	<br />
+<style type="text/css">#_copy{align-items:center;background:#4494d5;border-radius:3px;color:#fff;cursor:pointer;display:flex;font-size:13px;height:30px;justify-content:center;position:absolute;width:60px;z-index:1000}#select-tooltip,#sfModal,.modal-backdrop,div[id^=reader-helper]{display:none!important}.modal-open{overflow:auto!important}._sf_adjust_body{padding-right:0!important}.super_copy_btns_div{position:fixed;width:154px;left:10px;top:45%;background:#e7f1ff;border:2px solid #4595d5;font-weight:600;border-radius:2px;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;z-index:5000}.super_copy_btns_logo{width:100%;background:#4595d5;text-align:center;font-size:12px;color:#e7f1ff;line-height:30px;height:30px}.super_copy_btns_btn{display:block;width:128px;height:28px;background:#7f5711;border-radius:4px;color:#fff;font-size:12px;border:0;outline:0;margin:8px auto;font-weight:700;cursor:pointer;opacity:.9}.super_copy_btns_btn:hover{opacity:.8}.super_copy_btns_btn:active{opacity:1}</style></head><body _c_t_common="1" data-new-gr-c-s-check-loaded="14.1073.0" data-gr-ext-installed="" data-new-gr-c-s-loaded="14.1073.0" _c_t_j1="1">
+    <br>
     <center><h4 class="black-text" style="padding-left: 100px; padding-right: 100px;">A Hierarchical Framework for Quadruped Locomotion Based on Reinforcement Learning</h4></center>
-    <center><h6 class="gray-text">Wenhao Tan, Xing Fang, Wei Zhang, Ran Song, Teng Chen, and Yibin Li</h6></center>
-        <center><h8>School of Control Science and Engineering, Shandong University&nbsp;&nbsp;</h8></center>
-    <p style="padding-left: 210px;"><b>● Abstract</b></p>        
-    <p style="padding-left: 210px; padding-right: 210px; text-align:justify; text-justify:inter-ideograph;">Quadruped locomotion is challenging for learning-based algorithms. It requires tedious manual tuning and is difficult to deploy in reality due to the sim-to-real gap between the training and the testing scenarios. This paper proposes a quadruped robot learning system for agile locomotion which does not require any pre-training and works well in various terrains. We introduce a hierarchical framework that uses reinforcement learning as the high-level policy to adjust the low-level trajectory generator for a better adaptability to the terrain. We compact the observation and the action spaces of the reinforcement learning framework to deploy it on a host computer interfaced with the robot. Besides, we design an omnidirectional trajectory generator guided by robot posture, which generates omnidirectional foot trajectories to interact with the environment. Experimental results and the supplementary video demonstrate that our system only trained in simulation can be easily deployed in the real world, and also has the advantages of fast convergence and good terrain adaptability.
+    <center><h6 class="gray-text">Wenhao Tan<sup>1</sup>, Xing Fang<sup>1</sup>, Wei Zhang<sup>1</sup>, Ran Song<sup>1</sup>, Teng Chen<sup>1</sup>, Yu Zheng<sup>2</sup>, and Yibin Li<sup>1</sup></h6></center>
+    <center><h8>1 School of Control Science and Engineering, Shandong University&nbsp;&nbsp;</h8></center>
+    <center><h8>2 Tencent Robotics X Lab, Shenzhen, China.&nbsp;&nbsp;</h8></center>
+    <p style="padding-left: 210px;"><b>● Abstract</b></p>
+    <p style="padding-left: 210px; padding-right: 210px; text-align:justify; text-justify:inter-ideograph;">
+        Quadruped locomotion is challenging for learning-based algorithms. It requires tedious manual tuning and is difficult to deploy in reality due to the sim-to-real gap between the training and the testing scenarios. This paper proposes a quadruped robot learning system for agile locomotion which does not require any pre-training and works well in various terrains. We introduce a hierarchical framework that uses reinforcement learning as the high-level policy to adjust the low-level trajectory generator for a better adaptability to the terrain. We compact the observation and the action spaces of the reinforcement learning framework to deploy it on a host computer interfaced with the robot. Besides, we design an omnidirectional trajectory generator guided by robot posture, which generates omnidirectional foot trajectories to interact with the environment. Experimental results and the supplementary video demonstrate that our system only trained in simulation can be easily deployed in the real world, and also has the advantages of fast convergence and good terrain adaptability.
     </p>
-    <p style="padding-left: 210px;"><b>● Note to Practitioners</b></p><p style="padding-left: 210px; padding-right: 210px; text-align:justify; text-justify:inter-ideograph;">This paper presents a hierarchical framework for quadruped robots. It combines a high-level reinforcement learning controller with a posture-guided trajectory generator to adaptively generate omnidirectional motions. Our method is easy to train as it converges fast and does not need to adjust a dozen or so of rewards. The quadruped robot can be deployed in a real environment directly after being trained in simulation. With the trained hierarchical framework deployed on a remote host computer, the robot works well in a variety of real-world environments unseen in the simulation.
-    </p><center><img src="./image/framework3.png" width="35%">
-    
-<br> Overview of the proposed method.
-</center>
-<p style="padding-left: 210px;"><b>● Data & Code: </b>Coming soon!</p>
-<p style="padding-left: 210px;"><b>● Video:</b></p>
-<!--h5 style="padding-left: 210px;"><blockquote>Explicit method for robot imitation learning</blockquote></h5>
-<div style="padding-left: 210px; padding-right: 210px;"><hr></div-->
+    <p style="padding-left: 210px;"><b>● Note to Practitioners</b></p><p style="padding-left: 210px; padding-right: 210px; text-align:justify; text-justify:inter-ideograph;">
+        This paper presents a hierarchical framework for quadruped robots. It combines a high-level reinforcement learning controller with a posture-guided trajectory generator to adaptively generate omnidirectional motions. Our method is easy to train as it converges fast and does not need to adjust a dozen or so of rewards. The quadruped robot can be deployed in a real environment directly after being trained in simulation. With the trained hierarchical framework deployed on a remote host computer, the robot works well in a variety of real-world environments unseen in the simulation.
+    </p><center>
+        <img src="./A Hierarchical Framework for Quadruped Locomotion Based on Reinforcement Learning_files/framework3.png" width="35%">
 
-<center>
-     <br><br>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/oNOcA1rXp0M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <br> Overview of the proposed method.
+    </center>
+    <p style="padding-left: 210px;"><b>● Data &amp; Code: </b>Coming soon!</p>
+    <p style="padding-left: 210px;"><b>● Video:</b></p>
+    <!--h5 style="padding-left: 210px;"><blockquote>Explicit method for robot imitation learning</blockquote></h5>
+    <div style="padding-left: 210px; padding-right: 210px;"><hr></div-->
 
-</center>
+    <center>
+        <br><br>
+        <iframe width="560" height="315" src="./A Hierarchical Framework for Quadruped Locomotion Based on Reinforcement Learning_files/oNOcA1rXp0M.html" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 
-<br><br>
+    </center>
+
+    <br><br>
 
 
-<!--h5 style="padding-left: 210px;"><blockquote>Implicit method for robot imitation learning</blockquote></h5
-Simulation and real-world experiments video of our implicit method for robot imitation learning
-Real world experiments video of our explicit method for robot imitation learning
--->
-<!--Import jQuery before materialize.js-->
-      <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
-      <script type="text/javascript" src="js/materialize.min.js"></script>
-</body>
-</html>
+    <!--h5 style="padding-left: 210px;"><blockquote>Implicit method for robot imitation learning</blockquote></h5
+    Simulation and real-world experiments video of our implicit method for robot imitation learning
+    Real world experiments video of our explicit method for robot imitation learning
+    -->
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="./A Hierarchical Framework for Quadruped Locomotion Based on Reinforcement Learning_files/jquery-2.1.1.min.js.下载"></script>
+    <script type="text/javascript" src="./A Hierarchical Framework for Quadruped Locomotion Based on Reinforcement Learning_files/materialize.min.js.下载"></script>
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
