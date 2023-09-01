@@ -1,0 +1,81 @@
+
+<html>
+<title>A Hierarchical Framework for Quadruped Locomotion Based on Reinforcement Learning</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>    
+
+<body>
+	<br />
+    <center><h2 class="black-text" style="padding-left: 200px; padding-right: 200px;"><b>A Hierarchical Framework for Quadruped Locomotion Based on Reinforcement Learning</b></h2></center><br>
+    <center><font size="5"> <class="gray-text">Wenhao Tan, Xing Fang, Wei Zhang, Ran Song, Teng Chen, and Yibin Li</font></center><br>
+    <center><font size="4">School of Control Science and Engineering, Shandong University&nbsp;&nbsp;</font></center><br>
+    <center><font size="4"><b>IEEE Transactions on Automation Science and Engineering&nbsp;&nbsp;</b></font></center><br><br>
+    <p style="padding-left: 210px;"><h5><b>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;● Abstract</b></p></h5>
+    <p style="padding-left: 210px; padding-right: 210px; text-align:justify; text-justify:inter-ideograph;"><font size="4">Quadruped locomotion is challenging for learning-based algorithms. It requires tedious manual tuning and is difficult to deploy in reality due to the sim-to-real gap between the training and the testing scenarios. This paper proposes a quadruped robot learning system for agile locomotion which does not require any pre-training and works well in various terrains. We introduce a hierarchical framework that uses reinforcement learning as the high-level policy to adjust the low-level trajectory generator for a better adaptability to the terrain. We compact the observation and the action spaces of the reinforcement learning framework to deploy it on a host computer interfaced with the robot. Besides, we design an omnidirectional trajectory generator guided by robot posture, which generates omnidirectional foot trajectories to interact with the environment. Experimental results and the supplementary video demonstrate that our system only trained in simulation can be easily deployed in the real world, and also has the advantages of fast convergence and good terrain adaptability.</font>
+    </p><br><br>
+    <p style="padding-left: 210px;"><h5><b>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;● Note to Practitioners</b></p></h5>
+    <p style="padding-left: 210px; padding-right: 210px; text-align:justify; text-justify:inter-ideograph;"><font size="4">This paper presents a hierarchical framework for quadruped robots. It combines a high-level reinforcement learning controller with a posture-guided trajectory generator to adaptively generate omnidirectional motions. Our method is easy to train as it converges fast and does not need to adjust a dozen or so of rewards. The quadruped robot can be deployed in a real environment directly after being trained in simulation. With the trained hierarchical framework deployed on a remote host computer, the robot works well in a variety of real-world environments unseen in the simulation.</font>
+    </p><center><img src="./image/framework3.png" width="35%">
+    
+<br> <b><font size="4">Fig 1: Overview of the proposed method.</font></b>
+</center><br><br>
+<p style="padding-left: 210px;"><h5><b>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;● Video:</b></p></h5>
+
+<center>
+     <br><br>
+<iframe width="672" height="378" src="https://www.youtube.com/embed/rFCjcnaknFY?si=MHGmN7F-Y6-RZPsN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</center>
+
+<br><br>
+
+
+    <section class="section">
+  <div class="columns is-centered">
+    <div class="column is-full-width">
+      <div class="is-vcentered interpolation-panel">
+        <h4 class="title is-3" style="text-align: center;"><b>Related Work</b></h4>
+        <div class="content is-centered has-text-centered">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+              <font size="4">This work is part of our series of research on learning based control of legged robots. Please check out other works below.</font>
+        </div>
+        <br><br>
+        <div class="container">
+          <div class="subtitle is-centered">
+            <table width="100%">
+              <tbody><tr>
+                <td width="100%">
+                <div style="float:left;margin-right:30px;margin-left:30px;">
+                <iframe width="448" height="252" src="https://www.youtube.com/embed/22JcHr4zm9A?si=8ee9KYji-pQx-A8Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <br><br><br>
+                <font size="3"><b>A Hierarchical Framework for Quadruped Locomotion Based on Reinforcement Learning </b></font><br>
+                <br>
+                <font size="3">Wenhao Tan, Xing Fang, Wei Zhang, Ran Song, Teng Chen, and Yibin Li </font><br>
+                <br>
+                <font size="3">IROS 2021 <br> <br> <br>
+              </td></tr>
+            </tbody></table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--h5 style="padding-left: 210px;"><blockquote>Implicit method for robot imitation learning</blockquote></h5
+Simulation and real-world experiments video of our implicit method for robot imitation learning
+Real world experiments video of our explicit method for robot imitation learning
+-->
+<!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+</body>
+</html>
