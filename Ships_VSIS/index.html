@@ -1,0 +1,100 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">  
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>How Can Visual Structure of a Ship Help Its Perception?</title>
+    <!-- CSS -->
+        <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+    <!-- ENDS CSS -->
+
+        <!--script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-89797207-1', 'auto');
+          ga('send', 'pageview');
+
+        </script-->
+
+        <!-- ENDS JS -->  
+  </head> 
+  <body>
+    <!-- MAIN -->
+    <div id="main">
+
+            <div id="match-nav-wrapper">
+                <div id="match-nav-bar">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <!--th width="10%"><a href="#">Home</a></th-->
+                                <!--th width="30%"><a href="#video-explicit">Demonstration of the explicit method</a></th>
+                                <th width="30%"><a href="#video-implicit">Demonstration of the implicit method</a></th-->
+                                <!--th width="15%"></th-->
+                            </tr>
+                        </thead>
+                    </table>
+
+                </div>
+            </div>
+
+      <!-- HEADER -->
+      <div id="home-header">
+      
+            <div id="match-wrapper">
+
+                <!--h5><a href="#"><img src="image/logo.png"></a></h5-->
+
+              
+
+                <h2>How Can Visual Structure of a Ship Help Its Perception?</h2>
+                <center>
+                  MingXin Zhang<sup>1</sup>, Qian Zhang<sup>1</sup>, Ran Song<sup>1</sup>, Lin Zhang<sup>1</sup>, Shuo Yang<sup>1</sup>, Paul L. Rosin<sup>2</sup>, Wei Zhang<sup>1*</sup><br />
+                  <font size=2>1 School of Control Science and Engineering, Shandong University</font>    
+                  <font size=2>2 School of Computer Science and Informatics, Cardiff University</font>   
+                </center>
+                <br><strong>Abstract</strong>
+                <p style="text-align:justify; text-justify:inter-ideograph;">
+                Invariant properties can provide important clues for intelligent perception of visual objects, but have not been effectively exploited in marine scenarios. This paper looks into an invariant property of ships, ship structure. Specifically, we define for the first time the visual structure of a ship as ship skeleton produced based on semantic and structural characteristics of deep features. With such a definition, we build the first ship structural dataset named Maritime Ships with Visual Structure (MSVS), where each ship is annotated with ship skeleton along with its common properties such as category, bounding box, IMO number, etc. By performing extensive experiments on the newly created dataset, we find that the keypoints that form ship skeleton play an important role in robust and effective training of ship recognition models. Furthermore, we show that ship skeleton conveying both 2D and 3D visual information contributes significantly to the perception of a ship.
+				 <a href="https://github.com/vsislab/ShipStructure">Code and Datasets Available Here</a></p>
+
+                <h1>Overview</h1>
+                <div id="ships-structure-img"><img src="image/ships.png" style="width: 100%; height: auto;"></div>
+		    <br><strong>Schematic of a vision-based ship monitoring system</strong>
+		    <div style="text-align:center;">
+		        <iframe width="800" height="450" src="https://www.youtube.com/embed/9w-Z7Q7_lWs?autoplay=1&vq=hd1080" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		    </div>
+		    
+		       
+		    
+                <h1>Structure-Based Ship Generation</h1>
+
+                    <br><strong>Qualitative results during training</strong>
+		    <div style="text-align:center;">
+		        <iframe width="800" height="365" src="https://www.youtube.com/embed/C2d1iqZYqfU?autoplay=1&vq=hd1080" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+	            
+			    
+	            <br><strong>Generated Results</strong>
+
+		    <div style="text-align:center;">
+		        <iframe width="800" height="277" src="https://www.youtube.com/embed/OwW0xPD2OdA?autoplay=1&vq=hd1080" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		    </div>
+
+		<h1>Keypoints Detection</h1>	
+		    <br><strong>Video demonstration</strong>
+			<iframe width="880" height="495" src="https://www.youtube.com/embed/Me1-cCLSuOU?autoplay=1&vq=hd1080" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		    <br><strong>Trained Model Parameters</strong> <a href="https://pan.baidu.com/s/1jVnkSx9pgImVA4Mjj5eVTA?pwd=nimu ">Baidu Cloud Drive</a> and <a href="https://drive.google.com/drive/folders/1HeStvSRdldfq6KKjNgSDeg2-BmA8QoR_?usp=sharing">Google Drive</a>
+             
+		    
+
+              </div>
+      <!-- ENDS Footer -->
+  </body>
+</html>
