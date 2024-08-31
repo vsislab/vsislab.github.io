@@ -55,12 +55,12 @@
 
                 <h2>Learning to Navigate Sequential Environments: A Continual Learning Benchmark for Multi-modal Navigation</h2>
                 <center>
-                  YinDuo Xie<sup>1</sup>, Qian Zhang<sup>1</sup>, Ran Song<sup>1*</sup>,  Paul L. Rosin<sup>2</sup>, Wei Zhang<sup>1</sup><br />
+                  YinDuo Xie, YueNan Zhao, Qian Zhang,  Lin Zhang, Teng Li, Wei Zhang<sup>*</sup><br />
                   <font size=2>School of Control Science and Engineering, Shandong University</font>    
                 </center>
                 <br><strong>Abstract</strong>
                 <p style="text-align:justify; text-justify:inter-ideograph;">
-                Current state-of-the-art robot navigation methods are typically evaluated in the individual task setting, overlooking the continual learning (CL) tasks in sequential environments. In this paper, we present CLBMN, a benchmark specifically designed to investigate multi-modal robot navigation tasks within a CL paradigm. First, we construct a dataset derived from five scenarios: daytime, nighttime, rainy conditions, highway, and field. It contains three modalities: images, point clouds, and odometry data, with a total of 10,000 samples. Then, we present a foundational navigation framework that decouples perception from control, generating velocity commands end-to-end based on multi-modal data. We also propose the momentum update method as a novel continual learning algorithm. Furthermore, we conduct three evaluation metrics specifically designed to assess the robot's navigation performance across different scenarios. Experiments demonstrate that our benchmark is feasible for studying multi-modal robot navigation in sequential environments.
+                In this paper, we present CLBMN, a continual learning (CL) benchmark for multi-modal robot navigation, which aims to enhance robots' navigation capabilities when facing sequential tasks. The benchmark is composed of a multi-modal dataset, an CL-based algorithm, and comprehensive evaluation metrics needed for CL-based multi-modal navigation. Specifically, we construct a multi-modal dataset with 10,000 samples for navigation by collecting images, point clouds, and odometry data from five scenarios, including daytime, nighttime, rainy conditions, highway, and field. Then, we propose an end-to-end navigation framework with momentum update to mitigate catastrophic forgetting across various environments, which provides a baseline approach for CL-based robot navigation. Furthermore, we define three evaluation metrics specifically designed to evaluate the robot's continuous navigation performance across different scenarios. Experimental results demonstrate that the proposed benchmark is feasible for studying multi-modal robot navigation in sequential environments.
 				 <a href="https://drive.google.com/file/d/19jLcdDeCWlogXNWBIeiOquHgxtOa8JzU/view?usp=drive_link">Datasets Available Here1</a></p>
 		     		 <a href="https://pan.baidu.com/s/1pKwUuy4jNzCJ04dYc_nIzg?pwd=m2m6">Datasets Available Here2</a></p>
 
@@ -68,28 +68,6 @@
                 <div id="ships-structure-img"><img src="image/ships.png" style="width: 100%; height: auto;"></div>
 		   
 		    
-
-
-
-		<h1>Landmark-based key area detection for ships</h1>	
-                    <div id="aread"><img src="image/areadetect.png" style="width: 100%; height: auto;"></div>
-		<h1>Landmark-based Ship Detection</h1>	
-		    <div id="3dbox"><img src="image/3dbox.png" style="width: 100%; height: auto;"></div>
-
-		<h1>Distribution of the number of ships in different categories in the SLAD</h1>	
-		    <div id="cate"><img src="image/catenum.png" style="width: 100%; height: auto;"></div>
-
-		<h1>Three annotated visualisations of the SLAD</h1>	
-		    <div id="catev"><img src="image/three.png" style="width: 100%; height: auto;"></div>
-		    
-		<h1>Visualisation of different values of β</h1>	
-		    <div id="aefvis"><img src="image/aefvis.png" style="width: 100%; height: auto;"></div>
-		<h1>Ship classification results on the data generated with different values of β</h1>	
-		    <div id="aef"><img src="image/aef.png" style="width: 100%; height: auto;"></div>
-		<h1>Performance of training models with different values of β</h1>	
-		    <div id="ap"><img src="image/aef_performence.png" style="width: 100%; height: auto;"></div>
-		<h1>CAM image visualisation of ship images using "the ship" as CLIP input text</h1>	
-		    <div id="ap"><img src="image/CLIP-cam.png" style="width: 100%; height: auto;"></div>
 			
 		    
              
