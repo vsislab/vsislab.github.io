@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">  
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Ship Landmark: An Informative Ship Image Annotation and Its Applications</title>
+    <title>Learning to Navigate Sequential Environments: A Continual Learning Benchmark for Multi-modal Navigation</title>
     <!-- CSS -->
         <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300' rel='stylesheet' type='text/css'>
@@ -53,36 +53,20 @@
 
               
 
-                <h2>Ship Landmark: An Informative Ship Image Annotation and Its Applications</h2>
+                <h2>Learning to Navigate Sequential Environments: A Continual Learning Benchmark for Multi-modal Navigation</h2>
                 <center>
-                  MingXin Zhang<sup>1</sup>, Qian Zhang<sup>1</sup>, Ran Song<sup>1*</sup>,  Paul L. Rosin<sup>2</sup>, Wei Zhang<sup>1</sup><br />
-                  <font size=2>1 School of Control Science and Engineering, Shandong University</font>    
-                  <font size=2>2 School of Computer Science and Informatics, Cardiff University</font>   
+                  YinDuo Xie<sup>1</sup>, Qian Zhang<sup>1</sup>, Ran Song<sup>1*</sup>,  Paul L. Rosin<sup>2</sup>, Wei Zhang<sup>1</sup><br />
+                  <font size=2>School of Control Science and Engineering, Shandong University</font>    
                 </center>
                 <br><strong>Abstract</strong>
                 <p style="text-align:justify; text-justify:inter-ideograph;">
-                Visual perception of ships has been attracting increasing attention in the fields of computer vision and ocean engineering. Despite the extensive work related to landmark detection of common objects, the role of landmark in ship perception has been overlooked. In this paper, we aim to fill this gap by focusing on ship landmarks. Specifically, we give a comprehensive analysis of both physical structure and deep features of ships, which finds that highlighted areas in feature maps correspond with structurally significant parts of ships. By summarizing the locations of such areas in ships, we define 20 ship landmarks and build the Ship Landmark Dataset (SLAD), the first ship dataset with landmark annotations. We also provide a benchmark for ship landmark detection by evaluating state-of-the-art landmark detection methods on the newly built SLAD. Moreover, we showcased several applications of ship landmarks, including ship recognition, ship image generation, key area detection for ships, and ship detection.
+                Current state-of-the-art robot navigation methods are typically evaluated in the individual task setting, overlooking the continual learning (CL) tasks in sequential environments. In this paper, we present CLBMN, a benchmark specifically designed to investigate multi-modal robot navigation tasks within a CL paradigm. First, we construct a dataset derived from five scenarios: daytime, nighttime, rainy conditions, highway, and field. It contains three modalities: images, point clouds, and odometry data, with a total of 10,000 samples. Then, we present a foundational navigation framework that decouples perception from control, generating velocity commands end-to-end based on multi-modal data. We also propose the momentum update method as a novel continual learning algorithm. Furthermore, we conduct three evaluation metrics specifically designed to assess the robot's navigation performance across different scenarios. Experiments demonstrate that our benchmark is feasible for studying multi-modal robot navigation in sequential environments.
 				 <a href="https://github.com/vsislab/ShipStructure">Code and Datasets Available Here</a></p>
 
                 <h1>Overview</h1>
                 <div id="ships-structure-img"><img src="image/ships.png" style="width: 100%; height: auto;"></div>
 		   
 		    
-		       
-		    
-                <h1>Structure-Based Ship Generation</h1>
-
-                    <br><strong>Qualitative results during training</strong>
-		    <div style="text-align:center;">
-		        <iframe width="800" height="365" src="https://www.youtube.com/embed/C2d1iqZYqfU?autoplay=1&vq=hd1080" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-	            
-			    
-	            <br><strong>Generated Results</strong>
-
-		    <div style="text-align:center;">
-		        <iframe width="800" height="277" src="https://www.youtube.com/embed/OwW0xPD2OdA?autoplay=1&vq=hd1080" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-		    </div>
 
 
 
