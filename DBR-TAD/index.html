@@ -136,7 +136,7 @@
     <div class="hero-body">
       <img src="static/images/Overview.png" alt="Description of the image">
       <h2 class="subtitle has-text-centered" style="font-size: 16px !important;">
-        Overview of DBR-TAD. First, the IAL module uses ConvFormer to incrementally extract multi-scale features through a sequential modelling approach and generates initial proposals at each discrete time step. Then, such initial proposals are transformed into vectors and refined through the DBR module.
+        Overview of DBR-TAD. First, the IAL module takes as input the video feature produced by a pretrained video encoder and generates initial action proposals at each discrete time step based on the multiscale features extracted by ConvFormer. Then, the DBR module vectorizes the differences between the initial action proposal boundaries and the ground truth boundaries, and performs a diffusion-based denoising process on the difference vector. Finally, the refined action boundaries are obtained by superimposing the initial action proposal boundaries and the denoised difference vector.
       </h2>
     </div>
   </div>
