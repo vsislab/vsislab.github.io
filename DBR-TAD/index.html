@@ -9,7 +9,7 @@
   <meta property="og:description" content="DBR-TAD: Diffusion-Based Boundary Refinement for Temporal Action Detection"/>
   <meta property="og:url" content="URL OF THE WEBSITE"/>
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-  <meta property="og:image" content="static/image/Overview.png" />
+  <meta property="og:image" content="static/image/DBR-TAD.png" />
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
 
@@ -17,7 +17,7 @@
   <meta name="twitter:title" content="DBR-TAD: Diffusion-Based Boundary Refinement for Temporal Action Detection">
   <meta name="twitter:description" content="DBR-TAD: Diffusion-Based Boundary Refinement for Temporal Action Detection">
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
-  <meta name="twitter:image" content="static/images/Overview.png">
+  <meta name="twitter:image" content="static/images/DBR-TAD.png">
   <meta name="twitter:card" content="summary_large_image">
   <!-- Keywords for your paper to be indexed by-->
   <meta name="keywords" content="Temporal Action Detection, Temporal Action Localization, Diffusion Models">
@@ -135,7 +135,7 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img src="static/images/Overview.png" alt="Description of the image">
+      <img src="static/images/view.png" alt="Description of the image">
       <h2 class="subtitle has-text-centered" style="font-size: 16px !important;">
         Overview of DBR-TAD. First, the IAL module takes as input the video feature produced by a pretrained video encoder and generates initial action proposals at each discrete time step based on the multiscale features extracted by ConvFormer. Then, the DBR module vectorizes the differences between the initial action proposal boundaries and the ground truth boundaries, and performs a diffusion-based denoising process on the difference vector. Finally, the refined action boundaries are obtained by superimposing the initial action proposal boundaries and the denoised difference vector.
       </h2>
