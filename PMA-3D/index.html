@@ -61,7 +61,23 @@
                 <br><strong>Abstract</strong>
                 <p style="text-align:justify; text-justify:inter-ideograph;">
                 As 3D object classification becomes increasingly essential in various applications, the need for models to continuously adapt to new scenarios is more crucial than ever. However, most existing continual learning methods primarily concentrate on 2D tasks, making their direct application to 3D tasks challenging due to the inherent domain gap. To address this issue, we propose Parameter-level Mask-based Adapter (PMA) for 3D continual learning with Vision-Language Model. Our approach leverages the power of Contrastive Language-Image Pre-Training (CLIP) to extract rich multimodal features by projecting 3D point clouds into multi-angle depth maps, which are then processed by the 2D encoder aligned with rendered images. The core of our method is a parameter-level adapter with learnable masks that effectively integrates 3D point cloud features with 2D features. This mechanism flexibly selects the most relevant subsets of weights for each task, allowing subsequent tasks to utilize the learned weights without the need for updates, which effectively balances stability and plasticity during continual learning. Experimental results show that our method significantly outperforms existing state-of-the-art techniques.
-				 <a href="https://github.com/vsislab/vsislab.github.io/releases/tag/v1.0.0">Code is Available Here</a></p>
+		
+		<a href="./AgreementForMMN.docx" id="downloadLink" download style="display: block; text-align: center;">Agreement Download</a>
+                <div id="hiddenContent">
+                   <p style="text-align: center;">Baidu Netdisk: <a href="https://pan.baidu.com/s/1uMZh8OeS8G1_HWCGUaAX4w?pwd=p757">here</a></p>
+                </div>
+                <script>
+                    // 获取下载链接元素
+                    var downloadLink = document.getElementById('downloadLink');
+                    // 为下载链接添加点击事件监听器
+                    downloadLink.addEventListener('click', function () {
+                   // 当点击下载链接时，将隐藏元素显示出来
+		  setTimeout(function () {
+                   var hiddenContent = document.getElementById('hiddenContent');
+                   hiddenContent.style.display = 'block';
+	           }, 2000);
+                    });
+                  </script>
 
                 <h1>Overview</h1>
                 <div id="overview"><img src="image/overview3.png" style="width: 100%; height: auto;"></div>
