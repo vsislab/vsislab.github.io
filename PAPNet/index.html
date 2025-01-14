@@ -63,8 +63,11 @@
                 The conversion of raw point clouds into pillar representations has been widely adopted for 3D object detection. Such conversion allows a point cloud to be discretized into structured grids, which enables more efficient spatial representation and faster processing in real-time autonomous driving systems. In existing pillar-based methods, however, discretizing raw point clouds often leads to the misdetection of small objects such as pedestrians and cyclists. This is because the discretization inevitably results in the loss of contextual and multi-resolution information within raw point clouds. To address this issue, we propose a point-enhanced attention-aware pillar network, namely PAPNet. It is mainly composed of a point-pillar cross-attention module (PCM), a pillar-wise dual attention module (PDAM), and a multi-resolution set abstraction module (MSAM). PCM effectively integrates raw point cloud features with pillar features across different dimensions, while the PDAM further guides the network to focus on the intrinsic characteristics of the pillars. Additionally, MSAM retains both high-resolution and low-resolution features while integrating multi-scale information. We conduct extensive experiments on three public datasets and in real-world scenarios to demonstrate the effectiveness and efficiency of PAPNet.
 				 <a href="https://github.com/Bennyliiiiii/PAPNet">Code Available Here</a></p>
 
-                <h1>Overview</h1>
+                <h1>Pipeline of PAPNet including three main components: PCM, PDAM, and MSAM.</h1>
                 <div id="papnet"><img src="image/papnet1.png" style="width: 100%; height: auto;"></div>
+		    
+                <h1>Architecture of PCM.</h1>
+                <div id="pcm"><img src="image/papnet2.png" style="width: 100%; height: auto;"></div>
 		   
 		    
 		       
@@ -76,40 +79,6 @@
 		        <iframe width="800" height="365" src="https://youtu.be/SwP6PGnvg_M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
 	            
-			    
-	            <br><strong>Generated Results</strong>
-
-		    <div style="text-align:center;">
-		        <iframe width="800" height="277" src="https://www.youtube.com/embed/OwW0xPD2OdA?autoplay=1&vq=hd1080" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-		    </div>
-
-
-
-		<h1>Landmark-based key area detection for ships</h1>	
-                    <div id="aread"><img src="image/areadetect.png" style="width: 100%; height: auto;"></div>
-		<h1>Landmark-based Ship Detection</h1>	
-		    <div id="3dbox"><img src="image/3dbox.png" style="width: 100%; height: auto;"></div>
-
-		<h1>Distribution of the number of ships in different categories in the SLAD</h1>	
-		    <div id="cate"><img src="image/catenum.png" style="width: 100%; height: auto;"></div>
-
-		<h1>Three annotated visualisations of the SLAD</h1>	
-		    <div id="catev"><img src="image/three.png" style="width: 100%; height: auto;"></div>
-		    
-		<h1>Visualisation of different values of β</h1>	
-		    <div id="aefvis"><img src="image/aefvis.png" style="width: 100%; height: auto;"></div>
-		<h1>Ship classification results on the data generated with different values of β</h1>	
-		    <div id="aef"><img src="image/aef.png" style="width: 100%; height: auto;"></div>
-		<h1>Performance of training models with different values of β</h1>	
-		    <div id="ap"><img src="image/aef_performence.png" style="width: 100%; height: auto;"></div>
-		<h1>CAM image visualisation of ship images using "the ship" as CLIP input text</h1>	
-		    <div id="ap"><img src="image/CLIP-cam.png" style="width: 100%; height: auto;"></div>
-			
-		    
-             
-		    
-
-              </div>
       <!-- ENDS Footer -->
   </body>
 </html>
