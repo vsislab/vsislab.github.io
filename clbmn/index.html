@@ -89,8 +89,10 @@
                     // 为下载链接添加点击事件监听器
                     downloadLink.addEventListener('click', function () {
                    // 当点击下载链接时，将隐藏元素显示出来
+		  setTimeout(function () {
                    var hiddenContent = document.getElementById('hiddenContent');
                    hiddenContent.style.display = 'block';
+	           }, 3000);
                     });
                   </script>
 		    
