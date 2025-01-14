@@ -65,7 +65,7 @@
 
                 <h1>Overview</h1>
                 <div id="overview"><img src="image/overview3.png" style="width: 100%; height: auto;"></div>
-		    <div style="text-align:center;">
+		    <div style="text-align:justify; text-justify:inter-ideograph;">
 			    We project 3D point clouds into multi-angle depth maps, which are processed by a 2D encoder alongside rendered images. As the core of our method, the Parameter-level Mask-based Adapter (PMA) achieves parameter-level isolation, allowing flexible selection of the most relevant weights for each task without destroying previously learned knowledge for continual learning. This adapter extracts features from the two modalities through its 3D and 2D parts, which are then aggregated to form global features used in contrastive learning with text features for 3D classification tasks.
 		        
                     </div>
@@ -74,22 +74,23 @@
 	            <br><strong>Parameter-level Mask-based Adapter</strong>
 
 		    <div style="text-align:center;">
-			<div id="incre"><img src="image/inc.png" style="width: 100%; height: auto;"></div>
-			In each task, all parameters are evaluated for their importance to the current task, indicated by the bouncing squares. Parameters with scores above the top-c$\%$  threshold, as shown within the dashed lines, are selected to form an optimal parameter set for the task at hand. These selected parameters are then frozen in subsequent tasks to preserve learned knowledge and mitigate forgetting.
+			<div id="incre"><img src="image/inc.png" style="width: 70%; height: auto;"></div>
+			    <div style="text-align:justify; text-justify:inter-ideograph;">
+				In each task, all parameters are evaluated for their importance to the current task, indicated by the bouncing squares. Parameters with scores above the top-c$\%$  threshold, as shown within the dashed lines, are selected to form an optimal parameter set for the task at hand. These selected parameters are then frozen in subsequent tasks to preserve learned knowledge and mitigate forgetting.
 		        
 		    </div>
 
 
 
 		<h1>Performance Comparisons of the Proposed Method and Baselines</h1>	
-		    <div id="compare2baseline"><img src="image/table1.png" style="width: 80%; height: auto;"></div>
+		    <div id="compare2baseline"><img src="image/table1.png" style="width: 100%; height: auto;"></div>
 		    For each method, the top row represents Accuracy(Acc), indicating individual task performance, while the bottom row shows Macro Accuracy(MAcc), reflecting overall performance across all tasks. The best results are highlighted in bold.
 		<h1>Hyper-parameter Analysis:</h1>	
-		    <div id="para"><img src="image/para.png" style="width: 80%; height: auto;"></div>
+		    <div id="para"><img src="image/para.png" style="width: 100%; height: auto;"></div>
 		    
 
 		<h1>Ablation Study</h1>	
-		    <div id="ablation"><img src="image/ablation.png" style="width: 80%; height: auto;"></div>
+		    <div id="ablation"><img src="image/ablation.png" style="width: 60%; height: auto;"></div>
 
 		    
 
