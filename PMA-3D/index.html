@@ -53,58 +53,48 @@
 
               
 
-                <h2>Ship Landmark: An Informative Ship Image Annotation and Its Applications</h2>
+                <h2>Parameter-level Mask-based Adapter for 3D Continual Learning with Vision-Language Model</h2>
                 <center>
-                  MingXin Zhang<sup>1</sup>, Qian Zhang<sup>1</sup>, Ran Song<sup>1*</sup>,  Paul L. Rosin<sup>2</sup>, Wei Zhang<sup>1</sup><br />
-                  <font size=2>1 School of Control Science and Engineering, Shandong University</font>    
-                  <font size=2>2 School of Computer Science and Informatics, Cardiff University</font>   
+                  Longyue Qian, Mingxin Zhang, Qian Zhang, Lin Zhang, Teng Li,  Wei Zhang<sup>1*</sup><br />
+                  <font size=2>School of Control Science and Engineering, Shandong University</font>    
                 </center>
                 <br><strong>Abstract</strong>
                 <p style="text-align:justify; text-justify:inter-ideograph;">
-                Visual perception of ships has been attracting increasing attention in the fields of computer vision and ocean engineering. Despite the extensive work related to landmark detection of common objects, the role of landmark in ship perception has been overlooked. In this paper, we aim to fill this gap by focusing on ship landmarks. Specifically, we give a comprehensive analysis of both physical structure and deep features of ships, which finds that highlighted areas in feature maps correspond with structurally significant parts of ships. By summarizing the locations of such areas in ships, we define 20 ship landmarks and build the Ship Landmark Dataset (SLAD), the first ship dataset with landmark annotations. We also provide a benchmark for ship landmark detection by evaluating state-of-the-art landmark detection methods on the newly built SLAD. Moreover, we showcased several applications of ship landmarks, including ship recognition, ship image generation, key area detection for ships, and ship detection.
+                As 3D object classification becomes increasingly essential in various applications, the need for models to continuously adapt to new scenarios is more crucial than ever. However, most existing continual learning methods primarily concentrate on 2D tasks, making their direct application to 3D tasks challenging due to the inherent domain gap. To address this issue, we propose Parameter-level Mask-based Adapter (PMA) for 3D continual learning with Vision-Language Model. Our approach leverages the power of Contrastive Language-Image Pre-Training (CLIP) to extract rich multimodal features by projecting 3D point clouds into multi-angle depth maps, which are then processed by the 2D encoder aligned with rendered images. The core of our method is a parameter-level adapter with learnable masks that effectively integrates 3D point cloud features with 2D features. This mechanism flexibly selects the most relevant subsets of weights for each task, allowing subsequent tasks to utilize the learned weights without the need for updates, which effectively balances stability and plasticity during continual learning. Experimental results show that our method significantly outperforms existing state-of-the-art techniques.
 				 <a href="https://github.com/vsislab/ShipStructure">Code and Datasets Available Here</a></p>
 
                 <h1>Overview</h1>
-                <div id="ships-structure-img"><img src="image/ships.png" style="width: 100%; height: auto;"></div>
-		   
-		    
-		       
-		    
-                <h1>Structure-Based Ship Generation</h1>
-
-                    <br><strong>Qualitative results during training</strong>
+                <div id="overview"><img src="image/overview.png" style="width: 100%; height: auto;"></div>
 		    <div style="text-align:center;">
-		        <iframe width="800" height="365" src="https://www.youtube.com/embed/C2d1iqZYqfU?autoplay=1&vq=hd1080" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			    We project 3D point clouds into multi-angle depth maps, which are processed by a 2D encoder alongside rendered images. As the core of our method, the Parameter-level Mask-based Adapter (PMA) achieves parameter-level isolation, allowing flexible selection of the most relevant weights for each task without destroying previously learned knowledge for continual learning. This adapter extracts features from the two modalities through its 3D and 2D parts, which are then aggregated to form global features used in contrastive learning with text features for 3D classification tasks.
+		        
                     </div>
 	            
 			    
-	            <br><strong>Generated Results</strong>
+	            <br><strong>Parameter-level Mask-based Adapter</strong>
 
 		    <div style="text-align:center;">
-		        <iframe width="800" height="277" src="https://www.youtube.com/embed/OwW0xPD2OdA?autoplay=1&vq=hd1080" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			<div id="incre"><img src="image/inc.png" style="width: 100%; height: auto;"></div>
+			In each task, all parameters are evaluated for their importance to the current task, indicated by the bouncing squares. Parameters with scores above the top-c$\%$  threshold, as shown within the dashed lines, are selected to form an optimal parameter set for the task at hand. These selected parameters are then frozen in subsequent tasks to preserve learned knowledge and mitigate forgetting.
+		        
 		    </div>
 
 
 
-		<h1>Landmark-based key area detection for ships</h1>	
-                    <div id="aread"><img src="image/areadetect.png" style="width: 100%; height: auto;"></div>
-		<h1>Landmark-based Ship Detection</h1>	
-		    <div id="3dbox"><img src="image/3dbox.png" style="width: 100%; height: auto;"></div>
+		<h1>Performance Comparisons of the Proposed Method and Baselines</h1>	
+		    <div id="compare2baseline"><img src="image/table1.png" style="width: 80%; height: auto;"></div>
+		    For each method, the top row represents Accuracy(Acc), indicating individual task performance, while the bottom row shows Macro Accuracy(MAcc), reflecting overall performance across all tasks. The best results are highlighted in bold.
+		<h1>Hyper-parameter Analysis:</h1>	
+		    <div id="para"><img src="image/para.png" style="width: 80%; height: auto;"></div>
+		    
 
-		<h1>Distribution of the number of ships in different categories in the SLAD</h1>	
-		    <div id="cate"><img src="image/catenum.png" style="width: 100%; height: auto;"></div>
+		<h1>Ablation Study</h1>	
+		    <div id="ablation"><img src="image/ablation.png" style="width: 80%; height: auto;"></div>
 
 		<h1>Three annotated visualisations of the SLAD</h1>	
 		    <div id="catev"><img src="image/three.png" style="width: 100%; height: auto;"></div>
 		    
-		<h1>Visualisation of different values of β</h1>	
-		    <div id="aefvis"><img src="image/aefvis.png" style="width: 100%; height: auto;"></div>
-		<h1>Ship classification results on the data generated with different values of β</h1>	
-		    <div id="aef"><img src="image/aef.png" style="width: 100%; height: auto;"></div>
-		<h1>Performance of training models with different values of β</h1>	
-		    <div id="ap"><img src="image/aef_performence.png" style="width: 100%; height: auto;"></div>
-		<h1>CAM image visualisation of ship images using "the ship" as CLIP input text</h1>	
-		    <div id="ap"><img src="image/CLIP-cam.png" style="width: 100%; height: auto;"></div>
+
 			
 		    
              
