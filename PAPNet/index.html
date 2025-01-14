@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">  
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Ship Landmark: An Informative Ship Image Annotation and Its Applications</title>
+    <title>PAPNet: Point-enhanced Attention-aware Pillar Network for 3D Object Detection in Autonomous Driving</title>
     <!-- CSS -->
         <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300' rel='stylesheet' type='text/css'>
@@ -55,14 +55,13 @@
 
                 <h2>Ship Landmark: An Informative Ship Image Annotation and Its Applications</h2>
                 <center>
-                  MingXin Zhang<sup>1</sup>, Qian Zhang<sup>1</sup>, Ran Song<sup>1*</sup>,  Paul L. Rosin<sup>2</sup>, Wei Zhang<sup>1</sup><br />
-                  <font size=2>1 School of Control Science and Engineering, Shandong University</font>    
-                  <font size=2>2 School of Computer Science and Informatics, Cardiff University</font>   
+                  Ruitong Li, Yuenan Zhao, Jiaming Chen, Chengxin Liu, Xiaoyu Xu, Ran Song, Wei Zhang<br />
+                  <font size=2>School of Control Science and Engineering, Shandong University</font>     
                 </center>
                 <br><strong>Abstract</strong>
                 <p style="text-align:justify; text-justify:inter-ideograph;">
-                Visual perception of ships has been attracting increasing attention in the fields of computer vision and ocean engineering. Despite the extensive work related to landmark detection of common objects, the role of landmark in ship perception has been overlooked. In this paper, we aim to fill this gap by focusing on ship landmarks. Specifically, we give a comprehensive analysis of both physical structure and deep features of ships, which finds that highlighted areas in feature maps correspond with structurally significant parts of ships. By summarizing the locations of such areas in ships, we define 20 ship landmarks and build the Ship Landmark Dataset (SLAD), the first ship dataset with landmark annotations. We also provide a benchmark for ship landmark detection by evaluating state-of-the-art landmark detection methods on the newly built SLAD. Moreover, we showcased several applications of ship landmarks, including ship recognition, ship image generation, key area detection for ships, and ship detection.
-				 <a href="https://github.com/vsislab/ShipStructure">Code and Datasets Available Here</a></p>
+                The conversion of raw point clouds into pillar representations has been widely adopted for 3D object detection. Such conversion allows a point cloud to be discretized into structured grids, which enables more efficient spatial representation and faster processing in real-time autonomous driving systems. In existing pillar-based methods, however, discretizing raw point clouds often leads to the misdetection of small objects such as pedestrians and cyclists. This is because the discretization inevitably results in the loss of contextual and multi-resolution information within raw point clouds. To address this issue, we propose a point-enhanced attention-aware pillar network, namely PAPNet. It is mainly composed of a point-pillar cross-attention module (PCM), a pillar-wise dual attention module (PDAM), and a multi-resolution set abstraction module (MSAM). PCM effectively integrates raw point cloud features with pillar features across different dimensions, while the PDAM further guides the network to focus on the intrinsic characteristics of the pillars. Additionally, MSAM retains both high-resolution and low-resolution features while integrating multi-scale information. We conduct extensive experiments on three public datasets and in real-world scenarios to demonstrate the effectiveness and efficiency of PAPNet.
+				 <a href="https://github.com/Bennyliiiiii/PAPNet">Code Available Here</a></p>
 
                 <h1>Overview</h1>
                 <div id="ships-structure-img"><img src="image/ships.png" style="width: 100%; height: auto;"></div>
