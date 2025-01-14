@@ -55,16 +55,16 @@
 
                 <h2>Parameter-level Mask-based Adapter for 3D Continual Learning with Vision-Language Model</h2>
                 <center>
-                  Longyue Qian, Mingxin Zhang, Qian Zhang, Lin Zhang, Teng Li,  Wei Zhang<sup>1*</sup><br />
+                  Longyue Qian, Mingxin Zhang, Qian Zhang, Lin Zhang, Teng Li,  Wei Zhang<sup>*</sup><br />
                   <font size=2>School of Control Science and Engineering, Shandong University</font>    
                 </center>
                 <br><strong>Abstract</strong>
                 <p style="text-align:justify; text-justify:inter-ideograph;">
                 As 3D object classification becomes increasingly essential in various applications, the need for models to continuously adapt to new scenarios is more crucial than ever. However, most existing continual learning methods primarily concentrate on 2D tasks, making their direct application to 3D tasks challenging due to the inherent domain gap. To address this issue, we propose Parameter-level Mask-based Adapter (PMA) for 3D continual learning with Vision-Language Model. Our approach leverages the power of Contrastive Language-Image Pre-Training (CLIP) to extract rich multimodal features by projecting 3D point clouds into multi-angle depth maps, which are then processed by the 2D encoder aligned with rendered images. The core of our method is a parameter-level adapter with learnable masks that effectively integrates 3D point cloud features with 2D features. This mechanism flexibly selects the most relevant subsets of weights for each task, allowing subsequent tasks to utilize the learned weights without the need for updates, which effectively balances stability and plasticity during continual learning. Experimental results show that our method significantly outperforms existing state-of-the-art techniques.
-				 <a href="https://github.com/vsislab/ShipStructure">Code and Datasets Available Here</a></p>
+				 <a href="https://github.com/vsislab/vsislab.github.io/releases/tag/v1.0.0">Code is Available Here</a></p>
 
                 <h1>Overview</h1>
-                <div id="overview"><img src="image/overview.png" style="width: 100%; height: auto;"></div>
+                <div id="overview"><img src="image/overview3.png" style="width: 100%; height: auto;"></div>
 		    <div style="text-align:center;">
 			    We project 3D point clouds into multi-angle depth maps, which are processed by a 2D encoder alongside rendered images. As the core of our method, the Parameter-level Mask-based Adapter (PMA) achieves parameter-level isolation, allowing flexible selection of the most relevant weights for each task without destroying previously learned knowledge for continual learning. This adapter extracts features from the two modalities through its 3D and 2D parts, which are then aggregated to form global features used in contrastive learning with text features for 3D classification tasks.
 		        
