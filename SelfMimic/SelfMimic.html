@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)https://vsislab.github.io/selfmimic/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <!-- Google tag (gtag.js) -->
+  <script type="text/javascript" id="www-widgetapi-script" src="./SelfMimic_files/www-widgetapi.js" async=""></script><script async="" src="./SelfMimic_files/js"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-F28Q22D1LS');
+  </script>
+  
+  <meta name="description" content="SelfMimic: Learning Robust and Symmetric Locomotion Skills for Biped Robots">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SelfMimic</title>
+
+  <link href="./SelfMimic_files/css" rel="stylesheet">
+
+  <link rel="stylesheet" href="./SelfMimic_files/bulma.min.css">
+  <link rel="stylesheet" href="./SelfMimic_files/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./SelfMimic_files/bulma-slider.min.css">
+  <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+  <link rel="stylesheet" href="./SelfMimic_files/academicons.min.css">
+  <link rel="stylesheet" href="./SelfMimic_files/index.css">
+  <link rel="stylesheet" href="./SelfMimic_files/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <script src="./SelfMimic_files/iframe_api"></script>
+  <script src="./SelfMimic_files/ajax.googleapis.com_ajax_libs_jquery_3.5.1_jquery.min.js"></script>
+  <script src="./SelfMimic_files/isInViewport.min.js"></script>
+  <!-- <script defer src="./static/js/fontawesome.all.min.js"></script> -->
+  <script src="./SelfMimic_files/bulma-carousel.min.js"></script>
+  <script src="./SelfMimic_files/bulma-slider.min.js"></script>
+  <script src="./SelfMimic_files/index.js"></script>
+
+
+  <script src="./SelfMimic_files/006a5775d5.js" crossorigin="anonymous"></script>
+<style>
+    .lang_radio {
+        display: none;
+    }
+    .lang_radio_img {
+        vertical-align: unset !important;
+        width: 13px !important;
+        height: 13px !important;
+        margin-top: 0px !important;
+        cursor: pointer;
+        margin-right: 3px !important;
+        margin-top: 4px !important;
+        display: inline;
+        min-height: unset !important;
+        min-width: unset !important;
+    }
+</style></head>
+<body>
+
+
+
+  
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">SelfMimic: Learning Robust and Symmetric Locomotion Skills for Biped Robots</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a>Yanyun Chen</a></sup>&nbsp;&nbsp;&nbsp;&nbsp;
+              <a>Wenhao Tan</a></sup>&nbsp;&nbsp;&nbsp;&nbsp;
+              <a>Xing Fang</a></sup>&nbsp;&nbsp;&nbsp;&nbsp;
+              <a>Ran Song</a></sup>&nbsp;&nbsp;&nbsp;&nbsp;
+              <a>Runmin Cong</a></sup>&nbsp;&nbsp;&nbsp;&nbsp;
+              <a>Yibin Li</a></sup>&nbsp;&nbsp;&nbsp;&nbsp;
+              <a>Wei Zhang</a></sup>&nbsp;&nbsp;&nbsp;&nbsp;
+
+              <br></sup>Shandong University
+              <span class="brmod"><b>Submitted to IEEE Transactions on Automation Science and Engineering</b></span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></div></section>
+
+
+<section class="section">
+  <div class="container">
+
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-two-thirds">
+        <h2 class="title is-2">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>Achieving human-like gait symmetry for biped robots remains challenging due to two inherent limitations: high-dimensional nonlinear dynamics of multijoint coordination and computational complexity of real-time balance stabilization under environmental perturbations. Although previous methods using explicit symmetry constraints partially address the two issues, they suffer from low robustness to unexpected disturbances and training inefficiency caused by complex reward engineering. We propose SelfMimic, a lightweight framework that synergizes implicit bilateral symmetry constraints with gated multilayer perceptrons (gMLPs) for biped locomotion. SelfMimic achieves actuator-level symmetry through reciprocal imitation between contralateral limbs, eliminating the need for predefined trajectories or dense reward engineering. gMLP enables efficient temporal interaction modeling while maintaining computational tractability for real-time deployment. Experiments in both simulated and real-world environments demonstrate that SelfMimic achieves robust locomotion and fast policy convergence, while generating anthropomorphic locomotion behaviors.
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <h3 class="title is-4">Overview of SelfMimic</h3>
+    </div>
+    <div class="content has-text-centered">
+      <img width="100%" src="./SelfMimic_files/overview.jpg">
+    </div>
+
+
+
+</section>
+
+
+<!-- Paper video. -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walking Patterns Comparison</title>
+    <!-- 引入Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <style>
+        /* 自定义样式 */
+        .video-container {
+            display: flex;
+            justify-content: center;
+            gap: 3%;
+        }
+
+        .custom-video {
+            border-radius: 30px;
+            width: 47%;
+        }
+    </style>
+</head>
+<body>
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-full-width">
+                    <h2 class="title is-2 has-text-centered" style="padding-bottom: 10px;">Comparison of Walking Patterns</h2>
+                    <h2 class="title is-3" style="text-align: left; padding-bottom: 0px;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Unitree Controller&emsp;&emsp;&emsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;SelfMimic</h2>
+                      <div class="video-container">
+                        <video autoplay muted loop playsinline controls class="custom-video">
+                            <source src="./SelfMimic_files/web video/unitree walk.mp4" type="video/mp4">
+                        </video>
+                        <video autoplay muted loop playsinline controls class="custom-video">
+                            <source src="./SelfMimic_files/web video/ours walk.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">Hitting by 15 kg Sandbag</h2>
+          <h2 class="title is-3" style="text-align: left; padding-bottom: 0px;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Unitree Controller&emsp;&emsp;&emsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;SelfMimic</h2>
+
+          <body>
+            <video autoplay="" muted="" loop="" playsinline="" controls="" width="47%" style="border-radius:30px; margin-right:3% ">
+                <source src="./SelfMimic_files/web video/unitree hit indoor.mp4" type="video/mp4">
+            </video>
+            <video autoplay="" muted="" loop="" playsinline="" controls="" width="47%" style="border-radius:30px; ">
+                <source src="./SelfMimic_files/web video/ours hit indoor.mp4" type="video/mp4">
+            </video>
+          </body>
+            <br>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">Robustness to Unexpected Disturbances during Walking</h2>
+
+          <body>
+            <video autoplay="" muted="" loop="" playsinline="" controls="" width="47%" style="border-radius:30px; margin-right:3% ">
+                <source src="./SelfMimic_files/web video/grass walk hit.mp4" type="video/mp4">
+            </video>
+            <video autoplay="" muted="" loop="" playsinline="" controls="" width="47%" style="border-radius:30px; ">
+                <source src="./SelfMimic_files/web video/field walk hit.mp4" type="video/mp4">
+            </video>
+          </body>
+            <br>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">Robustness to Unexpected Disturbances during Standing</h2>
+
+          <body>
+            <video autoplay="" muted="" loop="" playsinline="" controls="" width="47%" style="border-radius:30px; margin-right:3% ">
+                <source src="./SelfMimic_files/web video/grass stand hit.mp4" type="video/mp4">
+            </video>
+            <video autoplay="" muted="" loop="" playsinline="" controls="" width="47%" style="border-radius:30px; ">
+                <source src="./SelfMimic_files/web video/field stand hit.mp4" type="video/mp4">
+            </video>
+          </body>
+            <br>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">Simulation Validation</h2>
+        <!-- <p>
+          <center>
+            Fully autonomous without any human teleoperation.
+          </center>
+        </p> -->
+                  <video autoplay="" muted="" loop="" playsinline="" controls="" src="./SelfMimic_files/web video/sim.mp4" width="70%" style="border-radius:30px; margin-left:15%"></video>
+            <br>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<script>
+  var mainLoopId = setInterval(function(){
+        $('video').not('#teaser').each(function(){
+      if ($(this).is(":in-viewport")) {
+          $(this)[0].play();
+      } else {
+          $(this)[0].pause();
+      }
+      })
+    },200);
+</script>
+
+</body></html>
