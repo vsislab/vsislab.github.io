@@ -1,0 +1,1 @@
+### This is the repo for 'DECODE: Decopuled-oriented Denoising Model for Category-agnostic Pose Estimation'
