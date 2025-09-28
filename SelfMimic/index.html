@@ -66,16 +66,15 @@
           <h1 class="title is-1 publication-title">SelfMimic: Learning Robust and Symmetric Locomotion Skills for Biped Robots</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a>Anonymous authors</a></sup>&nbsp;&nbsp;&nbsp;&nbsp;
-<!--               <a>Wenhao Tan</a></sup>&nbsp;&nbsp;&nbsp;&nbsp;
+              <a>Yanyun Chen</a></sup>&nbsp;&nbsp;&nbsp;&nbsp;
+              <a>Wenhao Tan</a></sup>&nbsp;&nbsp;&nbsp;&nbsp;
               <a>Xing Fang</a></sup>&nbsp;&nbsp;&nbsp;&nbsp;
               <a>Ran Song</a></sup>&nbsp;&nbsp;&nbsp;&nbsp;
               <a>Runmin Cong</a></sup>&nbsp;&nbsp;&nbsp;&nbsp;
               <a>Yibin Li</a></sup>&nbsp;&nbsp;&nbsp;&nbsp;
               <a>Wei Zhang</a></sup>&nbsp;&nbsp;&nbsp;&nbsp;
 
-              <br></sup> Shandong University -->
-              
+              <br></sup>Shandong University
               <span class="brmod"><b>Submitted to IEEE Transactions on Automation Science and Engineering</b></span>
             </span>
           </div>
@@ -122,70 +121,121 @@
 
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Walking Patterns Comparison</title>
-    <!-- 引入Bulma CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <style>
-        /* 自定义样式 */
-        .video-container {
-            display: flex;
-            justify-content: center;
-            gap: 3%;
-        }
-
-        .custom-video {
-            border-radius: 30px;
-            width: 47%;
-        }
-    </style>
-</head>
-<body>
-    <section class="section">
-        <div class="container">
-            <div class="columns is-centered">
-                <div class="column is-full-width">
-                    <h2 class="title is-2 has-text-centered" style="padding-bottom: 10px;">Comparison of Walking Patterns</h2>
-                    <h2 class="title is-3" style="text-align: left; padding-bottom: 0px;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Unitree Controller&emsp;&emsp;&emsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;SelfMimic</h2>
-                      <div class="video-container">
-                        <video autoplay muted loop playsinline controls class="custom-video">
-                            <source src="./SelfMimic_files/web video/unitree walk_c.mp4" type="video/mp4">
-                        </video>
-                        <video autoplay muted loop playsinline controls class="custom-video">
-                            <source src="./SelfMimic_files/web video/ours walk.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</body>
-</html>
 
 <section class="section">
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">Hitting by 15 kg Sandbag</h2>
-          <h2 class="title is-3" style="text-align: left; padding-bottom: 0px;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Unitree Controller&emsp;&emsp;&emsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;SelfMimic</h2>
+        <h2 class="title is-2" style="text-align: center; padding-bottom: 0px;">
+          Comparison of Walking Patterns
+        </h2>
 
-          <body>
-            <video autoplay="" muted="" loop="" playsinline="" controls="" width="47%" style="border-radius:30px; margin-right:3% ">
-                <source src="./SelfMimic_files/web video/unitree hit indoor.mp4" type="video/mp4">
+        <div style="display: flex; gap: 2%; align-items: center;">
+          <!-- 视频1 + 标题 -->
+          <div style="width: 32%; display: flex; flex-direction: column;">
+            <h3 class="title is-4" style="text-align: center; margin: 0 0 3px 0; padding-bottom: 5px;">Unitree Controller</h3>
+            <video autoplay muted loop playsinline controls style="width: 100%; border-radius: 30px;">
+              <source src="./SelfMimic_files/web video/unitree walk.mp4" type="video/mp4">
             </video>
-            <video autoplay="" muted="" loop="" playsinline="" controls="" width="47%" style="border-radius:30px; ">
-                <source src="./SelfMimic_files/web video/ours hit indoor.mp4" type="video/mp4">
+          </div>
+
+          <!-- 视频2 + 标题 -->
+          <div style="width: 32%; display: flex; flex-direction: column;">
+            <h3 class="title is-4" style="text-align: center; margin: 0 0 3px 0; padding-bottom: 5px;">SelfMimic (Ours)</h3>
+            <video autoplay muted loop playsinline controls style="width: 100%; height: 100%; object-fit: cover; border-radius: 30px;">
+              <source src="./SelfMimic_files/web video/ours walk.mp4" type="video/mp4">
             </video>
-          </body>
-            <br>
+          </div>
+
+          <!-- 视频3 + 标题 -->
+          <div style="width: 32%; display: flex; flex-direction: column;">
+            <h3 class="title is-4" style="text-align: center; margin: 0 0 3px 0; padding-bottom: 5px;">SEPOLICY</h3>
+            <video autoplay muted loop playsinline controls style="width: 100%; border-radius: 30px;">
+              <source src="./SelfMimic_files/web video/sepolicy_walk.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-2" style="text-align: center; padding-bottom: 0px;">
+          Hitting by 15 kg Sandbag
+        </h2>
+
+        <div style="display: flex; gap: 2%; align-items: center;">
+          <!-- 视频1 + 标题 -->
+          <div style="width: 32%; display: flex; flex-direction: column;">
+            <h3 class="title is-4" style="text-align: center; margin: 0 0 3px 0; padding-bottom: 5px;">Unitree Controller</h3>
+            <video autoplay muted loop playsinline controls style="width: 100%; border-radius: 30px;">
+              <source src="./SelfMimic_files/web video/unitree hit indoor.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <!-- 视频2 + 标题 -->
+          <div style="width: 32%; display: flex; flex-direction: column;">
+            <h3 class="title is-4" style="text-align: center; margin: 0 0 3px 0; padding-bottom: 5px;">SelfMimic (Ours)</h3>
+            <video autoplay muted loop playsinline controls style="width: 100%; height: 100%; object-fit: cover; border-radius: 30px;">
+              <source src="./SelfMimic_files/web video/ours hit indoor.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <!-- 视频3 + 标题 -->
+          <div style="width: 32%; display: flex; flex-direction: column;">
+            <h3 class="title is-4" style="text-align: center; margin: 0 0 3px 0; padding-bottom: 5px;">SEPOLICY</h3>
+            <video autoplay muted loop playsinline controls style="width: 100%; border-radius: 30px;">
+              <source src="./SelfMimic_files/web video/sepolicy_hit.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-2" style="text-align: center; padding-bottom: 0px;">
+          Asymmetric behaviors generate by Selfmimic in real-world scenarios
+        </h2>
+
+        <div style="display: flex; gap: 2%; align-items: center;">
+          <!-- 视频1 + 标题 -->
+          <div style="width: 34%; display: flex; flex-direction: column;">
+            <h3 class="title is-4" style="text-align: center; margin: 0 0 3px 0; padding-bottom: 5px;">Large Turn</h3>
+            <video autoplay muted loop playsinline controls style="width: 100%; border-radius: 30px;">
+              <source src="./SelfMimic_files/web video/large_turn.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <!-- 视频2 + 标题 -->
+          <div style="width: 29%; display: flex; flex-direction: column;">
+            <h3 class="title is-4" style="text-align: center; margin: 0 0 3px 0; padding-bottom: 5px;">Payload</h3>
+            <video autoplay muted loop playsinline controls style="width: 100%; height: 100%; object-fit: cover; border-radius: 30px;">
+              <source src="./SelfMimic_files/web video/payload.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <!-- 视频3 + 标题 -->
+          <div style="width: 34%; display: flex; flex-direction: column;">
+            <h3 class="title is-4" style="text-align: center; margin: 0 0 3px 0; padding-bottom: 5px;">Extreme Disturbance</h3>
+            <video autoplay muted loop playsinline controls style="width: 100%; border-radius: 30px;">
+              <source src="./SelfMimic_files/web video/kick.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <section class="section">
   <div class="container">
@@ -207,6 +257,8 @@
   </div>
 </section>
 
+
+
 <section class="section">
   <div class="container">
     <div class="columns is-centered">
@@ -227,31 +279,42 @@
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">Simulation Validation</h2>
-                  <video autoplay="" muted="" loop="" playsinline="" controls="" src="./SelfMimic_files/web video/sim.mp4" width="75%" style="border-radius:30px; margin-left:15%"></video>
-            <br>
-      </div>
-    </div>
-  </div>
-</section>
-
 
 <section class="section">
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">Application of SelfMimic to other biped robots</h2>
-                  <video autoplay="" muted="" loop="" playsinline="" controls="" src="./SelfMimic_files/web video/S4.mp4" width="75%" style="border-radius:30px; margin-left:15%"></video>
-            <br>
+        <h2 class="title is-2" style="text-align: center; padding-bottom: 0px;">
+          Simulation Validation
+        </h2>
+        <!-- 核心调整：添加 margin: 0 auto 实现容器水平居中 -->
+        <div style="width: 70%; display: flex; flex-direction: column; margin: 0 auto;">
+          <video autoplay muted loop playsinline controls style="width: 100%; border-radius: 30px;">
+            <source src="./SelfMimic_files/web video/sim.mp4" type="video/mp4">
+          </video>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-2" style="text-align: center; padding-bottom: 0px;">
+          Application of SelfMimic to other biped robots
+        </h2>
+        <!-- 核心调整：添加 margin: 0 auto 实现容器水平居中 -->
+        <div style="width: 70%; display: flex; flex-direction: column; margin: 0 auto;">
+          <video autoplay muted loop playsinline controls style="width: 100%; border-radius: 30px;">
+            <source src="./SelfMimic_files/web video/S4.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 
