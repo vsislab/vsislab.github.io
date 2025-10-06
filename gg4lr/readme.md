@@ -1,22 +1,18 @@
-# 🤖 基于深度强化学习的腿足机器人步态生成与控制方法研究
+# 🤖 《基于深度强化学习的腿足机器人步态生成与控制方法研究》视频补充材料
 
-## 📑 研究章节导航
-
-### 🐕 四足机器人相关研究
 - **第 3 章：四足机器人节律与模式协同步态学习**  
-  ▶️ 3-1：[IFPC 四足机器人步态研究](https://vsislab.github.io/ifpc/) 🔗  
-  ▶️ 3-2：[RhyLoc 四足机器人节律控制](https://vsislab.github.io/rhyloc/) 🔗  
+  ▶️ 3-1：[基于足端位置增量残差的协调运动步态学习方法](https://vsislab.github.io/ifpc/) 🔗  
+  ▶️ 3-2：[基于节律与模式协同的节律运动步态学习方法](https://vsislab.github.io/rhyloc/) 🔗  
 
 - **第 4 章：四足机器人通才策略多元步态学习**  
-  ▶️ 4-1：[Gala 四足通才步态方案](https://vsislab.github.io/gala/) 🔗  
-  ▶️ 4-2：[McLer 四足多元步态优化](https://vsislab.github.io/mcler/) 🔗  
+  ▶️ 4-1：[基于多评论家的通才策略多元步态学习方法](https://vsislab.github.io/gala/) 🔗  
+  ▶️ 4-2：[基于经验回放的多评评论家步态增量学习优化方法](https://vsislab.github.io/mcler/) 🔗  
 
 
-### 👤 人形（双足）机器人相关研究
 - **第 5 章：双足机器人多功能运动技能学习**  
-  ▶️ 5-1：[SelfMimic 双足运动模仿学习](https://vsislab.github.io/SelfMimic/) 🔗  
-  ▶️ 5-2：[Seil 双足多功能技能优化](https://vsislab.github.io/seil/) 🔗  
+  ▶️ 5-1：[基于互逆隐式约束的稳健对称步态学习方法](https://vsislab.github.io/SelfMimic/) 🔗  
+  ▶️ 5-2：[基于技能编码集成的模仿学习运动控制方法](https://vsislab.github.io/seil/) 🔗  
 
 
 ---
-> ℹ️ 说明：章节标题前的「🐕」代表四足机器人研究方向，「👤」代表双足（人形）机器人研究方向，点击「🔗」可直接访问对应项目详情页
+> ℹ️ 说明：点击「🔗」可直接访问对应项目详情页
