@@ -65,13 +65,18 @@
 
                 <h1>Overview</h1>
                 <div id="ships-structure-img"><img src="images/update.png" style="width: 100%; height: auto;"></div>
+
+                <br><strong>Description</strong>
+                <p style="text-align:justify; text-justify:inter-ideograph;">
+                In traditional sequential updating, when new frames arrive and old frames are evicted, all frames must be recomputed to obtain updated contextual representations, resulting in high computational cost. In contrast, our circular window updating strategy restructures the queue by connecting its two ends, as illustrated in Figure~1. We define the circular window as the specific window containing the oldest frame in long-term memory. At each timestep, only this circular window is updated and requires recomputation, while all other windows remain unchanged and their representations can be directly reused. This strategy enables efficient incremental updates with computational cost limited to a single window, making it well-suited for online inference.
+
                 
                 <h1>Pipeline</h1>
                 <div id="ships-structure-img"><img src="images/pipeline.png" style="width: 100%; height: auto;"></div>
-
-		<br><strong>Description</strong>
+                
+                <br><strong>Description</strong>
                 <p style="text-align:justify; text-justify:inter-ideograph;">
-                A Circular Window-based Cascade Transformer for Online Action Detection
+                The proposed approach comprises four main components. First, the Circular Window-based History Encoder (CWHE) employs a window-based hierarchical attention mechanism to efficiently compress long-term historical information. The resulting compact representations are then processed by the Long-term History Decoder (LHD), which reconstructs the long-term context and provides supervision via an auxiliary Online Action Segmentation (OAS) task, thereby enhancing the quality of temporal feature compression. In parallel, the Short-term Trend Encoder (STE) captures recent temporal trends and integrates them with the compressed long-term tokens to facilitate the identification of ongoing actions for Online Action Detection (OAD). Finally, the Cascade Prediction Refinement (CPR) module refines the coarse prediction logits produced by both the OAD and OAS branches, yielding the final, high-quality action predictions.
 
                 <!-- <h1>Comparison with Other Methods</h1>
 		    <br><strong>Mode Collapse</strong>
