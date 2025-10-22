@@ -1,59 +1,99 @@
 
-<html>
-<title>Online Decision Based Visual Tracking via Reinforcement Learning</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">  
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>DECODE: Decoupled-oriented Denoising Model for Category-agnostic Pose Estimation</title>
+    <!-- CSS -->
+        <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+    <!-- ENDS CSS -->
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta name="format-detection" content="telephone=no">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <!--Import Google Icon Font-->
-      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>    
+        <!--script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-<body>
-	<br />
-<center><h4 class="black-text" style="padding-left: 520px; padding-right: 520px;">Online Decision Based Visual Tracking via Reinforcement Learning</h4></center>
-<center><h6 class="gray-text">Ke Song, Wei Zhang*, Ran Song and Yibin Li</h6></center>
-    <center><h8>School of Control Science and Engineering, Shandong University&nbsp;&nbsp;</h8></center>
- <p style="padding-left: 210px;"><b>Abstract</b></p>       
-<p style="padding-left: 210px; padding-right: 210px; text-align:justify; text-justify:inter-ideograph;">
-  A deep visual tracker is typically based on either object detection or template matching while each of them is only suitable for a particular group of scenes. It is straightforward to consider fusing them together to pursue more reliable tracking. However, this is not wise as they follow different tracking principles. Unlike previous fusion-based methods, we propose a novel ensemble framework, named DTNet, with an online decision mechanism for visual tracking based on hierarchical reinforcement learning. The decision mechanism substantiates an intelligent switching strategy where the detection and the template trackers have to compete with each other to conduct tracking within different scenes that they are adept in. Besides, we present a novel detection tracker which avoids the common issue of incorrect proposal. Extensive results show that our DTNet achieves state-of-the-art tracking performance as well as good balance between accuracy and efficiency.
+          ga('create', 'UA-89797207-1', 'auto');
+          ga('send', 'pageview');
 
-</p>
-<!--p style="padding-left: 210px;"><b>Data: <a href="data.html" target="_blank">View our datasets</a></b></p-->
-<center><img src="image/overview.png" width="60%">
-<br> Overview of the DTNet.
-</center>
-<p style="padding-left: 210px;"><b>Code: </b>Coming soon!</p>
-<p style="padding-left: 210px;"><b>Video:</b></p>
-<!--h5 style="padding-left: 210px;"><blockquote>Explicit method for robot imitation learning</blockquote></h5>
-<div style="padding-left: 210px; padding-right: 210px;"><hr></div-->
+        </script-->
 
-<center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ESdK7VhVei4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></iframe>
-<!--iframe width="720" height="480" src="https://www.youtube.com/embed/1uGEnhD34D8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<!--iframe width="720" height="480" src="https://www.youtube.com/embed/jCRn3-oSDgI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<!--iframe width="720" height="480" src="https://www.youtube.com/embed/DiAJogxIPKQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
- <!--iframe width="640" height="360" src="https://www.youtube.com/embed/QvHZ1bpvwno" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <br><br>
-  
-</center>
+        <!-- ENDS JS -->  
+  </head> 
+  <body>
+    <!-- MAIN -->
+    <div id="main">
 
-<!--iframe width="640" height="359" src="https://www.youtube.com/embed/uaJXXVa31wU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe-->
-<br><br>
+            <div id="match-nav-wrapper">
+                <div id="match-nav-bar">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <!--th width="10%"><a href="#">Home</a></th-->
+                                <!--th width="30%"><a href="#video-explicit">Demonstration of the explicit method</a></th>
+                                <th width="30%"><a href="#video-implicit">Demonstration of the implicit method</a></th-->
+                                <!--th width="15%"></th-->
+                            </tr>
+                        </thead>
+                    </table>
+
+                </div>
+            </div>
+
+      <!-- HEADER -->
+      <div id="home-header">
+      
+            <div id="match-wrapper">
+
+                <!--h5><a href="#"><img src="image/logo.png"></a></h5-->
+
+              
+
+                <h2>DECODE: Decoupled-oriented Denoising Model for Category-agnostic Pose Estimation</h2>
+                <center>
+                  Zhiheng Li, Tianjiao Li, Mingxin Zhang, Ran Song*, Jiyu Cheng, Yonghuai Liu, and Wei Zhang<sup></sup><br />
+                  <font size=2>School of Control Science and Engineering, Shandong University</font>    
+                </center>
+                <br><strong>Abstract</strong>
+                <p style="text-align:justify; text-justify:inter-ideograph;">
+                Category-agnostic pose estimation (CAPE) aims to predict keypoints for novel categories with the support of few annotated samples. Existing methods usually operate by constructing a feature space that jointly represents keypoints and images, and establish mappings from this space to query keypoints. However, such mappings can be easily disrupted by appearance and structure discrepancies between support and query samples, and the joint latent space exhibits significant distribution bias due to the heterogeneity of keypoint and image modalities.  To address the two issues, we first formulate such discrepancies as intrinsic noises and propose the DECOupled-oriented DEnoising model (DECODE) to restore the pristine feature space. Also, DECODE decouples the joint feature space and conducts the conditional diffusion process on the independent features respectively, thus avoiding the distribution bias. Additionally, we introduce a gating-based composition layer that adaptively integrates the separated features by assessing the appearance and the structure dissimilarities between support and query features. In the experiments, we propose a new noise adversarial test to quantitatively evaluate the robustness of different methods against real-world noises. The results demonstrate that DECODE outperforms the state-of-the-art methods for CAPE on the MP-100 dataset..
+
+                <h1>Overview</h1>
+                <div id="ships-structure-img"><img src="images/poster.png" style="width: 100%; height: auto;"></div>
+                
+                <h1>Framework</h1>
+                <div id="ships-structure-img"><img src="images/framework.png" style="width: 100%; height: auto;"></div>
+
+		<br><strong>Description</strong>
+                <p style="text-align:justify; text-justify:inter-ideograph;">
+                Overview diagram of CSI. Through retargeting and skill labeling, a set of reference motion clips with corresponding labels can be obtained. During training, sampled motion skill labels $c_i$ are mapped to latent vectors $z$ through an embedding network, and the policy generates corresponding motion skills based on $z$. The discriminator is responsible for indirectly regulating the motions generated by the policy in a way that provides style rewards. After the training stage, a controller with integrated multiple motion skills is available. These integrated skills can be controlled directly through user commands or externally via a high-level pre-trained NLI module for language-directed skill control.
+
+                <h1>Comparison with Other Methods</h1>
+		    <br><strong>Mode Collapse</strong>
+		    <div style="text-align:center;">
+		        <iframe width="800" height="365" src="https://www.youtube.com/embed/HYGar8W2-is?autoplay=1&vq=hd1080" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+
+                <h1>Desmonstrations on Various Platforms</h1>
+                <div id="ships-structure-img"><img src="images/demo.png" style="width: 100%; height: auto;"></div>	       
+		    
+                <h1>Visualization of Different Tasks</h1>
+
+                    <br><strong>H-Locomotion</strong>
+		    <div style="text-align:center;">
+		        <iframe width="800" height="365" src="https://www.youtube.com/embed/R9PvCrNR4i8?autoplay=1&vq=hd1080" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
 
 
-<!--h5 style="padding-left: 210px;"><blockquote>Implicit method for robot imitation learning</blockquote></h5
-Simulation and real-world experiments video of our implicit method for robot imitation learning
-Real world experiments video of our explicit method for robot imitation learning
--->
-<!--Import jQuery before materialize.js-->
-      <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
-      <script type="text/javascript" src="js/materialize.min.js"></script>
-</body>
+		    
 
+              </div>
+      <!-- ENDS Footer -->
+  </body>
 </html>
+
+
