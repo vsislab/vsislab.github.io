@@ -4,6 +4,51 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>A Circular Window-based Cascade Transformer for Online Action Detection</title>
+
+    <style>
+        html, body {
+        margin: 0;
+        padding: 0;
+        min-height: 100%;
+        font-family: Arial, sans-serif;
+        }
+
+        /* 给主要内容区域增加底部空间 */
+        #main {
+        padding-bottom: 100px; /* 页面底部留白 */
+        }
+
+        /* 可选：让内容不要太靠边 */
+        #main, #home-header {
+        padding-left: 10%;
+        padding-right: 10%;
+        }
+
+        /* 图片居中显示 */
+        #cwc-img {
+        text-align: center;
+        margin: 20px 0;
+        }
+
+        /* 页眉文字居中 */
+        #home-header h2 {
+        text-align: center;
+        }
+
+        /* 可选：表格导航栏隐藏边框 */
+        #match-nav-bar table {
+        width: 100%;
+        border-collapse: collapse;
+        }
+
+        /* 修复滚动问题（防止容器高度被锁死） */
+        #main {
+        overflow: visible;
+        min-height: 100vh;
+        }
+
+    </style>
+
     <!-- CSS -->
         <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300' rel='stylesheet' type='text/css'>
@@ -54,6 +99,7 @@
                 <center>
                   Shuqiang Cao, Weixin Luo, Bairui Wang, Ran Song, Wei Zhang*, Lin Ma*<sup></sup><br />
                   <font size=2>School of Control Science and Engineering, Shandong University</font>
+    
                 </center>
                 <br><strong>Abstract</strong>
                 <p style="text-align:justify; text-justify:inter-ideograph;">
@@ -61,7 +107,7 @@
                 <a href="https://github.com/sqiangcao99/CWC-Trans">Code Available Here.</a></p>
 
                 <h1>Overview</h1>
-                <div id="ships-structure-img"><img src="images/update.png" style="width: 100%; height: auto;"></div>
+                <div id="cwc-img"><img src="images/update.png" style="width: 100%; height: auto;"></div>
 
                 <br><strong>Description</strong>
                 <p style="text-align:justify; text-justify:inter-ideograph;">
@@ -69,7 +115,7 @@
 
                 
                 <h1>Pipeline</h1>
-                <div id="ships-structure-img"><img src="images/pipeline.png" style="width: 100%; height: auto;"></div>
+                <div id="cwc-img"><img src="images/pipeline.png" style="width: 100%; height: auto;"></div>
                 
                 <br><strong>Description</strong>
                 <p style="text-align:justify; text-justify:inter-ideograph;">
