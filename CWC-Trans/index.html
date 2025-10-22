@@ -77,7 +77,7 @@
 
                 <br><strong>Description</strong>
                 <p style="text-align:justify; text-justify:inter-ideograph;">
-                In traditional sequential updating, when new frames arrive and old frames are evicted, all frames must be recomputed to obtain updated contextual representations, resulting in high computational cost. In contrast, our circular window updating strategy restructures the queue by connecting its two ends, as illustrated in Figure~1. We define the circular window as the specific window containing the oldest frame in long-term memory. At each timestep, only this circular window is updated and requires recomputation, while all other windows remain unchanged and their representations can be directly reused. This strategy enables efficient incremental updates with computational cost limited to a single window, making it well-suited for online inference.
+                In traditional sequential updating, when new frames arrive and old frames are evicted, all frames must be recomputed to obtain updated contextual representations, resulting in high computational cost. In contrast, our circular window updating strategy restructures the queue by connecting its two ends. We define the circular window as the specific window containing the oldest frame in long-term memory. At each timestep, only this circular window is updated and requires recomputation, while all other windows remain unchanged and their representations can be directly reused. This strategy enables efficient incremental updates with computational cost limited to a single window, making it well-suited for online inference.
 
                 
                 <h1>Pipeline</h1>
