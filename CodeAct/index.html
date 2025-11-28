@@ -53,14 +53,11 @@
 
               
 
-                <h2>DECODE: Decoupled-oriented Denoising Model for Category-agnostic Pose Estimation</h2>
+                <h2>CodeAct: Codebook-guided Multi-skill Learning for Dynamic Humanoid Whole-body Control</h2>
                 <center>
-                  Zhiheng Li, Tianjiao Li, Mingxin Zhang, Ran Song*, Jiyu Cheng, Yonghuai Liu, and Wei Zhang<sup></sup><br />
-                  <font size=2>School of Control Science and Engineering, Shandong University</font>    
-                </center>
                 <br><strong>Abstract</strong>
                 <p style="text-align:justify; text-justify:inter-ideograph;">
-                Category-agnostic pose estimation (CAPE) aims to predict keypoints for novel categories with the support of few annotated samples. Existing methods usually operate by constructing a feature space that jointly represents keypoints and images, and establish mappings from this space to query keypoints. However, such mappings can be easily disrupted by appearance and structure discrepancies between support and query samples, and the joint latent space exhibits significant distribution bias due to the heterogeneity of keypoint and image modalities.  To address the two issues, we first formulate such discrepancies as intrinsic noises and propose the DECOupled-oriented DEnoising model (DECODE) to restore the pristine feature space. Also, DECODE decouples the joint feature space and conducts the conditional diffusion process on the independent features respectively, thus avoiding the distribution bias. Additionally, we introduce a gating-based composition layer that adaptively integrates the separated features by assessing the appearance and the structure dissimilarities between support and query features. In the experiments, we propose a new noise adversarial test to quantitatively evaluate the robustness of different methods against real-world noises. The results demonstrate that DECODE outperforms the state-of-the-art methods for CAPE on the MP-100 dataset..
+                Recent advances in humanoid robotics have showcased the potential of imitation learning (IL) to replicate dexterous whole-body behaviors in unstructured environments. However, conventional IL approaches that integrate multiple skills into a unified policy often suffer from training bias toward dominant or easily learned samples, resulting in a compromised action space that fails to preserve fine-grained dynamics of individual skills. To address this limitation, we propose CodeAct, a novel two-stage IL framework that facilitates multi-skill learning through structured expert code guidance. In the first stage, individual motions are distilled into high-fidelity expert codes, which are used to populate a dynamic codebook. In the second stage, a codebook-guided attention mechanism leverages these structured expert priors to constrain the optimization of the multi-skill policy. Importantly, expert codes serve as the optimal representation for each skill, equally providing fine-grained supervision signals for all skills throughout multi-skill learning, thus mitigating training bias and enabling seamless skill composition. Extensive experiments in simulation and on a real Unitree G1 humanoid robot demonstrate that CodeAct achieves the state-of-the-art performance in both single-skill and multi-skill learning. 
 
                 <h1>Overview</h1>
                 <div id="ships-structure-img"><img src="images/overview.png" style="width: 100%; height: auto;"></div>
@@ -83,6 +80,7 @@
       <!-- ENDS Footer -->
   </body>
 </html>
+
 
 
 
