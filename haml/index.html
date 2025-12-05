@@ -768,11 +768,55 @@ xm-select[size='mini'] .item--divided {
 }
 </style><script id="cyxy-subtitles-inject" src="chrome-extension://abbgboelhkajgikdbjclaecchkneaoma/dist/video-subtitle.js"></script></head>
 <body class="bg-gray-100 font-sans">
+<!--    <header class="bg-blue-600 text-white py-6">-->
+<!--        <div class="container mx-auto px-4">-->
+<!--            <h1 class="text-4xl font-bold">HAML: Humanoid Adversarial Multi-skill Learning via A Single Policy</h1>-->
+<!--        </div>-->
+<!--    </header>-->
+
     <header class="bg-blue-600 text-white py-6">
-        <div class="container mx-auto px-4">
-            <h1 class="text-4xl font-bold">HAML: Humanoid Adversarial Multi-skill Learning via A Single Policy</h1>
-        </div>
+      <div class="container mx-auto px-4 flex items-center justify-between">
+        <!-- 标题 -->
+        <h1 class="text-4xl font-bold">
+          HAML: Humanoid Adversarial Multi-skill Learning via a Single Policy
+        </h1>
+
+        <!-- GitHub 链接按钮 -->
+        <a
+          href="https://github.com/USERNAME/REPO"  <!-- TODO: 换成你的 GitHub 仓库地址 -->
+          <!-- GitHub 图标（SVG） -->
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 16 16"
+            width="28"
+            height="28"
+            class="fill-current"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29
+                 6.53 5.47 7.59.4.07.55-.17.55-.38
+                 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94
+                 -.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
+                 -.01-.53.63-.01 1.08.58 1.23.82.72 1.21
+                 1.87.87 2.33.66.07-.52.28-.87.51-1.07
+                 -1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
+                 -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82
+                 .64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27
+                 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12
+                 .51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95
+                 .29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2
+                 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8
+                 c0-4.42-3.58-8-8-8Z"
+            ></path>
+          </svg>
+
+          <!-- 文本（小屏可隐藏） -->
+          <span class="text-xl font-semibold hidden sm:inline">GitHub</span>
+        </a>
+      </div>
     </header>
+
 
     <main class="container mx-auto px-4 py-8">
         <!-- Overview Section -->
@@ -881,73 +925,54 @@ xm-select[size='mini'] .item--divided {
         </section>
 
 
-    <section class="mb-12">
-        <h2 class="text-3xl font-semibold mb-4">Reference Motion vs HAML</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <!-- Wave Hand 视频 -->
-            <div class="bg-white p-4 rounded-lg shadow">
-                <h3 class="text-xl font-semibold mb-2">Wave Hand</h3>
-                <div class="bg-gray-300 flex items-center justify-center overflow-hidden" style="aspect-ratio: 16/9;">
-                    <video
-                        src="./HAML_files/images/wave_hello_p1.mp4"
-                        alt="Wave Hand Visualization"
-                        class="w-full h-full object-contain"
-                        autoplay
-                        muted
-                        playsinline
-                        loop
-                        preload="auto"
-                        controlsList="nodownload"
-                        disablePictureInPicture
-                    >
-                        您的浏览器不支持HTML5视频播放，请更新浏览器。
-                    </video>
-                </div>
-            </div>
+<section class="mb-12">
+    <h2 class="text-3xl font-semibold mb-4">Reference Motion vs HAML</h2>
 
-            <!-- Shake Hand 视频 -->
-            <div class="bg-white p-4 rounded-lg shadow">
-                <h3 class="text-xl font-semibold mb-2">Shake Hand</h3>
-                <div class="bg-gray-300 flex items-center justify-center overflow-hidden" style="aspect-ratio: 16/9;">
-                    <video
-                        src="./HAML_files/images/walk_slowly_p1.mp4"
-                        alt="Shake Hand Visualization"
-                        class="w-full h-full object-contain"
-                        autoplay
-                        muted
-                        playsinline
-                        loop
-                        preload="auto"
-                        controlsList="nodownload"
-                        disablePictureInPicture
-                    >
-                        您的浏览器不支持HTML5视频播放，请更新浏览器。
-                    </video>
-                </div>
-            </div>
+    <!-- 并排三视频 -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-            <!-- Punch 视频 -->
-            <div class="bg-white p-4 rounded-lg shadow">
-                <h3 class="text-xl font-semibold mb-2">Punch</h3>
-                <div class="bg-gray-300 flex items-center justify-center overflow-hidden" style="aspect-ratio: 16/9;">
-                    <video
-                        src="./HAML_files/images/punch_p1.mp4"
-                        alt="Punch Visualization"
-                        class="w-full h-full object-contain"
-                        autoplay
-                        muted
-                        playsinline
-                        loop
-                        preload="auto"
-                        controlsList="nodownload"
-                        disablePictureInPicture
-                    >
-                        您的浏览器不支持HTML5视频播放，请更新浏览器。
-                    </video>
-                </div>
+        <!-- Wave Hand -->
+        <div class="bg-white p-4 rounded-lg shadow">
+            <h3 class="text-xl font-semibold mb-2 text-center">Wave Hand</h3>
+            <div class="overflow-hidden rounded-lg bg-gray-300" style="aspect-ratio: 16/9;">
+                <video
+                    src="./HAML_files/images/wave_hello_p1.mp4"
+                    class="w-full h-full object-contain"
+                    autoplay muted playsinline loop preload="auto"
+                    controlsList="nodownload" disablePictureInPicture
+                ></video>
             </div>
         </div>
-    </section>
+
+        <!-- Shake Hand -->
+        <div class="bg-white p-4 rounded-lg shadow">
+            <h3 class="text-xl font-semibold mb-2 text-center">Shake Hand</h3>
+            <div class="overflow-hidden rounded-lg bg-gray-300" style="aspect-ratio: 16/9;">
+                <video
+                    src="./HAML_files/images/walk_slowly_p1.mp4"
+                    class="w-full h-full object-contain"
+                    autoplay muted playsinline loop preload="auto"
+                    controlsList="nodownload" disablePictureInPicture
+                ></video>
+            </div>
+        </div>
+
+        <!-- Punch -->
+        <div class="bg-white p-4 rounded-lg shadow">
+            <h3 class="text-xl font-semibold mb-2 text-center">Punch</h3>
+            <div class="overflow-hidden rounded-lg bg-gray-300" style="aspect-ratio: 16/9;">
+                <video
+                    src="./HAML_files/images/punch_p1.mp4"
+                    class="w-full h-full object-contain"
+                    autoplay muted playsinline loop preload="auto"
+                    controlsList="nodownload" disablePictureInPicture
+                ></video>
+            </div>
+        </div>
+
+    </div>
+</section>
+
 
     <section class="mb-12">
         <h2 class="text-3xl font-semibold mb-4">Deployment of Long-horizon Sequences</h2>
@@ -957,19 +982,19 @@ xm-select[size='mini'] .item--divided {
             <div class="bg-white p-4 rounded-lg shadow">
                 <h3 class="text-xl font-semibold mb-2">Multi-skill Transitions</h3>
                 <div class="bg-gray-300 flex items-center justify-center overflow-hidden" style="aspect-ratio: 1/1;">
+                    <!-- 自动播放 + 静音 + 循环播放 -->
                     <video
                         src="./HAML_files/images/Motion_transition_1.mp4"
-                        alt="Wave Hand Visualization"
                         class="w-full h-full object-contain"
-                        autoplay        <!-- 自动播放 -->
-                        muted           <!-- 静音（自动播放必须） -->
-                        playsinline     <!-- 移动端内联播放 -->
-                        loop            <!-- 循环播放（可选） -->
-                        preload="auto"  <!-- 预加载视频 -->
-                        controlsList="nodownload"  <!-- 隐藏下载按钮 -->
-                        disablePictureInPicture  <!-- 禁用画中画 -->
+                        autoplay
+                        muted
+                        playsinline
+                        loop
+                        preload="auto"
+                        controls
+                        controlsList="nodownload"
+                        disablePictureInPicture
                     >
-                        您的浏览器不支持HTML5视频播放，请更新浏览器。
                     </video>
                 </div>
             </div>
@@ -978,19 +1003,19 @@ xm-select[size='mini'] .item--divided {
             <div class="bg-white p-4 rounded-lg shadow">
                 <h3 class="text-xl font-semibold mb-2">Omnidirectional Locomotion</h3>
                 <div class="bg-gray-300 flex items-center justify-center overflow-hidden" style="aspect-ratio: 1/1;">
+                    <!-- 自动播放 + 静音 + 循环播放 -->
                     <video
                         src="./HAML_files/images/Motion_transition_2.mp4"
-                        alt="Shake Hand Visualization"
                         class="w-full h-full object-contain"
                         autoplay
                         muted
                         playsinline
                         loop
                         preload="auto"
+                        controls
                         controlsList="nodownload"
                         disablePictureInPicture
                     >
-                        您的浏览器不支持HTML5视频播放，请更新浏览器。
                     </video>
                 </div>
             </div>
