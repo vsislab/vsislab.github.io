@@ -60,9 +60,9 @@
                 </center>
                 <center><strong>Abstract</strong></center>
                 <p style="text-align:justify; text-justify:inter-ideograph;">
-                Deep reinforcement learning (DRL) methods have demonstrated potential for autonomous navigation and obstacle avoidance of unmanned ground vehicles (UGVs) in crowded environments. Most existing approaches rely on single-frame observations and employ static feature weighting or simple concatenation for multi-modal fusion, which limits their ability to capture temporal context and hinders dynamic adaptability.
-To address these challenges, we propose a DRL-based navigation framework, DRL-TH, which leverages temporal graph attention and hierarchical graph pooling to integrate historical observations and adaptively fuse multi-modal information. Specifically, we introduce a temporal-guided graph attention network (TG-GAT) that incorporates temporal weights into attention scores to capture correlations between consecutive frames, thereby enabling the tracking of obstacle motion trends. In addition, we design a graph hierarchical abstraction module (GHAM) that applies hierarchical pooling and learnable weighted fusion to dynamically integrate RGB and LiDAR features, achieving balanced representation across multiple scales. 
-Extensive experiments demonstrate that our DRL-TH outperforms existing methods in various crowded environments. We also implemented DRL-TH control policy on a real UGV and showed that it performed well in real-world scenarios. 
+                Deep reinforcement learning (DRL) methods have demonstrated potential for autonomous navigation and obstacle avoidance of unmanned ground vehicles (UGVs) in crowded environments. Most existing approaches rely on single-frame observation and employ simple concatenation for multi-modal fusion, which limits their ability to capture temporal context and hinders dynamic adaptability.
+To address these challenges, we propose a DRL-based navigation framework, DRL-TH, which leverages temporal graph attention and hierarchical graph pooling to integrate historical observations and adaptively fuse multi-modal information. Specifically, we introduce a temporal-guided graph attention network (TG-GAT) that incorporates temporal weights into attention scores to capture correlations between consecutive frames, thereby enabling the implicit estimation of scene evolution. In addition, we design a graph hierarchical abstraction module (GHAM) that applies hierarchical pooling and learnable weighted fusion to dynamically integrate RGB and LiDAR features, achieving balanced representation across multiple scales. 
+Extensive experiments demonstrate that our DRL-TH outperforms existing methods in various crowded environments. We also implemented DRL-TH control policy on a real UGV and showed that it performed well in real-world scenarios.  
                 <a href="https://github.com/Bennyliiiiii/drl_th">Code Available Here.</a></p>
 		
 		<br><br>
@@ -84,6 +84,7 @@ Extensive experiments demonstrate that our DRL-TH outperforms existing methods i
       <!-- ENDS Footer -->
   </body>
 </html>
+
 
 
 
