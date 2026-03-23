@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)https://wholebody-b1.github.io/ -->
+<html><head lang="en"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title style="font-family: Arial, Helvetica, sans-serif;">RoboTrio</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Open Graph data  TODO: modify this later-->
+    <meta property="og:image" content="img/cover.jpg">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1296">
+    <meta property="og:image:height" content="840">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wholebody-b1.github.io/">
+    <meta property="og:title" content="RoboTrio: A Hierarchical Framework for Flexible 6D End-Effector Tracking With a Wheeled-Quadrupedal-Manipulator">
+    <meta property="og:description" content="We study the problem of mobile manipulation using legged robots equipped with an arm, namely legged loco-manipulation. The robot legs, while usually utilized for mobility, offer an opportunity to amplify the manipulation capabilities by conducting whole-body control. That is, the robot can control the legs and the arm at the same time to extend its workspace. We propose a framework that can conduct the whole-body control autonomously with visual observations. Our approach, namely &lt;b&gt;Visual Whole-Body Control (VBC)&lt;/b&gt;, is composed of a low-level policy using all degrees of freedom to track the end-effector manipulator position and a high-level policy proposing the end-effector position based on visual inputs. We train both levels of policies in simulation and perform Sim2Real transfer for real robot deployment. We perform extensive experiments and show significant improvements over baselines in picking up diverse objects in different configurations (heights, locations, orientations) and environments.">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="RoboTrio: A Hierarchical Framework for Flexible 6D End-Effector Tracking With a Wheeled-Quadrupedal-Manipulator">
+    <meta name="twitter:description" content="We study the problem of mobile manipulation using legged robots equipped with an arm, namely legged loco-manipulation. The robot legs, while usually utilized for mobility, offer an opportunity to amplify the manipulation capabilities by conducting whole-body control. That is, the robot can control the legs and the arm at the same time to extend its workspace. We propose a framework that can conduct the whole-body control autonomously with visual observations. Our approach, namely &lt;b&gt;Visual Whole-Body Control (VBC)&lt;/b&gt;, is composed of a low-level policy using all degrees of freedom to track the end-effector manipulator position and a high-level policy proposing the end-effector position based on visual inputs. We train both levels of policies in simulation and perform Sim2Real transfer for real robot deployment. We perform extensive experiments and show significant improvements over baselines in picking up diverse objects in different configurations (heights, locations, orientations) and environments.">
+    <meta name="twitter:image" content="img/cover.jpg">
+
+
+    <link rel="stylesheet" href="./Robotrio_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./Robotrio_files/font-awesome.min.css">
+    <link rel="stylesheet" href="./Robotrio_files/codemirror.min.css">
+    <link rel="stylesheet" href="./Robotrio_files/app.css">
+
+    <link rel="stylesheet" href="./Robotrio_files/bootstrap(1).min.css">
+
+    <script src="./Robotrio_files/jquery.min.js.下载"></script>
+    <script src="./Robotrio_files/bootstrap.min.js.下载"></script>
+    <script src="./Robotrio_files/codemirror.min.js.下载"></script>
+    <script src="./Robotrio_files/clipboard.min.js.下载"></script>
+    
+    <script src="./Robotrio_files/app.js.下载"></script>
+    <link rel="icon" href="https://wholebody-b1.github.io/favicon.ico">
+
+</head>
+
+<body>
+    <div id="main">
+        <div class="row">
+            <h2 class="col-md-12 text-center" style="font-size: 48px;">
+                <b>RoboTrio</b>: Hierarchical Whole-Body Control of <br> Wheeled-Quadrupedal Manipulators for <br> <b>Long-Range Flexible</b> 6D End-Effector Tracking
+            </h2>
+        </div> <br>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li>
+                        <span style="font-size: 22px; color: #1a73e8;">Hao Ju</span>
+                    </li>
+                    <li>
+                        <span style="font-size: 22px; color: #1a73e8;">Shuo Yang</span>
+                    </li>
+                    <li>
+                        <span style="font-size: 22px; color: #1a73e8;">Zhiqiang Yang</span>
+                    </li>
+                    <li>
+                        <span style="font-size: 22px; color: #1a73e8;">Fuxiang Feng</span>
+                    </li>
+                    <li>
+                        <span style="font-size: 22px; color: #1a73e8;">Jinqiu Fan</span>
+                        <!-- </br>Google -->
+                    </li>
+                    <li>
+                        <span style="font-size: 22px; color: #1a73e8;">Wei Zhang</span>
+                    </li>
+
+                    <div style="margin-top: 8px; font-size: 22px;">
+                        Shandong University
+                    </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <!-- <div class="row">
+                <div class="col-md-4 col-md-offset-4 text-center">
+                    <ul class="nav nav-pills nav-justified">
+                        <li>
+                            <a href="https://arxiv.org/abs/2403.16967">
+                            <img src="./Robotrio_files/paper-img.png" height="50px">
+                                <h4><strong>Arxiv</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/Ericonaldo/visual_wholebody">
+                            <img src="./Robotrio_files/github.png" height="50px">
+                                <h4><strong>Code</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://youtu.be/Kfj1ImFLoqI">
+                            <img src="./Robotrio_files/youtube_icon.png" height="50px">
+                                <h4><strong>YouTube</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://b23.tv/EZEa0LS">
+                            <img src="./Robotrio_files/bilibili.jpeg" height="50px">
+                                <h4><strong>Bilibili</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/xiaolonw/status/1772667935850635370">
+                            <img src="./Robotrio_files/twitter.png" height="50px">
+                                <h4><strong>Twitter</strong></h4>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+        </div> -->
+
+        <br>
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3 style="font-size: 36px; font-weight: bold; text-align:center">
+                    Abstract
+                </h3>
+                <p class="text-justify" style="font-size: 18px;">
+                    Long-range flexible 6D end-effector (EE) tracking is a practical yet challenging problem, requiring the robot to simultaneously achieve stable and efficient long-range target approach, smooth locomotion-manipulation transition, accurate 6D EE pose tracking, and flexible switching between conventional and posture-conditioned EE tracking. Existing methods rarely satisfy all these requirements. To address this problem, we propose <b>RoboTrio</b>, a hierarchical framework with a two-stage training scheme. Low-level policies are first trained separately to develop strong motion and manipulation capabilities, and a high-level policy is then learned for unified whole-body control. We further introduce Adaptive Reward Integration to improve target approach efficiency and phase transition smoothness. Together with conditional commands, RoboTrio enables long-range flexible 6D EE tracking within a unified policy. Simulation results verify that RoboTrio effectively accomplishes this task. Real-world experiments further show that this capability leads to substantially higher success rates in both open and posture-constrained mobile manipulation tasks. In challenging real-world tasks, RoboTrio achieves success rates above 60\%, significantly outperforming baseline methods.
+                </p>
+            </div>
+        </div>
+
+
+        <div class="row" style="margin-top: 100px; margin-left: 5px;">
+            <h3 class="col-md-8 col-md-offset-2" style="font-size: 32px; font-weight: bold; text-align:center; margin-bottom: 50px;">
+                Posture-constrained Challenging Task
+            </h3>
+
+            <div class="text-center" style="line-height: 40px;">
+
+                <div style="display: inline-block; width: 34%; margin-right: 20px; margin-bottom: 30px; vertical-align: top; text-align: center;">
+                    <div style="font-size: 20px; font-weight: bold; margin-bottom: 10px;">
+                        Under 40 cm
+                    </div>
+                    <iframe
+                        id="consec1"
+                        width="100%"
+                        style="border-radius: 10px; aspect-ratio: 16 / 9;"
+                        src="https://www.youtube.com/embed/XSleJMjpWxA?autoplay=1&mute=1&loop=1&playlist=XSleJMjpWxA"
+                        title="under 40 silent"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                    <div style="margin-top: 8px; font-size: 16px;">
+                        <a href="https://www.youtube.com/watch?v=XSleJMjpWxA" target="_blank" style="color: #1a73e8;">
+                            https://www.youtube.com/watch?v=XSleJMjpWxA
+                        </a>
+                    </div>
+                </div>
+
+                <div style="display: inline-block; width: 34%; margin-bottom: 30px; vertical-align: top; text-align: center;">
+                    <div style="font-size: 20px; font-weight: bold; margin-bottom: 10px;">
+                        Shelf Depth 25 cm
+                    </div>
+                    <iframe
+                        id="consec2"
+                        width="100%"
+                        style="border-radius: 10px; aspect-ratio: 16 / 9;"
+                        src="https://www.youtube.com/embed/eAdIVmVzyYw?autoplay=1&mute=1&loop=1&playlist=eAdIVmVzyYw"
+                        title="depth 25 silent"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                    <div style="margin-top: 8px; font-size: 16px;">
+                        <a href="https://www.youtube.com/watch?v=eAdIVmVzyYw" target="_blank" style="color: #1a73e8;">
+                            https://www.youtube.com/watch?v=eAdIVmVzyYw
+                        </a>
+                    </div>
+                </div>
+
+                <br>
+
+                <div style="display: inline-block; width: 34%; margin-right: 20px; vertical-align: top; text-align: center;">
+                    <div style="font-size: 20px; font-weight: bold; margin-bottom: 10px;">
+                        Shelf Depth 40 cm
+                    </div>
+                    <iframe
+                        id="consec3"
+                        width="100%"
+                        style="border-radius: 10px; aspect-ratio: 16 / 9;"
+                        src="https://www.youtube.com/embed/AXUZpTh6-gA?autoplay=1&mute=1&loop=1&playlist=AXUZpTh6-gA"
+                        title="depth 40 silent"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                    <div style="margin-top: 8px; font-size: 16px;">
+                        <a href="https://www.youtube.com/watch?v=AXUZpTh6-gA" target="_blank" style="color: #1a73e8;">
+                            https://www.youtube.com/watch?v=AXUZpTh6-gA
+                        </a>
+                    </div>
+                </div>
+
+                <div style="display: inline-block; width: 34%; vertical-align: top; text-align: center;">
+                    <div style="font-size: 20px; font-weight: bold; margin-bottom: 10px;">
+                        Height 130 cm
+                    </div>
+                    <iframe
+                        id="consec4"
+                        width="100%"
+                        style="border-radius: 10px; aspect-ratio: 16 / 9;"
+                        src="https://www.youtube.com/embed/6tj7jMsPUc8?autoplay=1&mute=1&loop=1&playlist=6tj7jMsPUc8"
+                        title="height 130 silent"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                    <div style="margin-top: 8px; font-size: 16px;">
+                        <a href="https://www.youtube.com/watch?v=6tj7jMsPUc8" target="_blank" style="color: #1a73e8;">
+                            https://www.youtube.com/watch?v=6tj7jMsPUc8
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 100px; margin-left: 5px;">
+            <h3 class="col-md-8 col-md-offset-2" style="font-size: 32px; font-weight: bold; text-align:center; margin-bottom: 50px;">
+                Open-scene Task
+            </h3>
+
+            <div class="text-center" style="line-height: 40px;">
+
+                <div style="display: inline-block; width: 34%; margin-right: 20px; margin-bottom: 30px; vertical-align: top; text-align: center;">
+                    <div style="font-size: 20px; font-weight: bold; margin-bottom: 10px;">
+                        Height 0 cm
+                    </div>
+                    <iframe
+                        id="simple1"
+                        width="100%"
+                        style="border-radius: 10px; aspect-ratio: 16 / 9;"
+                        src="https://www.youtube.com/embed/DqyPyKKM-Tc?autoplay=1&mute=1&loop=1&playlist=DqyPyKKM-Tc"
+                        title="height 0 silent"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                    <div style="margin-top: 8px; font-size: 16px;">
+                        <a href="https://www.youtube.com/watch?v=DqyPyKKM-Tc" target="_blank" style="color: #1a73e8;">
+                            https://www.youtube.com/watch?v=DqyPyKKM-Tc
+                        </a>
+                    </div>
+                </div>
+
+                <div style="display: inline-block; width: 34%; margin-bottom: 30px; vertical-align: top; text-align: center;">
+                    <div style="font-size: 20px; font-weight: bold; margin-bottom: 10px;">
+                        Height 40 cm
+                    </div>
+                    <iframe
+                        id="simple2"
+                        width="100%"
+                        style="border-radius: 10px; aspect-ratio: 16 / 9;"
+                        src="https://www.youtube.com/embed/gKnp0Jggmvg?autoplay=1&mute=1&loop=1&playlist=gKnp0Jggmvg"
+                        title="height 40 silent"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                    <div style="margin-top: 8px; font-size: 16px;">
+                        <a href="https://www.youtube.com/watch?v=gKnp0Jggmvg" target="_blank" style="color: #1a73e8;">
+                            https://www.youtube.com/watch?v=gKnp0Jggmvg
+                        </a>
+                    </div>
+                </div>
+
+                <br>
+
+                <div style="display: inline-block; width: 34%; margin-right: 20px; vertical-align: top; text-align: center;">
+                    <div style="font-size: 20px; font-weight: bold; margin-bottom: 10px;">
+                        Height 70 cm
+                    </div>
+                    <iframe
+                        id="simple3"
+                        width="100%"
+                        style="border-radius: 10px; aspect-ratio: 16 / 9;"
+                        src="https://www.youtube.com/embed/yoZSgMN1tx4?autoplay=1&mute=1&loop=1&playlist=yoZSgMN1tx4"
+                        title="height 70 silent"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                    <div style="margin-top: 8px; font-size: 16px;">
+                        <a href="https://www.youtube.com/watch?v=yoZSgMN1tx4" target="_blank" style="color: #1a73e8;">
+                            https://www.youtube.com/watch?v=yoZSgMN1tx4
+                        </a>
+                    </div>
+                </div>
+
+                <div style="display: inline-block; width: 34%; vertical-align: top; text-align: center;">
+                    <div style="font-size: 20px; font-weight: bold; margin-bottom: 10px;">
+                        Height 110 cm
+                    </div>
+                    <iframe
+                        id="simple4"
+                        width="100%"
+                        style="border-radius: 10px; aspect-ratio: 16 / 9;"
+                        src="https://www.youtube.com/embed/_XRj1miLuMM?autoplay=1&mute=1&loop=1&playlist=_XRj1miLuMM"
+                        title="height 110 silent"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                    <div style="margin-top: 8px; font-size: 16px;">
+                        <a href="https://www.youtube.com/watch?v=_XRj1miLuMM" target="_blank" style="color: #1a73e8;">
+                            https://www.youtube.com/watch?v=_XRj1miLuMM
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 100px; margin-left: 5px;">
+            <h3 class="col-md-8 col-md-offset-2" style="font-size: 32px; font-weight: bold; text-align:center; margin-bottom: 50px;">
+                Path Trajectories for Different Methods
+            </h3>
+
+            <div class="text-center" style="line-height: 40px;">
+
+                <div style="display: inline-block; width: 34%; margin-right: 20px; margin-bottom: 30px; vertical-align: top; text-align: center;">
+                    <div style="font-size: 20px; font-weight: bold; margin-bottom: 10px;">
+                        ARR
+                    </div>
+                    <iframe
+                        id="consec1"
+                        width="100%"
+                        style="border-radius: 10px; aspect-ratio: 16 / 9;"
+                        src="https://www.youtube.com/embed/eI1l5MYCYQ8?autoplay=1&mute=1&loop=1&playlist=eI1l5MYCYQ8"
+                        title="ARR"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                    <div style="margin-top: 8px; font-size: 16px;">
+                        <a href="https://www.youtube.com/watch?v=eI1l5MYCYQ8" target="_blank" style="color: #1a73e8;">
+                            https://www.youtube.com/watch?v=eI1l5MYCYQ8
+                        </a>
+                    </div>
+                </div>
+
+                <div style="display: inline-block; width: 34%; margin-bottom: 30px; vertical-align: top; text-align: center;">
+                    <div style="font-size: 20px; font-weight: bold; margin-bottom: 10px;">
+                        ARR W/o <i>d</i><sub>ω</sub> saturation
+                    </div>
+                    <iframe
+                        id="consec2"
+                        width="100%"
+                        style="border-radius: 10px; aspect-ratio: 16 / 9;"
+                        src="https://www.youtube.com/embed/eE-lpCzugf8?autoplay=1&mute=1&loop=1&playlist=eE-lpCzugf8"
+                        title="ARR wo disw"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                    <div style="margin-top: 8px; font-size: 16px;">
+                        <a href="https://www.youtube.com/watch?v=eE-lpCzugf8" target="_blank" style="color: #1a73e8;">
+                            https://www.youtube.com/watch?v=eE-lpCzugf8
+                        </a>
+                    </div>
+                </div>
+
+                <br>
+
+                <div style="display: inline-block; width: 34%; margin-right: 20px; vertical-align: top; text-align: center;">
+                    <div style="font-size: 20px; font-weight: bold; margin-bottom: 10px;">
+                        ARR W/o Conditional <i>v</i><sub>x</sub><sup>ref</sup>
+                    </div>
+                    <iframe
+                        id="consec3"
+                        width="100%"
+                        style="border-radius: 10px; aspect-ratio: 16 / 9;"
+                        src="https://www.youtube.com/embed/Y0G99uSIEBY?autoplay=1&mute=1&loop=1&playlist=Y0G99uSIEBY"
+                        title="ARR wo vxpreref"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                    <div style="margin-top: 8px; font-size: 16px;">
+                        <a href="https://www.youtube.com/watch?v=Y0G99uSIEBY" target="_blank" style="color: #1a73e8;">
+                            https://www.youtube.com/watch?v=Y0G99uSIEBY
+                        </a>
+                    </div>
+                </div>
+
+                <div style="display: inline-block; width: 34%; vertical-align: top; text-align: center;">
+                    <div style="font-size: 20px; font-weight: bold; margin-bottom: 10px;">
+                        AR
+                    </div>
+                    <iframe
+                        id="consec4"
+                        width="100%"
+                        style="border-radius: 10px; aspect-ratio: 16 / 9;"
+                        src="https://www.youtube.com/embed/EU3UD2pwv8c?autoplay=1&mute=1&loop=1&playlist=EU3UD2pwv8c"
+                        title="AR"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                    <div style="margin-top: 8px; font-size: 16px;">
+                        <a href="https://www.youtube.com/watch?v=EU3UD2pwv8c" target="_blank" style="color: #1a73e8;">
+                            https://www.youtube.com/watch?v=EU3UD2pwv8c
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 100px; margin-left: 5px;">
+            <h3 class="col-md-8 col-md-offset-2" style="font-size: 32px; font-weight: bold; text-align:center; margin-bottom: 50px;">
+                Conventional EE Tracking Mode and Posture-conditioned EE Tracking Mode
+            </h3>
+
+            <div class="text-center" style="line-height: 40px;">
+
+                <div style="display: inline-block; width: 34%; margin-right: 20px; vertical-align: top; text-align: center;">
+                    <div style="font-size: 20px; font-weight: bold; margin-bottom: 10px;">
+                        Conventional EE Tracking
+                    </div>
+                    <iframe
+                        id="f2_1"
+                        width="100%"
+                        style="border-radius: 10px; aspect-ratio: 16 / 9;"
+                        src="https://www.youtube.com/embed/Sl_syMa6a9Q?autoplay=1&mute=1&loop=1&playlist=Sl_syMa6a9Q"
+                        title="conventional EE tracking silent"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                    <div style="margin-top: 8px; font-size: 16px;">
+                        <a href="https://www.youtube.com/watch?v=Sl_syMa6a9Q" target="_blank" style="color: #1a73e8;">
+                            https://www.youtube.com/watch?v=Sl_syMa6a9Q
+                        </a>
+                    </div>
+                </div>
+
+                <div style="display: inline-block; width: 34%; vertical-align: top; text-align: center;">
+                    <div style="font-size: 20px; font-weight: bold; margin-bottom: 10px;">
+                        Posture-conditioned EE Tracking
+                    </div>
+                    <iframe
+                        id="f2_2"
+                        width="100%"
+                        style="border-radius: 10px; aspect-ratio: 16 / 9;"
+                        src="https://www.youtube.com/embed/_KCNP0HqxJw?autoplay=1&mute=1&loop=1&playlist=_KCNP0HqxJw"
+                        title="posture constrained EE tracking silent"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                    <div style="margin-top: 8px; font-size: 16px;">
+                        <a href="https://www.youtube.com/watch?v=_KCNP0HqxJw" target="_blank" style="color: #1a73e8;">
+                            https://www.youtube.com/watch?v=_KCNP0HqxJw
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 100px; margin-left: 5px;">
+            <h3 class="col-md-8 col-md-offset-2" style="font-size: 32px; font-weight: bold; text-align:center; margin-bottom: 50px;">
+                Smooth Transition between Locomotion and Manipulation Phase
+            </h3>
+
+            <div class="text-center" style="line-height: 40px;">
+                <div style="display: inline-block; width: 50%; vertical-align: top; text-align: center;">
+                    <iframe
+                        id="long_range_task"
+                        width="100%"
+                        style="border-radius: 10px; aspect-ratio: 16 / 9;"
+                        src="https://www.youtube.com/embed/V1EB-AYRB0I?autoplay=1&mute=1&loop=1&playlist=V1EB-AYRB0I"
+                        title="smooth transition pose"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                    <div style="margin-top: 8px; font-size: 16px;">
+                        <a href="https://www.youtube.com/watch?v=V1EB-AYRB0I" target="_blank" style="color: #1a73e8;">
+                            https://www.youtube.com/watch?v=V1EB-AYRB0I
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 100px; margin-left: 5px;">
+            <h3 class="col-md-8 col-md-offset-2" style="font-size: 32px; font-weight: bold; text-align:center; margin-bottom: 50px;">
+                Long-Range Mobile Manipulation Task
+            </h3>
+
+            <div class="text-center" style="line-height: 40px;">
+
+                <div class="col-md-8 col-md-offset-2">
+                    <p class="text-justify" style="font-size: 16px;">
+                        We demonstrate RoboTrio controlling the WQM to perform a large-range mobile manipulation task: collecting scattered objects.<br>
+                    </p>
+                </div>
+
+                <div style="display: inline-block; width: 50%; vertical-align: top; text-align: center;">
+                    <iframe
+                        id="long_range_task"
+                        width="100%"
+                        style="border-radius: 10px; aspect-ratio: 16 / 9;"
+                        src="https://www.youtube.com/embed/bOUNf09YKmY?autoplay=1&mute=1&loop=1&playlist=bOUNf09YKmY"
+                        title="long horizon silent"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                    <div style="margin-top: 8px; font-size: 16px;">
+                        <a href="https://www.youtube.com/watch?v=bOUNf09YKmY" target="_blank" style="color: #1a73e8;">
+                            https://www.youtube.com/watch?v=bOUNf09YKmY
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div style="width: 100%; max-width: 1000px; margin: 0 auto;">
+            <h3 class="col-md-8 col-md-offset-2" style="font-size: 32px; font-weight: bold; text-align:center; margin-bottom: 50px;">
+                High-Level Policy Training Reward Curves for Different Methods
+            </h3>
+            <embed
+                src="pictures/reward.pdf"
+                type="application/pdf"
+                width="100%"
+                height="700px">
+        </div>
+
+        <!-- <section class="section" id="BibTeX">
+            <div class="container content">
+                <h2 class="titile">BibTeX</h2>
+                <pre><code>
+                @article{liu2024visual,
+                title={Visual Whole-Body Control for Legged Loco-Manipulation},
+                author={Liu, Minghuan and Chen, Zixuan and Cheng, Xuxin and Ji, Yandong and Qiu, Rizhao and Yang, Ruihan and Wang, Xiaolong},
+                journal={The 8th Conference on Robot Learning},
+                year={2024}
+                }
+                </code></pre>
+            </div>
+        </section> -->
+    </div>
+
+
+</body></html>
