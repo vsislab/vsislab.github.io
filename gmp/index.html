@@ -44,10 +44,6 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">A Generalist Agent Learning Architecture for Versatile Quadruped Locomotion</h1>
-          
-          
-
-
           </div>
         </div>
       </div>
@@ -64,7 +60,7 @@
       <div class="column is-two-thirds">
         <h2 class="title is-2">Abstract</h2>
         <div class="content has-text-justified">
-          <p>Quadrupeds can generate various motor behaviors with the muscle synergies activated by the central nervous system. However, versatile locomotion for quadruped robots remains challenging due to the complexity of the high-dimensional limb dynamics with many physical constraints. Current approaches typically apply a dedicated policy or controller for each motor behavior, which requires the optimization of a large number of parameters and is not bionically sound. Inspired by the CNS and the muscle synergies of quadruped animals, we propose a Generalist Agent Learning Architecture (GALA) to learn diverse motor behaviors simultaneously with a single policy network for quadruped locomotion. GALA significantly decreases the number of trainable parameters while producing appropriate motor behaviors by simply reactivating the generalist policy based on different sensory feedback and commands at run time. We experimentally analyze and demonstrate the versatile locomotion delivered by GALA on both simulated and real quadruped robots in various environments. The code is available at https://github.com/vsislab/GALA.</p>
+          <p>Humanoids increasingly demand a single policy capable of generalizing across diverse motion categories and deployment scenarios. However, most reinforcement imitation learning-based approaches formulate motion tracking as an instantaneous alignment problem coupled with motion-agnostic smoothness regularization, which limits whole-body expressiveness and cross-scenario adaptability of humanoid robots. To address this issue, we propose the generalist motion policy (GMP) for humanoid whole-body control (WBC). It not only pursues high instantaneous tracking accuracy, but also allows appropriate action adjustment that deviates from the reference trajectory, improving generalization across diverse motions. Moreover, \OurS replaces smoothness regularization based on instantaneous state variations with motion-dependent regularization based on frequency-domain alignment, which both suppresses high-frequency jitter in smooth motions and tracks highly dynamic motions well. Extensive experiments in simulated and real-world environments demonstrate that GMP achieves good cross-task generalization and outperforms a set of state-of-the-art methods for humanoid WBC.</p>
         </div>
       </div>
     </div>
@@ -77,10 +73,10 @@
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3" style="text-align: center;">Video S1: Performance of recovery behavior</h2>
+        <h2 class="title is-3" style="text-align: center;">Supplementary Video S1: Real-world Experimental Results of Tracking Diverse Motions</h2>
             <br>
             <div class="publication-video">
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/OJBHDvUTZ70?si=8vRnkfKPioIRg9mj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              <iframe width="560" height="315" src="https://www.youtube.com/watch?v=cHdhTPf57_0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       </div>
     </div>
   </div>
