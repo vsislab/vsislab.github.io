@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Oriented Ship Detection via Key Structural Landmarks in Optical Remote Sensing Image</title>
+    <!-- CSS -->
+        <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+    <!-- ENDS CSS -->
+  </head>
+  <body>
+    <!-- MAIN -->
+    <div id="main">
+
+            <div id="match-nav-wrapper">
+                <div id="match-nav-bar">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <!--th width="10%"><a href="#">Home</a></th-->
+                                <!--th width="30%"><a href="#video-explicit">Demonstration of the explicit method</a></th>
+                                <th width="30%"><a href="#video-implicit">Demonstration of the implicit method</a></th-->
+                                <!--th width="15%"></th-->
+                            </tr>
+                        </thead>
+                    </table>
+
+                </div>
+            </div>
+
+      <!-- HEADER -->
+      <div id="home-header">
+
+            <div id="match-wrapper">
+
+                <h2>Oriented Ship Detection via Key Structural Landmarks in Optical Remote Sensing Image</h2>
+                <center>
+                  Youmei Zhang<sup>1</sup>, Yang Yu<sup>1</sup>, Bin Li<sup>1</sup>, Zhiheng Li<sup>2</sup>, Mingxin Zhang<sup>2</sup>, Runmin Cong<sup>2</sup>, Wei Zhang<sup>2</sup><br />
+                  <font size="2">1 School of Mathematics and Statistics, Qilu University of Technology (Shandong Academy of Sciences)</font>
+                  <font size="2">2 School of Control Science and Engineering, Shandong University</font>
+                </center>
+                <br><strong>Abstract</strong>
+                <p style="text-align:justify; text-justify:inter-ideograph;">
+                Ship detection from remote sensing imagery constitutes a cornerstone for applications such as marine monitoring and maritime traffic management. However, existing methods based on horizontal bounding box (HBB) or oriented bounding box (OBB) regression paradigms are often plagued by notable limitations in complex scenarios. Traditional HBBs tend to encompass excessive background noise, degrading feature representation efficacy and localization precision. Although OBBs mitigate misalignment, they suffer from angular periodicity discontinuities and high sensitivity to aspect ratios. To overcome these issues, this paper first proposes a novel nine-landmark ship structural representation based on ship functional morphology, which characterizes key regions of the bow, stern, and superstructure as explicit geometric priors. Built upon this representation, we further present a two-stage framework for high-accuracy OBB detection and semantic segmentation. Specifically, an HBB detector first coarsely localizes ship instances. Then, a Ship Holistic-Part Graph Transformer (SHPG-Transformer) module is introduced to explicitly model spatial correlations between global ship geometry and local structural components, thereby improving landmark regression robustness and sample efficiency. Furthermore, the Segment Anything Model (SAM) is incorporated to achieve fine-grained semantic segmentation, establishing a unified detection-segmentation pipeline. In the experiments, we extend the HRSC2016 dataset with dense landmark annotations for training and evaluation. Extensive experiments demonstrate that the proposed method achieves state-of-the-art performance on two popular public benchmarks, HRSC2016 and ShipRSImageNet. Moreover, it accomplishes multi-object instance segmentation on HRSC2016, ShipRSImageNet, ISDSD, FGSCR, and FGSD2021 datasets.
+                </p>
+
+
+                <div style="text-align:center; margin:30px 0;">
+                    <p><strong>Overview of the proposed nine-landmark ship structural representation</strong></p>
+                    <div style="display:flex; justify-content:center; align-items:center; max-width:100%;">
+                        <img src="images/motivation.png" style="max-width:85%; height:auto; object-fit:contain;">
+                    </div>
+                    <p style="color:#666; font-size:0.9em; margin-top:10px;">(a) Illustrations of HBB, OBB, and landmarks. (b) Landmarks of various ships under different attitudes. (c) Incomplete detections with conventional OBBs. (d) Incomplete detections revealed by landmark-based detection.</p>
+                </div>
+                <br>
+                <br><br>
+
+                <h1>Ship Key Structural Landmarks</h1>
+                    <div style="text-align:center; margin:30px 0;">
+                        <p><strong>Common structural characteristics of ships from a remote sensing perspective</strong></p>
+                        <div style="display:flex; justify-content:center; align-items:center; max-width:100%;">
+                            <img src="images/ship_structure.png" style="max-width:65%; height:auto; object-fit:contain;">
+                        </div>
+                    </div>
+
+                    <div style="text-align:center; margin:30px 0;">
+                        <p><strong>Comparison of three key-landmark-based ship structural representation schemes (LM<sub>3</sub>, LM<sub>5</sub>, LM<sub>9</sub>)</strong></p>
+                        <div style="display:flex; justify-content:center; align-items:center; max-width:100%;">
+                            <img src="images/lms.png" style="max-width:85%; height:auto; object-fit:contain;">
+                        </div>
+                    </div>
+
+                    <div style="text-align:center; margin:30px 0;">
+                        <p><strong>Multi-task outputs derived from landmarks via topological geometric relationships: HBB, OBB, and fine-grained segmentation</strong></p>
+                        <div style="display:flex; justify-content:center; align-items:center; max-width:100%;">
+                            <img src="images/converts.png" style="max-width:85%; height:auto; object-fit:contain;">
+                        </div>
+                    </div>
+
+                    <div style="text-align:center; margin:30px 0;">
+                        <p><strong>Visual comparison of HBB and OBB converted from ship key landmarks under different IoU thresholds</strong></p>
+                        <div style="display:flex; justify-content:center; align-items:center; max-width:100%;">
+                            <img src="images/com_dis.png" style="max-width:85%; height:auto; object-fit:contain;">
+                        </div>
+                    </div>
+
+                    <div style="text-align:center; margin:30px 0;">
+                        <p><strong>Fine-grained segmentation of ships based on annotated landmarks and structural connectivity</strong></p>
+                        <div style="display:flex; justify-content:center; align-items:center; max-width:100%;">
+                            <img src="images/fine.png" style="max-width:80%; height:auto; object-fit:contain;">
+                        </div>
+                    </div>
+
+
+                <br><br><br>
+                <h1>SHPG-Transformer Architecture</h1>
+                    <div style="text-align:center; margin:30px 0;">
+                        <p><strong>Overall framework of oriented ship detection via key structural landmarks and architecture of the SHPG-Transformer module</strong></p>
+                        <div style="display:flex; justify-content:center; align-items:center; max-width:100%;">
+                            <img src="images/architecture.png" style="max-width:85%; height:auto; object-fit:contain;">
+                        </div>
+                        <p style="color:#666; font-size:0.9em; margin-top:10px;">The two-stage framework consists of a Horizontal Object Detector, the SHPG-Transformer landmark detector (HRNet + Transformer + Holistic-GCN + Part-GCN branches BP-GCN/SP-GCN/SSP-GCN), and a Coarse-to-Fine Landmark Refinement module with landmark completion and PCA-based orientation rectification.</p>
+                    </div>
+
+
+                <br><br><br>
+                <h1>Experimental Results</h1>
+                    <div style="text-align:center; margin:30px 0;">
+                        <p><strong>Visualization of our method and other methods for ship OBB detection on HRSC2016 (red: GT, green: prediction)</strong></p>
+                        <div style="display:flex; justify-content:center; align-items:center; max-width:100%;">
+                            <img src="images/Detection.png" style="max-width:85%; height:auto; object-fit:contain;">
+                        </div>
+                    </div>
+
+                    <div style="text-align:center; margin:30px 0;">
+                        <p><strong>Visualization of semantic and fine-grained segmentation with landmark-guided SAM across five public datasets (HRSC2016, ShipRSImageNet, ISDSD, FGSCR-42, FGSD2021)</strong></p>
+                        <div style="display:flex; justify-content:center; align-items:center; max-width:100%;">
+                            <img src="images/fine_segmentation.png" style="max-width:85%; height:auto; object-fit:contain;">
+                        </div>
+                    </div>
+
+                    <div style="text-align:center; margin:30px 0;">
+                        <p><strong>Detection results under challenging conditions (Dense, Small, Incomplete subsets). Red: GT, Green: prediction.</strong></p>
+                        <div style="display:flex; justify-content:center; align-items:center; max-width:100%;">
+                            <img src="images/showcase.png" style="max-width:60%; height:auto; object-fit:contain;">
+                        </div>
+                    </div>
+
+                    <div style="text-align:center; margin:30px 0;">
+                        <p><strong>Failure detection examples (IoU &lt; 0.5) with predicted landmark positions and indices visualized</strong></p>
+                        <div style="display:flex; justify-content:center; align-items:center; max-width:100%;">
+                            <img src="images/failure.png" style="max-width:85%; height:auto; object-fit:contain;">
+                        </div>
+                    </div>
+
+
+                <br><br><br>
+                <h1>Performance Comparison</h1>
+
+                    <div style="background-color: #f5f5f5; padding: 20px; border-radius: 5px; margin: 20px 0;">
+                        <h3 style="font-weight:700; font-size:18px; margin-top:0;">Results on HRSC2016</h3>
+                        <table style="width:100%; border-collapse:collapse; margin-top:10px;">
+                            <tr style="border-bottom:1px solid #ccc;">
+                                <th style="padding:8px; text-align:left;">Method</th>
+                                <th style="padding:8px; text-align:center;">Publication</th>
+                                <th style="padding:8px; text-align:center;">Input Size</th>
+                                <th style="padding:8px; text-align:center;">Year</th>
+                                <th style="padding:8px; text-align:center;">mAP</th>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;"><td style="padding:8px;">SES-O</td><td style="padding:8px; text-align:center;">TIP</td><td style="padding:8px; text-align:center;">1024&times;1024</td><td style="padding:8px; text-align:center;">2023</td><td style="padding:8px; text-align:center;">0.9064</td></tr>
+                            <tr style="border-bottom:1px solid #eee;"><td style="padding:8px;">CANet</td><td style="padding:8px; text-align:center;">JSTARS</td><td style="padding:8px; text-align:center;">800&times;800</td><td style="padding:8px; text-align:center;">2025</td><td style="padding:8px; text-align:center;">0.9066</td></tr>
+                            <tr style="border-bottom:1px solid #eee;"><td style="padding:8px;">OriMamba</td><td style="padding:8px; text-align:center;">JAG</td><td style="padding:8px; text-align:center;">800&times;800</td><td style="padding:8px; text-align:center;">2025</td><td style="padding:8px; text-align:center;">0.9070</td></tr>
+                            <tr style="border-bottom:1px solid #eee;"><td style="padding:8px;">MSRO-Net</td><td style="padding:8px; text-align:center;">Sci. Rep.</td><td style="padding:8px; text-align:center;">800&times;800</td><td style="padding:8px; text-align:center;">2025</td><td style="padding:8px; text-align:center;">0.9070</td></tr>
+                            <tr style="border-bottom:1px solid #ddd; background-color:#e8f5e9;">
+                                <td style="padding:8px; font-weight:bold;">Ours (SHPG-Transformer)</td>
+                                <td style="padding:8px; text-align:center;">TIP</td><td style="padding:8px; text-align:center;">640&times;640</td><td style="padding:8px; text-align:center;">2025</td>
+                                <td style="padding:8px; text-align:center; font-weight:bold; color:#1565c0;">0.9086</td>
+                            </tr>
+                        </table>
+                        <p style="color:#666; font-size:0.85em; margin-top:8px;">Full comparison includes 30+ methods (anchor-based and anchor-free). Our method achieves state-of-the-art with mAP of 0.9086.</p>
+                    </div>
+
+                    <div style="background-color: #f5f5f5; padding: 20px; border-radius: 5px; margin: 20px 0;">
+                        <h3 style="font-weight:700; font-size:18px; margin-top:0;">Results on ShipRSImageNet</h3>
+                        <table style="width:100%; border-collapse:collapse; margin-top:10px;">
+                            <tr style="border-bottom:1px solid #ccc;">
+                                <th style="padding:8px; text-align:left;">Method</th>
+                                <th style="padding:8px; text-align:center;">Publication</th>
+                                <th style="padding:8px; text-align:center;">Input Size</th>
+                                <th style="padding:8px; text-align:center;">Year</th>
+                                <th style="padding:8px; text-align:center;">mAP</th>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;"><td style="padding:8px;">RoI Transformer</td><td style="padding:8px; text-align:center;">CVPR</td><td style="padding:8px; text-align:center;">1024&times;1024</td><td style="padding:8px; text-align:center;">2019</td><td style="padding:8px; text-align:center;">0.6522</td></tr>
+                            <tr style="border-bottom:1px solid #eee;"><td style="padding:8px;">R3Det</td><td style="padding:8px; text-align:center;">AAAI</td><td style="padding:8px; text-align:center;">1024&times;1024</td><td style="padding:8px; text-align:center;">2021</td><td style="padding:8px; text-align:center;">0.6860</td></tr>
+                            <tr style="border-bottom:1px solid #eee;"><td style="padding:8px;">DAL</td><td style="padding:8px; text-align:center;">AAAI</td><td style="padding:8px; text-align:center;">1024&times;1024</td><td style="padding:8px; text-align:center;">2021</td><td style="padding:8px; text-align:center;">0.6940</td></tr>
+                            <tr style="border-bottom:1px solid #eee;"><td style="padding:8px;">O-RCNN</td><td style="padding:8px; text-align:center;">ICCV</td><td style="padding:8px; text-align:center;">1024&times;1024</td><td style="padding:8px; text-align:center;">2021</td><td style="padding:8px; text-align:center;">0.7150</td></tr>
+                            <tr style="border-bottom:1px solid #eee;"><td style="padding:8px;">PETDNet</td><td style="padding:8px; text-align:center;">TGRS</td><td style="padding:8px; text-align:center;">1024&times;1024</td><td style="padding:8px; text-align:center;">2023</td><td style="padding:8px; text-align:center;">0.7490</td></tr>
+                            <tr style="border-bottom:1px solid #eee;"><td style="padding:8px;">WTDBNet</td><td style="padding:8px; text-align:center;">Remote Sens.</td><td style="padding:8px; text-align:center;">1024&times;1024</td><td style="padding:8px; text-align:center;">2025</td><td style="padding:8px; text-align:center;">0.7511</td></tr>
+                            <tr style="border-bottom:1px solid #ddd; background-color:#e8f5e9;">
+                                <td style="padding:8px; font-weight:bold;">Ours (SHPG-Transformer)</td>
+                                <td style="padding:8px; text-align:center;">TIP</td><td style="padding:8px; text-align:center;">1024&times;1024</td><td style="padding:8px; text-align:center;">2025</td>
+                                <td style="padding:8px; text-align:center; font-weight:bold; color:#1565c0;">0.8015</td>
+                            </tr>
+                        </table>
+                        <p style="color:#666; font-size:0.85em; margin-top:8px;">* Improves state-of-the-art by 3.65%. Under our default 640&times;640 input size, mAP is 0.7876.</p>
+                    </div>
+
+
+                <br><br><br>
+                <h1>Paper Download</h1>
+                <div style="background-color: #f5f5f5; padding: 20px; border-radius: 5px; margin: 20px 0;">
+                    <p><strong>Oriented Ship Detection via Key Structural Landmarks in Optical Remote Sensing Image</strong></p>
+                    <p>Youmei Zhang, Yang Yu, Bin Li, Zhiheng Li, Mingxin Zhang, Runmin Cong, Wei Zhang</p>
+                    <p><em>IEEE Transactions on Image Processing (TIP), 2025</em></p>
+                    <p>
+                        <a href="RS_TIP_R2.pdf" style="color:#1565c0;font-weight:bold;text-decoration:underline;">
+                            [Paper (PDF)]
+                        </a>
+                        &nbsp;&nbsp;
+                        <a href="#" style="color:#999;font-weight:bold;text-decoration:none;">[Code (Coming Soon)]</a>
+                    </p>
+                </div>
+
+              </div>
+      <!-- ENDS Footer -->
+  </body>
+</html>
