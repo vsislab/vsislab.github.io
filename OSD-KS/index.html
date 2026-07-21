@@ -141,30 +141,131 @@
 
                     <div style="background-color: #f5f5f5; padding: 20px; border-radius: 5px; margin: 20px 0;">
                         <h3 style="font-weight:700; font-size:18px; margin-top:0;">Results on HRSC2016</h3>
-                        <table style="width:100%; border-collapse:collapse; margin-top:10px;">
+                        <table style="width:100%; border-collapse:collapse; font-size:0.88em;">
                             <tr style="border-bottom:1px solid #ccc;">
-                                <th style="padding:8px; text-align:left;">Method</th>
-                                <th style="padding:8px; text-align:center;">Publication</th>
-                                <th style="padding:8px; text-align:center;">Input Size</th>
-                                <th style="padding:8px; text-align:center;">Year</th>
-                                <th style="padding:8px; text-align:center;">mAP</th>
+                                <th style="padding:4px; text-align:left;" colspan="5">Anchor-free</th>
+                                <th style="padding:4px; width:20px;"></th>
+                                <th style="padding:4px; text-align:left;" colspan="5">Anchor-based</th>
                             </tr>
-                            <tr style="border-bottom:1px solid #eee;"><td style="padding:8px;">SES-O</td><td style="padding:8px; text-align:center;">TIP</td><td style="padding:8px; text-align:center;">1024&times;1024</td><td style="padding:8px; text-align:center;">2023</td><td style="padding:8px; text-align:center;">0.9064</td></tr>
-                            <tr style="border-bottom:1px solid #eee;"><td style="padding:8px;">CANet</td><td style="padding:8px; text-align:center;">JSTARS</td><td style="padding:8px; text-align:center;">800&times;800</td><td style="padding:8px; text-align:center;">2025</td><td style="padding:8px; text-align:center;">0.9066</td></tr>
-                            <tr style="border-bottom:1px solid #eee;"><td style="padding:8px;">OriMamba</td><td style="padding:8px; text-align:center;">JAG</td><td style="padding:8px; text-align:center;">800&times;800</td><td style="padding:8px; text-align:center;">2025</td><td style="padding:8px; text-align:center;">0.9070</td></tr>
-                            <tr style="border-bottom:1px solid #eee;"><td style="padding:8px;">MSRO-Net</td><td style="padding:8px; text-align:center;">Sci. Rep.</td><td style="padding:8px; text-align:center;">800&times;800</td><td style="padding:8px; text-align:center;">2025</td><td style="padding:8px; text-align:center;">0.9070</td></tr>
-                            <tr style="border-bottom:1px solid #ddd; background-color:#e8f5e9;">
-                                <td style="padding:8px; font-weight:bold;">Ours (SHPG-Transformer)</td>
-                                <td style="padding:8px; text-align:center;">TIP</td><td style="padding:8px; text-align:center;">640&times;640</td><td style="padding:8px; text-align:center;">2025</td>
-                                <td style="padding:8px; text-align:center; font-weight:bold; color:#1565c0;">0.9086</td>
+                            <tr style="border-bottom:1px solid #ccc;">
+                                <th style="padding:4px; text-align:left;">Method</th>
+                                <th style="padding:4px; text-align:center;">Pub.</th>
+                                <th style="padding:4px; text-align:center;">Input Size</th>
+                                <th style="padding:4px; text-align:center;">Year</th>
+                                <th style="padding:4px; text-align:center;">mAP</th>
+                                <th style="padding:4px;"></th>
+                                <th style="padding:4px; text-align:left;">Method</th>
+                                <th style="padding:4px; text-align:center;">Pub.</th>
+                                <th style="padding:4px; text-align:center;">Input Size</th>
+                                <th style="padding:4px; text-align:center;">Year</th>
+                                <th style="padding:4px; text-align:center;">mAP</th>
+                            </tr>
+                            <!-- Row by row, anchor-free | anchor-based -->
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:3px;">BBAVectors</td><td style="padding:3px; text-align:center;">WACV</td><td style="padding:3px; text-align:center;">608&times;608</td><td style="padding:3px; text-align:center;">2021</td><td style="padding:3px; text-align:center;">0.8820</td>
+                                <td style="padding:3px;"></td>
+                                <td style="padding:3px;">RoI-Transformer</td><td style="padding:3px; text-align:center;">CVPR</td><td style="padding:3px; text-align:center;">512&times;800</td><td style="padding:3px; text-align:center;">2019</td><td style="padding:3px; text-align:center;">0.8620</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:3px;">AOPDet</td><td style="padding:3px; text-align:center;">TGRS</td><td style="padding:3px; text-align:center;">1024&times;1024</td><td style="padding:3px; text-align:center;">2021</td><td style="padding:3px; text-align:center;">0.8850</td>
+                                <td style="padding:3px;"></td>
+                                <td style="padding:3px;">DAL</td><td style="padding:3px; text-align:center;">AAAI</td><td style="padding:3px; text-align:center;">800&times;800</td><td style="padding:3px; text-align:center;">2021</td><td style="padding:3px; text-align:center;">0.8895</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:3px;">VGL</td><td style="padding:3px; text-align:center;">GRSL</td><td style="padding:3px; text-align:center;">608&times;608</td><td style="padding:3px; text-align:center;">2021</td><td style="padding:3px; text-align:center;">0.8978</td>
+                                <td style="padding:3px;"></td>
+                                <td style="padding:3px;">RIDet-Q</td><td style="padding:3px; text-align:center;">GRSL</td><td style="padding:3px; text-align:center;">416&times;416</td><td style="padding:3px; text-align:center;">2021</td><td style="padding:3px; text-align:center;">0.8910</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:3px;">SADA-Net</td><td style="padding:3px; text-align:center;">Symmetry</td><td style="padding:3px; text-align:center;">512&times;800</td><td style="padding:3px; text-align:center;">2025</td><td style="padding:3px; text-align:center;">0.9005</td>
+                                <td style="padding:3px;"></td>
+                                <td style="padding:3px;">R3Det</td><td style="padding:3px; text-align:center;">AAAI</td><td style="padding:3px; text-align:center;">800&times;800</td><td style="padding:3px; text-align:center;">2021</td><td style="padding:3px; text-align:center;">0.8926</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:3px;">FCOS+PSC</td><td style="padding:3px; text-align:center;">TPAMI</td><td style="padding:3px; text-align:center;">800&times;800</td><td style="padding:3px; text-align:center;">2024</td><td style="padding:3px; text-align:center;">0.9006</td>
+                                <td style="padding:3px;"></td>
+                                <td style="padding:3px;">SLA</td><td style="padding:3px; text-align:center;">Remote Sens.</td><td style="padding:3px; text-align:center;">768&times;768</td><td style="padding:3px; text-align:center;">2021</td><td style="padding:3px; text-align:center;">0.8951</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:3px;">TIOE-Det</td><td style="padding:3px; text-align:center;">ISPRS J.</td><td style="padding:3px; text-align:center;">512&times;800</td><td style="padding:3px; text-align:center;">2023</td><td style="padding:3px; text-align:center;">0.9016</td>
+                                <td style="padding:3px;"></td>
+                                <td style="padding:3px;">CSL</td><td style="padding:3px; text-align:center;">IJCV</td><td style="padding:3px; text-align:center;">800&times;800</td><td style="padding:3px; text-align:center;">2022</td><td style="padding:3px; text-align:center;">0.8962</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:3px;">M2VDet</td><td style="padding:3px; text-align:center;">TGRS</td><td style="padding:3px; text-align:center;">800&times;800</td><td style="padding:3px; text-align:center;">2023</td><td style="padding:3px; text-align:center;">0.9018</td>
+                                <td style="padding:3px;"></td>
+                                <td style="padding:3px;">DDDet</td><td style="padding:3px; text-align:center;">TGRS</td><td style="padding:3px; text-align:center;">800&times;800</td><td style="padding:3px; text-align:center;">2024</td><td style="padding:3px; text-align:center;">0.9028</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:3px;">PSD-SQ</td><td style="padding:3px; text-align:center;">TGRS</td><td style="padding:3px; text-align:center;">800&times;800</td><td style="padding:3px; text-align:center;">2024</td><td style="padding:3px; text-align:center;">0.9023</td>
+                                <td style="padding:3px;"></td>
+                                <td style="padding:3px;">GCA2Net</td><td style="padding:3px; text-align:center;">Remote Sens.</td><td style="padding:3px; text-align:center;">1024&times;1024</td><td style="padding:3px; text-align:center;">2025</td><td style="padding:3px; text-align:center;">0.9040</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:3px;">RHNet</td><td style="padding:3px; text-align:center;">TGRS</td><td style="padding:3px; text-align:center;">1024&times;1024</td><td style="padding:3px; text-align:center;">2023</td><td style="padding:3px; text-align:center;">0.9027</td>
+                                <td style="padding:3px;"></td>
+                                <td style="padding:3px;">ReDet</td><td style="padding:3px; text-align:center;">CVPR</td><td style="padding:3px; text-align:center;">512&times;800</td><td style="padding:3px; text-align:center;">2021</td><td style="padding:3px; text-align:center;">0.9046</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:3px;">GTDet</td><td style="padding:3px; text-align:center;">TGRS</td><td style="padding:3px; text-align:center;">1024&times;1024</td><td style="padding:3px; text-align:center;">2024</td><td style="padding:3px; text-align:center;">0.9027</td>
+                                <td style="padding:3px;"></td>
+                                <td style="padding:3px;">ORENet</td><td style="padding:3px; text-align:center;">GRSL</td><td style="padding:3px; text-align:center;">800&times;800</td><td style="padding:3px; text-align:center;">2025</td><td style="padding:3px; text-align:center;">0.9047</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:3px;">ABFL</td><td style="padding:3px; text-align:center;">TGRS</td><td style="padding:3px; text-align:center;">800&times;800</td><td style="padding:3px; text-align:center;">2024</td><td style="padding:3px; text-align:center;">0.9030</td>
+                                <td style="padding:3px;"></td>
+                                <td style="padding:3px;">O-RCNN</td><td style="padding:3px; text-align:center;">ICCV</td><td style="padding:3px; text-align:center;">800&times;L</td><td style="padding:3px; text-align:center;">2021</td><td style="padding:3px; text-align:center;">0.9050</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:3px;">AOPG</td><td style="padding:3px; text-align:center;">TGRS</td><td style="padding:3px; text-align:center;">800&times;1333</td><td style="padding:3px; text-align:center;">2022</td><td style="padding:3px; text-align:center;">0.9034</td>
+                                <td style="padding:3px;"></td>
+                                <td style="padding:3px;">HGDNet</td><td style="padding:3px; text-align:center;">TPAMI</td><td style="padding:3px; text-align:center;">800&times;L</td><td style="padding:3px; text-align:center;">2025</td><td style="padding:3px; text-align:center;">0.9051</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:3px;">O-RepPoints</td><td style="padding:3px; text-align:center;">CVPR</td><td style="padding:3px; text-align:center;">1024&times;1024</td><td style="padding:3px; text-align:center;">2022</td><td style="padding:3px; text-align:center;">0.9038</td>
+                                <td style="padding:3px;"></td>
+                                <td style="padding:3px;">GAANet</td><td style="padding:3px; text-align:center;">Symmetry</td><td style="padding:3px; text-align:center;">800&times;800</td><td style="padding:3px; text-align:center;">2025</td><td style="padding:3px; text-align:center;">0.9058</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:3px;">ACE</td><td style="padding:3px; text-align:center;">TIP</td><td style="padding:3px; text-align:center;">640&times;640</td><td style="padding:3px; text-align:center;">2022</td><td style="padding:3px; text-align:center;">0.9050</td>
+                                <td style="padding:3px;"></td>
+                                <td style="padding:3px;">SES-O</td><td style="padding:3px; text-align:center;">TIP</td><td style="padding:3px; text-align:center;">1024&times;1024</td><td style="padding:3px; text-align:center;">2023</td><td style="padding:3px; text-align:center;">0.9064</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:3px;">GF-CSL</td><td style="padding:3px; text-align:center;">TGRS</td><td style="padding:3px; text-align:center;">800&times;800</td><td style="padding:3px; text-align:center;">2022</td><td style="padding:3px; text-align:center;">0.9053</td>
+                                <td style="padding:3px;"></td>
+                                <td style="padding:3px;">CANet</td><td style="padding:3px; text-align:center;">JSTARS</td><td style="padding:3px; text-align:center;">800&times;800</td><td style="padding:3px; text-align:center;">2025</td><td style="padding:3px; text-align:center;">0.9066</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:3px;">YOLO-SM-Tiny</td><td style="padding:3px; text-align:center;">IVC</td><td style="padding:3px; text-align:center;">800&times;800</td><td style="padding:3px; text-align:center;">2025</td><td style="padding:3px; text-align:center;">0.9060</td>
+                                <td style="padding:3px;"></td>
+                                <td style="padding:3px;">OriMamba</td><td style="padding:3px; text-align:center;">JAG</td><td style="padding:3px; text-align:center;">800&times;800</td><td style="padding:3px; text-align:center;">2025</td><td style="padding:3px; text-align:center;">0.9070</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:3px;">CGD</td><td style="padding:3px; text-align:center;">Elec.</td><td style="padding:3px; text-align:center;">640&times;L</td><td style="padding:3px; text-align:center;">2023</td><td style="padding:3px; text-align:center;">0.9061</td>
+                                <td style="padding:3px;"></td>
+                                <td style="padding:3px;">MSRO-Net</td><td style="padding:3px; text-align:center;">Sci. Rep.</td><td style="padding:3px; text-align:center;">800&times;800</td><td style="padding:3px; text-align:center;">2025</td><td style="padding:3px; text-align:center;">0.9070</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #ccc;">
+                                <td style="padding:3px;"></td><td style="padding:3px; text-align:center;"></td><td style="padding:3px; text-align:center;"></td><td style="padding:3px; text-align:center;"></td><td style="padding:3px; text-align:center;"></td>
+                                <td style="padding:3px;"></td>
+                                <td style="padding:3px;"></td><td style="padding:3px; text-align:center;"></td><td style="padding:3px; text-align:center;"></td><td style="padding:3px; text-align:center;"></td><td style="padding:3px; text-align:center;"></td>
+                            </tr>
+                            <tr style="background-color:#e8f5e9;">
+                                <td style="padding:3px; font-weight:bold;" colspan="2">Ours</td>
+                                <td style="padding:3px; text-align:center;">640&times;640</td><td style="padding:3px; text-align:center;">2025</td>
+                                <td style="padding:3px; text-align:center; font-weight:bold; color:#1565c0;">0.9086</td>
+                                <td style="padding:3px;"></td>
+                                <td style="padding:3px; font-weight:bold;" colspan="2">Ours</td>
+                                <td style="padding:3px; text-align:center;">640&times;640</td><td style="padding:3px; text-align:center;">2025</td>
+                                <td style="padding:3px; text-align:center; font-weight:bold; color:#1565c0;">0.9086</td>
                             </tr>
                         </table>
-                        <p style="color:#666; font-size:0.85em; margin-top:8px;">Full comparison includes 30+ methods (anchor-based and anchor-free). Our method achieves state-of-the-art with mAP of 0.9086.</p>
                     </div>
 
                     <div style="background-color: #f5f5f5; padding: 20px; border-radius: 5px; margin: 20px 0;">
                         <h3 style="font-weight:700; font-size:18px; margin-top:0;">Results on ShipRSImageNet</h3>
-                        <table style="width:100%; border-collapse:collapse; margin-top:10px;">
+                        <table style="width:100%; border-collapse:collapse;">
                             <tr style="border-bottom:1px solid #ccc;">
                                 <th style="padding:8px; text-align:left;">Method</th>
                                 <th style="padding:8px; text-align:center;">Publication</th>
@@ -172,21 +273,269 @@
                                 <th style="padding:8px; text-align:center;">Year</th>
                                 <th style="padding:8px; text-align:center;">mAP</th>
                             </tr>
-                            <tr style="border-bottom:1px solid #eee;"><td style="padding:8px;">RoI Transformer</td><td style="padding:8px; text-align:center;">CVPR</td><td style="padding:8px; text-align:center;">1024&times;1024</td><td style="padding:8px; text-align:center;">2019</td><td style="padding:8px; text-align:center;">0.6522</td></tr>
-                            <tr style="border-bottom:1px solid #eee;"><td style="padding:8px;">R3Det</td><td style="padding:8px; text-align:center;">AAAI</td><td style="padding:8px; text-align:center;">1024&times;1024</td><td style="padding:8px; text-align:center;">2021</td><td style="padding:8px; text-align:center;">0.6860</td></tr>
-                            <tr style="border-bottom:1px solid #eee;"><td style="padding:8px;">DAL</td><td style="padding:8px; text-align:center;">AAAI</td><td style="padding:8px; text-align:center;">1024&times;1024</td><td style="padding:8px; text-align:center;">2021</td><td style="padding:8px; text-align:center;">0.6940</td></tr>
-                            <tr style="border-bottom:1px solid #eee;"><td style="padding:8px;">O-RCNN</td><td style="padding:8px; text-align:center;">ICCV</td><td style="padding:8px; text-align:center;">1024&times;1024</td><td style="padding:8px; text-align:center;">2021</td><td style="padding:8px; text-align:center;">0.7150</td></tr>
-                            <tr style="border-bottom:1px solid #eee;"><td style="padding:8px;">PETDNet</td><td style="padding:8px; text-align:center;">TGRS</td><td style="padding:8px; text-align:center;">1024&times;1024</td><td style="padding:8px; text-align:center;">2023</td><td style="padding:8px; text-align:center;">0.7490</td></tr>
-                            <tr style="border-bottom:1px solid #eee;"><td style="padding:8px;">WTDBNet</td><td style="padding:8px; text-align:center;">Remote Sens.</td><td style="padding:8px; text-align:center;">1024&times;1024</td><td style="padding:8px; text-align:center;">2025</td><td style="padding:8px; text-align:center;">0.7511</td></tr>
+                            <tr style="border-bottom:1px solid #eee;"><td style="padding:6px;">FR-CNN</td><td style="padding:6px; text-align:center;">NeurIPS</td><td style="padding:6px; text-align:center;">1024&times;1024</td><td style="padding:6px; text-align:center;">2015</td><td style="padding:6px; text-align:center;">0.5689</td></tr>
+                            <tr style="border-bottom:1px solid #eee;"><td style="padding:6px;">RetinaNet</td><td style="padding:6px; text-align:center;">ICCV</td><td style="padding:6px; text-align:center;">1024&times;1024</td><td style="padding:6px; text-align:center;">2017</td><td style="padding:6px; text-align:center;">0.5950</td></tr>
+                            <tr style="border-bottom:1px solid #eee;"><td style="padding:6px;">Reppoints</td><td style="padding:6px; text-align:center;">ICCV</td><td style="padding:6px; text-align:center;">1024&times;1024</td><td style="padding:6px; text-align:center;">2019</td><td style="padding:6px; text-align:center;">0.3910</td></tr>
+                            <tr style="border-bottom:1px solid #eee;"><td style="padding:6px;">FCOS</td><td style="padding:6px; text-align:center;">ICCV</td><td style="padding:6px; text-align:center;">1024&times;1024</td><td style="padding:6px; text-align:center;">2019</td><td style="padding:6px; text-align:center;">0.6940</td></tr>
+                            <tr style="border-bottom:1px solid #eee;"><td style="padding:6px;">RoI Transformer</td><td style="padding:6px; text-align:center;">CVPR</td><td style="padding:6px; text-align:center;">1024&times;1024</td><td style="padding:6px; text-align:center;">2019</td><td style="padding:6px; text-align:center;">0.6522</td></tr>
+                            <tr style="border-bottom:1px solid #eee;"><td style="padding:6px;">Gliding Vertex</td><td style="padding:6px; text-align:center;">TPAMI</td><td style="padding:6px; text-align:center;">1024&times;1024</td><td style="padding:6px; text-align:center;">2020</td><td style="padding:6px; text-align:center;">0.6880</td></tr>
+                            <tr style="border-bottom:1px solid #eee;"><td style="padding:6px;">CSL</td><td style="padding:6px; text-align:center;">ECCV</td><td style="padding:6px; text-align:center;">1024&times;1024</td><td style="padding:6px; text-align:center;">2020</td><td style="padding:6px; text-align:center;">0.4430</td></tr>
+                            <tr style="border-bottom:1px solid #eee;"><td style="padding:6px;">R3Det</td><td style="padding:6px; text-align:center;">AAAI</td><td style="padding:6px; text-align:center;">1024&times;1024</td><td style="padding:6px; text-align:center;">2021</td><td style="padding:6px; text-align:center;">0.6860</td></tr>
+                            <tr style="border-bottom:1px solid #eee;"><td style="padding:6px;">GDW</td><td style="padding:6px; text-align:center;">ICML</td><td style="padding:6px; text-align:center;">1024&times;1024</td><td style="padding:6px; text-align:center;">2021</td><td style="padding:6px; text-align:center;">0.6109</td></tr>
+                            <tr style="border-bottom:1px solid #eee;"><td style="padding:6px;">DAL</td><td style="padding:6px; text-align:center;">AAAI</td><td style="padding:6px; text-align:center;">1024&times;1024</td><td style="padding:6px; text-align:center;">2021</td><td style="padding:6px; text-align:center;">0.6940</td></tr>
+                            <tr style="border-bottom:1px solid #eee;"><td style="padding:6px;">S2ANet</td><td style="padding:6px; text-align:center;">TGRS</td><td style="padding:6px; text-align:center;">1024&times;1024</td><td style="padding:6px; text-align:center;">2021</td><td style="padding:6px; text-align:center;">0.4939</td></tr>
+                            <tr style="border-bottom:1px solid #eee;"><td style="padding:6px;">O-RCNN</td><td style="padding:6px; text-align:center;">ICCV</td><td style="padding:6px; text-align:center;">1024&times;1024</td><td style="padding:6px; text-align:center;">2021</td><td style="padding:6px; text-align:center;">0.7150</td></tr>
+                            <tr style="border-bottom:1px solid #eee;"><td style="padding:6px;">PETDNet</td><td style="padding:6px; text-align:center;">TGRS</td><td style="padding:6px; text-align:center;">1024&times;1024</td><td style="padding:6px; text-align:center;">2023</td><td style="padding:6px; text-align:center;">0.7490</td></tr>
+                            <tr style="border-bottom:1px solid #eee;"><td style="padding:6px;">PEDNet</td><td style="padding:6px; text-align:center;">IEEE Access</td><td style="padding:6px; text-align:center;">1024&times;1024</td><td style="padding:6px; text-align:center;">2024</td><td style="padding:6px; text-align:center;">0.7458</td></tr>
+                            <tr style="border-bottom:1px solid #eee;"><td style="padding:6px;">WTDBNet</td><td style="padding:6px; text-align:center;">Remote Sens.</td><td style="padding:6px; text-align:center;">1024&times;1024</td><td style="padding:6px; text-align:center;">2025</td><td style="padding:6px; text-align:center;">0.7511</td></tr>
                             <tr style="border-bottom:1px solid #ddd; background-color:#e8f5e9;">
-                                <td style="padding:8px; font-weight:bold;">Ours (SHPG-Transformer)</td>
-                                <td style="padding:8px; text-align:center;">TIP</td><td style="padding:8px; text-align:center;">1024&times;1024</td><td style="padding:8px; text-align:center;">2025</td>
-                                <td style="padding:8px; text-align:center; font-weight:bold; color:#1565c0;">0.8015</td>
+                                <td style="padding:6px; font-weight:bold;">Ours</td>
+                                <td style="padding:6px; text-align:center;">TIP</td><td style="padding:6px; text-align:center;">1024&times;1024</td><td style="padding:6px; text-align:center;">2025</td>
+                                <td style="padding:6px; text-align:center; font-weight:bold; color:#1565c0;">0.8015</td>
+                            </tr>
+                            <tr style="background-color:#e8f5e9;">
+                                <td style="padding:6px; font-weight:bold;">Ours</td>
+                                <td style="padding:6px; text-align:center;">TIP</td><td style="padding:6px; text-align:center;">640&times;640</td><td style="padding:6px; text-align:center;">2025</td>
+                                <td style="padding:6px; text-align:center; font-weight:bold; color:#1565c0;">0.7876</td>
                             </tr>
                         </table>
-                        <p style="color:#666; font-size:0.85em; margin-top:8px;">* Improves state-of-the-art by 3.65%. Under our default 640&times;640 input size, mAP is 0.7876.</p>
+                        <p style="color:#666; font-size:0.85em; margin-top:8px;">Our method achieves mAP of 0.8015 under 1024&times;1024 input, improving state-of-the-art by 3.65%. Under our default 640&times;640 input, mAP is 0.7876.</p>
                     </div>
 
+
+                <br><br><br>
+                <h1>Ablation Studies</h1>
+
+                    <div style="background-color: #f5f5f5; padding: 20px; border-radius: 5px; margin: 20px 0;">
+                        <h3 style="font-weight:700; font-size:18px; margin-top:0;">Coarse-to-Fine Landmark Refinement on HRSC2016 (&tau; = 0.3)</h3>
+                        <p style="color:#666; font-size:0.85em; margin-bottom:10px;">Complete: symmetric structure-aware landmark completion. Rectify: PCA-based orientation rectification. mAP@07 / mAP@12 follow PASCAL VOC 2007 / 2012 standards. Dense: spatially proximate ships (e.g., side-by-side berthing). Small: bounding box area &lt; 0.1% of input resolution. Incomplete: truncated or occluded at image boundaries.</p>
+                        <table style="width:100%; border-collapse:collapse;">
+                            <tr style="border-bottom:1px solid #ccc;">
+                                <th style="padding:8px; text-align:left;">Dataset</th>
+                                <th style="padding:8px; text-align:center;">Complete</th>
+                                <th style="padding:8px; text-align:center;">Rectify</th>
+                                <th style="padding:8px; text-align:center;">mAP@07</th>
+                                <th style="padding:8px; text-align:center;">mAP@12</th>
+                            </tr>
+                            <!-- HRSC2016 -->
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:8px;" rowspan="4"><strong>HRSC2016</strong></td>
+                                <td style="padding:8px; text-align:center;">&#x2715;</td><td style="padding:8px; text-align:center;">&#x2715;</td>
+                                <td style="padding:8px; text-align:center;">0.9058</td><td style="padding:8px; text-align:center;">0.9862</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:8px; text-align:center;">&#x2713;</td><td style="padding:8px; text-align:center;">&#x2715;</td>
+                                <td style="padding:8px; text-align:center;">0.9051</td><td style="padding:8px; text-align:center;">0.9855</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:8px; text-align:center;">&#x2715;</td><td style="padding:8px; text-align:center;">&#x2713;</td>
+                                <td style="padding:8px; text-align:center;">0.9079</td><td style="padding:8px; text-align:center;">0.9888</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee; background-color:#e8f5e9;">
+                                <td style="padding:8px; text-align:center; font-weight:bold;">&#x2713;</td>
+                                <td style="padding:8px; text-align:center; font-weight:bold;">&#x2713;</td>
+                                <td style="padding:8px; text-align:center; font-weight:bold; color:#1565c0;">0.9086</td>
+                                <td style="padding:8px; text-align:center; font-weight:bold; color:#1565c0;">0.9896</td>
+                            </tr>
+                            <!-- Dense -->
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:8px;" rowspan="4"><strong>Dense</strong></td>
+                                <td style="padding:8px; text-align:center;">&#x2715;</td><td style="padding:8px; text-align:center;">&#x2715;</td>
+                                <td style="padding:8px; text-align:center;">0.9052</td><td style="padding:8px; text-align:center;">0.9852</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:8px; text-align:center;">&#x2713;</td><td style="padding:8px; text-align:center;">&#x2715;</td>
+                                <td style="padding:8px; text-align:center;">0.9052</td><td style="padding:8px; text-align:center;">0.9852</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:8px; text-align:center;">&#x2715;</td><td style="padding:8px; text-align:center;">&#x2713;</td>
+                                <td style="padding:8px; text-align:center;">0.9065</td><td style="padding:8px; text-align:center;">0.9869</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee; background-color:#e8f5e9;">
+                                <td style="padding:8px; text-align:center; font-weight:bold;">&#x2713;</td>
+                                <td style="padding:8px; text-align:center; font-weight:bold;">&#x2713;</td>
+                                <td style="padding:8px; text-align:center; font-weight:bold; color:#1565c0;">0.9078</td>
+                                <td style="padding:8px; text-align:center; font-weight:bold; color:#1565c0;">0.9885</td>
+                            </tr>
+                            <!-- Small -->
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:8px;" rowspan="4"><strong>Small</strong></td>
+                                <td style="padding:8px; text-align:center;">&#x2715;</td><td style="padding:8px; text-align:center;">&#x2715;</td>
+                                <td style="padding:8px; text-align:center;">1.0000</td><td style="padding:8px; text-align:center;">1.0000</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:8px; text-align:center;">&#x2713;</td><td style="padding:8px; text-align:center;">&#x2715;</td>
+                                <td style="padding:8px; text-align:center;">1.0000</td><td style="padding:8px; text-align:center;">1.0000</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:8px; text-align:center;">&#x2715;</td><td style="padding:8px; text-align:center;">&#x2713;</td>
+                                <td style="padding:8px; text-align:center;">1.0000</td><td style="padding:8px; text-align:center;">1.0000</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee; background-color:#e8f5e9;">
+                                <td style="padding:8px; text-align:center; font-weight:bold;">&#x2713;</td>
+                                <td style="padding:8px; text-align:center; font-weight:bold;">&#x2713;</td>
+                                <td style="padding:8px; text-align:center; font-weight:bold; color:#1565c0;">1.0000</td>
+                                <td style="padding:8px; text-align:center; font-weight:bold; color:#1565c0;">1.0000</td>
+                            </tr>
+                            <!-- Incomplete -->
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:8px;" rowspan="4"><strong>Incomplete</strong></td>
+                                <td style="padding:8px; text-align:center;">&#x2715;</td><td style="padding:8px; text-align:center;">&#x2715;</td>
+                                <td style="padding:8px; text-align:center;">0.7309</td><td style="padding:8px; text-align:center;">0.7264</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:8px; text-align:center;">&#x2713;</td><td style="padding:8px; text-align:center;">&#x2715;</td>
+                                <td style="padding:8px; text-align:center;">0.5813</td><td style="padding:8px; text-align:center;">0.5797</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:8px; text-align:center;">&#x2715;</td><td style="padding:8px; text-align:center;">&#x2713;</td>
+                                <td style="padding:8px; text-align:center;">0.7309</td><td style="padding:8px; text-align:center;">0.7264</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee; background-color:#e8f5e9;">
+                                <td style="padding:8px; text-align:center; font-weight:bold;">&#x2713;</td>
+                                <td style="padding:8px; text-align:center; font-weight:bold;">&#x2713;</td>
+                                <td style="padding:8px; text-align:center; font-weight:bold; color:#1565c0;">1.0000</td>
+                                <td style="padding:8px; text-align:center; font-weight:bold; color:#1565c0;">1.0000</td>
+                            </tr>
+                        </table>
+                        <p style="color:#666; font-size:0.85em; margin-top:8px;">The Complete operation alone degrades performance on HRSC2016 and Incomplete subsets (lost structural priors from discarding low-confidence landmarks), but when combined with Rectify achieves optimal results. On the Incomplete subset (truncated/occluded ships), the full strategy achieves perfect recovery (mAP = 1.0), demonstrating the effectiveness of landmark completion for occlusion handling. Small subset achieves perfect scores across all configurations.</p>
+                    </div>
+
+                    <div style="background-color: #f5f5f5; padding: 20px; border-radius: 5px; margin: 20px 0;">
+                        <h3 style="font-weight:700; font-size:18px; margin-top:0;">Ablation on Holistic-GCN and Part-GCN Modules on HRSC2016 (&tau; = 0.3)</h3>
+                        <table style="width:100%; border-collapse:collapse; font-size:0.9em;">
+                            <tr style="border-bottom:1px solid #ccc;">
+                                <th style="padding:4px; text-align:center;">Holistic-GCN</th>
+                                <th style="padding:4px; text-align:center;" colspan="3">Part-GCN</th>
+                                <th style="padding:4px; text-align:center;">mAP@07</th>
+                                <th style="padding:4px; text-align:center;">mAP@12</th>
+                                <th style="padding:4px; text-align:center;">FPS</th>
+                                <th style="padding:4px; text-align:center;">FLOPs (G)</th>
+                                <th style="padding:4px; text-align:center;">Params (M)</th>
+                            </tr>
+                            <tr style="border-bottom:1px solid #ccc;">
+                                <th style="padding:4px; text-align:center;"></th>
+                                <th style="padding:4px; text-align:center;">BP</th>
+                                <th style="padding:4px; text-align:center;">SP</th>
+                                <th style="padding:4px; text-align:center;">SSP</th>
+                                <th style="padding:4px; text-align:center;"></th>
+                                <th style="padding:4px; text-align:center;"></th>
+                                <th style="padding:4px; text-align:center;"></th>
+                                <th style="padding:4px; text-align:center;"></th>
+                                <th style="padding:4px; text-align:center;"></th>
+                            </tr>
+                            <!-- 0 modules -->
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:4px; text-align:center;"></td>
+                                <td style="padding:4px; text-align:center;"></td><td style="padding:4px; text-align:center;"></td><td style="padding:4px; text-align:center;"></td>
+                                <td style="padding:4px; text-align:center; color:#999;">0.8914</td>
+                                <td style="padding:4px; text-align:center; color:#999;">0.9503</td>
+                                <td style="padding:4px; text-align:center;">44.01</td>
+                                <td style="padding:4px; text-align:center;">21.48</td>
+                                <td style="padding:4px; text-align:center;">46.22M</td>
+                            </tr>
+                            <!-- 1 module -->
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:4px; text-align:center;">&#x2713;</td>
+                                <td style="padding:4px; text-align:center;"></td><td style="padding:4px; text-align:center;"></td><td style="padding:4px; text-align:center;"></td>
+                                <td style="padding:4px; text-align:center;">0.9002</td><td style="padding:4px; text-align:center;">0.9701</td>
+                                <td style="padding:4px; text-align:center;">42.84</td><td style="padding:4px; text-align:center;">26.21</td><td style="padding:4px; text-align:center;">52.81M</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:4px; text-align:center;"></td>
+                                <td style="padding:4px; text-align:center;">&#x2713;</td><td style="padding:4px; text-align:center;"></td><td style="padding:4px; text-align:center;"></td>
+                                <td style="padding:4px; text-align:center;">0.9038</td><td style="padding:4px; text-align:center;">0.9838</td>
+                                <td style="padding:4px; text-align:center;">42.83</td><td style="padding:4px; text-align:center;">26.21</td><td style="padding:4px; text-align:center;">52.81M</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:4px; text-align:center;"></td>
+                                <td style="padding:4px; text-align:center;"></td><td style="padding:4px; text-align:center;">&#x2713;</td><td style="padding:4px; text-align:center;"></td>
+                                <td style="padding:4px; text-align:center;">0.8983</td><td style="padding:4px; text-align:center;">0.9676</td>
+                                <td style="padding:4px; text-align:center;">42.92</td><td style="padding:4px; text-align:center;">26.21</td><td style="padding:4px; text-align:center;">52.81M</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:4px; text-align:center;"></td>
+                                <td style="padding:4px; text-align:center;"></td><td style="padding:4px; text-align:center;"></td><td style="padding:4px; text-align:center;">&#x2713;</td>
+                                <td style="padding:4px; text-align:center;">0.8998</td><td style="padding:4px; text-align:center;">0.9696</td>
+                                <td style="padding:4px; text-align:center;">43.13</td><td style="padding:4px; text-align:center;">26.21</td><td style="padding:4px; text-align:center;">52.81M</td>
+                            </tr>
+                            <!-- 2 modules -->
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:4px; text-align:center;">&#x2713;</td>
+                                <td style="padding:4px; text-align:center;">&#x2713;</td><td style="padding:4px; text-align:center;"></td><td style="padding:4px; text-align:center;"></td>
+                                <td style="padding:4px; text-align:center;">0.8952</td><td style="padding:4px; text-align:center;">0.9639</td>
+                                <td style="padding:4px; text-align:center;">42.61</td><td style="padding:4px; text-align:center;">26.35</td><td style="padding:4px; text-align:center;">52.94M</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:4px; text-align:center;">&#x2713;</td>
+                                <td style="padding:4px; text-align:center;"></td><td style="padding:4px; text-align:center;">&#x2713;</td><td style="padding:4px; text-align:center;"></td>
+                                <td style="padding:4px; text-align:center;">0.8980</td><td style="padding:4px; text-align:center;">0.9677</td>
+                                <td style="padding:4px; text-align:center;">42.60</td><td style="padding:4px; text-align:center;">26.35</td><td style="padding:4px; text-align:center;">52.94M</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:4px; text-align:center;">&#x2713;</td>
+                                <td style="padding:4px; text-align:center;"></td><td style="padding:4px; text-align:center;"></td><td style="padding:4px; text-align:center;">&#x2713;</td>
+                                <td style="padding:4px; text-align:center;">0.8995</td><td style="padding:4px; text-align:center;">0.9691</td>
+                                <td style="padding:4px; text-align:center;">43.20</td><td style="padding:4px; text-align:center;">26.35</td><td style="padding:4px; text-align:center;">52.94M</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:4px; text-align:center;"></td>
+                                <td style="padding:4px; text-align:center;">&#x2713;</td><td style="padding:4px; text-align:center;">&#x2713;</td><td style="padding:4px; text-align:center;"></td>
+                                <td style="padding:4px; text-align:center;">0.8969</td><td style="padding:4px; text-align:center;">0.9566</td>
+                                <td style="padding:4px; text-align:center;">41.65</td><td style="padding:4px; text-align:center;">26.35</td><td style="padding:4px; text-align:center;">52.94M</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:4px; text-align:center;"></td>
+                                <td style="padding:4px; text-align:center;">&#x2713;</td><td style="padding:4px; text-align:center;"></td><td style="padding:4px; text-align:center;">&#x2713;</td>
+                                <td style="padding:4px; text-align:center;">0.9014</td><td style="padding:4px; text-align:center;">0.9713</td>
+                                <td style="padding:4px; text-align:center;">42.55</td><td style="padding:4px; text-align:center;">26.35</td><td style="padding:4px; text-align:center;">52.94M</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:4px; text-align:center;"></td>
+                                <td style="padding:4px; text-align:center;"></td><td style="padding:4px; text-align:center;">&#x2713;</td><td style="padding:4px; text-align:center;">&#x2713;</td>
+                                <td style="padding:4px; text-align:center;">0.9019</td><td style="padding:4px; text-align:center;">0.9717</td>
+                                <td style="padding:4px; text-align:center;">42.81</td><td style="padding:4px; text-align:center;">26.35</td><td style="padding:4px; text-align:center;">52.94M</td>
+                            </tr>
+                            <!-- 3 modules -->
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:4px; text-align:center;">&#x2713;</td>
+                                <td style="padding:4px; text-align:center;">&#x2713;</td><td style="padding:4px; text-align:center;">&#x2713;</td><td style="padding:4px; text-align:center;"></td>
+                                <td style="padding:4px; text-align:center;">0.8973</td><td style="padding:4px; text-align:center;">0.9667</td>
+                                <td style="padding:4px; text-align:center;">42.08</td><td style="padding:4px; text-align:center;">26.49</td><td style="padding:4px; text-align:center;">53.08M</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:4px; text-align:center;">&#x2713;</td>
+                                <td style="padding:4px; text-align:center;">&#x2713;</td><td style="padding:4px; text-align:center;"></td><td style="padding:4px; text-align:center;">&#x2713;</td>
+                                <td style="padding:4px; text-align:center;">0.8971</td><td style="padding:4px; text-align:center;">0.9665</td>
+                                <td style="padding:4px; text-align:center;">42.07</td><td style="padding:4px; text-align:center;">26.49</td><td style="padding:4px; text-align:center;">53.08M</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:4px; text-align:center;">&#x2713;</td>
+                                <td style="padding:4px; text-align:center;"></td><td style="padding:4px; text-align:center;">&#x2713;</td><td style="padding:4px; text-align:center;">&#x2713;</td>
+                                <td style="padding:4px; text-align:center;">0.8987</td><td style="padding:4px; text-align:center;">0.9684</td>
+                                <td style="padding:4px; text-align:center;">42.02</td><td style="padding:4px; text-align:center;">26.49</td><td style="padding:4px; text-align:center;">53.08M</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:4px; text-align:center;"></td>
+                                <td style="padding:4px; text-align:center;">&#x2713;</td><td style="padding:4px; text-align:center;">&#x2713;</td><td style="padding:4px; text-align:center;">&#x2713;</td>
+                                <td style="padding:4px; text-align:center;">0.8958</td><td style="padding:4px; text-align:center;">0.9648</td>
+                                <td style="padding:4px; text-align:center;">42.16</td><td style="padding:4px; text-align:center;">26.49</td><td style="padding:4px; text-align:center;">53.08M</td>
+                            </tr>
+                            <!-- 4 modules -->
+                            <tr style="border-bottom:1px solid #ddd; background-color:#e8f5e9;">
+                                <td style="padding:4px; text-align:center; font-weight:bold;">&#x2713;</td>
+                                <td style="padding:4px; text-align:center; font-weight:bold;">&#x2713;</td>
+                                <td style="padding:4px; text-align:center; font-weight:bold;">&#x2713;</td>
+                                <td style="padding:4px; text-align:center; font-weight:bold;">&#x2713;</td>
+                                <td style="padding:4px; text-align:center; font-weight:bold; color:#1565c0;">0.9086</td>
+                                <td style="padding:4px; text-align:center; font-weight:bold; color:#1565c0;">0.9896</td>
+                                <td style="padding:4px; text-align:center;">41.06</td>
+                                <td style="padding:4px; text-align:center;">26.62</td>
+                                <td style="padding:4px; text-align:center;">53.22M</td>
+                            </tr>
+                        </table>
+                        <p style="color:#666; font-size:0.85em; margin-top:8px;">Baseline (no GCN): mAP@07 = 0.8914. Among single Part-GCN branches, BP-GCN (Bow Part) contributes most (+1.24% mAP@07). Combining Holistic-GCN with all three Part-GCN branches achieves the best mAP@07 of 0.9086, demonstrating that holistic and part-level structural priors provide complementary information. The full model incurs modest overhead: +6.22 G FLOPs and +7.0M parameters over baseline, while FPS decreases from 44.01 to 41.06.</p>
+                    </div>
 
 
               </div>
