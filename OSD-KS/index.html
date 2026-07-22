@@ -380,6 +380,63 @@
                         <p style="color:#666; font-size:0.85em; margin-top:8px;">The first row (no removal) corresponds to the full ShipRSImageNet results. Removing HRSC2016 samples from any split degrades performance, with the most severe drop (&#x2212;4.88% / &#x2212;4.66%) occurring when HRSC2016 data is removed from all splits. Removing HRSC2016 from the validation set alone has the mildest impact, suggesting that validation-set overlap contributes less to overfitting. The consistent performance decline across all removal configurations confirms that the inclusion of HRSC2016 data in ShipRSImageNet provides meaningful supervision signals, and our reported ShipRSImageNet results appropriately reflect this standard benchmark configuration.</p>
                     </div>
 
+                    <div style="background-color: #f5f5f5; padding: 20px; border-radius: 5px; margin: 20px 0;">
+                        <h3 style="font-weight:700; font-size:18px; margin-top:0;">Landmark Detection Results on HRSC2016</h3>
+                        <p style="color:#666; font-size:0.85em; margin-bottom:10px;">Comparison of keypoint detection performance against representative pose estimation and keypoint detection backbones. PCK@0.1 / PCK@0.2: Percentage of Correct Keypoints under normalized distance thresholds of 0.1 / 0.2. AP: average precision of keypoint localization. NME: Normalized Mean Error (lower is better).</p>
+                        <table style="width:100%; border-collapse:collapse;">
+                            <tr style="border-bottom:1px solid #ccc;">
+                                <th style="padding:8px; text-align:left;">Method</th>
+                                <th style="padding:8px; text-align:center;">PCK@0.1</th>
+                                <th style="padding:8px; text-align:center;">PCK@0.2</th>
+                                <th style="padding:8px; text-align:center;">AP</th>
+                                <th style="padding:8px; text-align:center;">NME</th>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:8px;">VIT Pose</td>
+                                <td style="padding:8px; text-align:center;">0.7675</td>
+                                <td style="padding:8px; text-align:center;">0.8581</td>
+                                <td style="padding:8px; text-align:center;">0.3396</td>
+                                <td style="padding:8px; text-align:center;">0.1223</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:8px;">Swin-Base</td>
+                                <td style="padding:8px; text-align:center;">0.8359</td>
+                                <td style="padding:8px; text-align:center;">0.9016</td>
+                                <td style="padding:8px; text-align:center;">0.4422</td>
+                                <td style="padding:8px; text-align:center;">0.0940</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:8px;">HRNet-w32</td>
+                                <td style="padding:8px; text-align:center;">0.8708</td>
+                                <td style="padding:8px; text-align:center;">0.9288</td>
+                                <td style="padding:8px; text-align:center;">0.5339</td>
+                                <td style="padding:8px; text-align:center;">0.0731</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:8px;">HRFormer</td>
+                                <td style="padding:8px; text-align:center;">0.8764</td>
+                                <td style="padding:8px; text-align:center;">0.9363</td>
+                                <td style="padding:8px; text-align:center;">0.5562</td>
+                                <td style="padding:8px; text-align:center;">0.0693</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:8px;">HRNet-w48</td>
+                                <td style="padding:8px; text-align:center;">0.8785</td>
+                                <td style="padding:8px; text-align:center;">0.9349</td>
+                                <td style="padding:8px; text-align:center;">0.5485</td>
+                                <td style="padding:8px; text-align:center;">0.0699</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #ddd; background-color:#e8f5e9;">
+                                <td style="padding:8px; font-weight:bold;">Ours</td>
+                                <td style="padding:8px; text-align:center; font-weight:bold; color:#1565c0;">0.8848</td>
+                                <td style="padding:8px; text-align:center; font-weight:bold; color:#1565c0;">0.9387</td>
+                                <td style="padding:8px; text-align:center; font-weight:bold; color:#1565c0;">0.5671</td>
+                                <td style="padding:8px; text-align:center; font-weight:bold; color:#1565c0;">0.0674</td>
+                            </tr>
+                        </table>
+                        <p style="color:#666; font-size:0.85em; margin-top:8px;">Our method achieves the best performance across all metrics (PCK@0.1: 0.8848, PCK@0.2: 0.9387, AP: 0.5671, NME: 0.0674), outperforming the strongest baseline HRNet-w48 by +0.63% PCK@0.1 and +3.4% AP. The consistent gains over specialized pose estimation backbones (HRNet, HRFormer, ViT Pose) demonstrate that the SHPG-Transformer effectively captures ship-specific structural priors beyond generic keypoint detection architectures.</p>
+                    </div>
+
 
                 <br><br><br>
                 <h1>Ablation Studies</h1>
