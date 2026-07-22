@@ -289,17 +289,95 @@
                             <tr style="border-bottom:1px solid #eee;"><td style="padding:6px;">PEDNet</td><td style="padding:6px; text-align:center;">IEEE Access</td><td style="padding:6px; text-align:center;">1024&times;1024</td><td style="padding:6px; text-align:center;">2024</td><td style="padding:6px; text-align:center;">0.7458</td></tr>
                             <tr style="border-bottom:1px solid #eee;"><td style="padding:6px;">WTDBNet</td><td style="padding:6px; text-align:center;">Remote Sens.</td><td style="padding:6px; text-align:center;">1024&times;1024</td><td style="padding:6px; text-align:center;">2025</td><td style="padding:6px; text-align:center;">0.7511</td></tr>
                             <tr style="border-bottom:1px solid #ddd; background-color:#e8f5e9;">
-                                <td style="padding:6px; font-weight:bold;">Ours</td>
-                                <td style="padding:6px; text-align:center;">TIP</td><td style="padding:6px; text-align:center;">1024&times;1024</td><td style="padding:6px; text-align:center;">2025</td>
+                                <td style="padding:6px; font-weight:bold;" rowspan="2">Ours</td>
+                                <td style="padding:6px; text-align:center;" rowspan="2">TIP</td>
+                                <td style="padding:6px; text-align:center;">1024&times;1024</td>
+                                <td style="padding:6px; text-align:center;" rowspan="2">2025</td>
                                 <td style="padding:6px; text-align:center; font-weight:bold; color:#1565c0;">0.8015</td>
                             </tr>
                             <tr style="background-color:#e8f5e9;">
-                                <td style="padding:6px; font-weight:bold;">Ours</td>
-                                <td style="padding:6px; text-align:center;">TIP</td><td style="padding:6px; text-align:center;">640&times;640</td><td style="padding:6px; text-align:center;">2025</td>
+                                <td style="padding:6px; text-align:center;">640&times;640</td>
                                 <td style="padding:6px; text-align:center; font-weight:bold; color:#1565c0;">0.7876</td>
                             </tr>
                         </table>
                         <p style="color:#666; font-size:0.85em; margin-top:8px;">Our method achieves mAP of 0.8015 under 1024&times;1024 input, improving state-of-the-art by 3.65%. Under our default 640&times;640 input, mAP is 0.7876.</p>
+                    </div>
+
+                    <div style="background-color: #f5f5f5; padding: 20px; border-radius: 5px; margin: 20px 0;">
+                        <h3 style="font-weight:700; font-size:18px; margin-top:0;">Ablation on HRSC2016 Overlap Removal from ShipRSImageNet</h3>
+                        <p style="color:#666; font-size:0.85em; margin-bottom:10px;">Since ShipRSImageNet inherently includes a subset of HRSC2016 samples (89, 33, and 78 overlapping instances in the training, validation, and test splits, respectively), we conduct an ablation study by systematically removing overlapping HRSC2016 data from the training, validation, and test splits of ShipRSImageNet to evaluate its impact on detection performance. &#x2713; indicates the split from which HRSC2016 samples are excluded.</p>
+                        <table style="width:100%; border-collapse:collapse;">
+                            <tr style="border-bottom:1px solid #ccc;">
+                                <th style="padding:8px; text-align:center;" colspan="3">HRSC2016 Removed From</th>
+                                <th style="padding:8px; width:20px;"></th>
+                                <th style="padding:8px; text-align:center;" colspan="2">mAP</th>
+                            </tr>
+                            <tr style="border-bottom:1px solid #ccc;">
+                                <th style="padding:8px; text-align:center;">Train</th>
+                                <th style="padding:8px; text-align:center;">Val</th>
+                                <th style="padding:8px; text-align:center;">Test</th>
+                                <th style="padding:8px;"></th>
+                                <th style="padding:8px; text-align:center;">640&times;640</th>
+                                <th style="padding:8px; text-align:center;">1024&times;1024</th>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee; background-color:#e8f5e9;">
+                                <td style="padding:8px; text-align:center;"></td>
+                                <td style="padding:8px; text-align:center;"></td>
+                                <td style="padding:8px; text-align:center;"></td>
+                                <td style="padding:8px;"></td>
+                                <td style="padding:8px; text-align:center; font-weight:bold; color:#1565c0;">0.7876</td>
+                                <td style="padding:8px; text-align:center; font-weight:bold; color:#1565c0;">0.8015</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:8px; text-align:center;">&#x2713;</td>
+                                <td style="padding:8px; text-align:center;"></td>
+                                <td style="padding:8px; text-align:center;"></td>
+                                <td style="padding:8px;"></td>
+                                <td style="padding:8px; text-align:center;">0.7677</td>
+                                <td style="padding:8px; text-align:center;">0.7826</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:8px; text-align:center;"></td>
+                                <td style="padding:8px; text-align:center;">&#x2713;</td>
+                                <td style="padding:8px; text-align:center;"></td>
+                                <td style="padding:8px;"></td>
+                                <td style="padding:8px; text-align:center;">0.7793</td>
+                                <td style="padding:8px; text-align:center;">0.7944</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:8px; text-align:center;"></td>
+                                <td style="padding:8px; text-align:center;"></td>
+                                <td style="padding:8px; text-align:center;">&#x2713;</td>
+                                <td style="padding:8px;"></td>
+                                <td style="padding:8px; text-align:center;">0.7726</td>
+                                <td style="padding:8px; text-align:center;">0.7874</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:8px; text-align:center;">&#x2713;</td>
+                                <td style="padding:8px; text-align:center;">&#x2713;</td>
+                                <td style="padding:8px; text-align:center;"></td>
+                                <td style="padding:8px;"></td>
+                                <td style="padding:8px; text-align:center;">0.7582</td>
+                                <td style="padding:8px; text-align:center;">0.7739</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:8px; text-align:center;"></td>
+                                <td style="padding:8px; text-align:center;">&#x2713;</td>
+                                <td style="padding:8px; text-align:center;">&#x2713;</td>
+                                <td style="padding:8px;"></td>
+                                <td style="padding:8px; text-align:center;">0.7631</td>
+                                <td style="padding:8px; text-align:center;">0.7791</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:8px; text-align:center;">&#x2713;</td>
+                                <td style="padding:8px; text-align:center;">&#x2713;</td>
+                                <td style="padding:8px; text-align:center;">&#x2713;</td>
+                                <td style="padding:8px;"></td>
+                                <td style="padding:8px; text-align:center;">0.7388</td>
+                                <td style="padding:8px; text-align:center;">0.7549</td>
+                            </tr>
+                        </table>
+                        <p style="color:#666; font-size:0.85em; margin-top:8px;">The first row (no removal) corresponds to the full ShipRSImageNet results. Removing HRSC2016 samples from any split degrades performance, with the most severe drop (&#x2212;4.88% / &#x2212;4.66%) occurring when HRSC2016 data is removed from all splits. Removing HRSC2016 from the validation set alone has the mildest impact, suggesting that validation-set overlap contributes less to overfitting. The consistent performance decline across all removal configurations confirms that the inclusion of HRSC2016 data in ShipRSImageNet provides meaningful supervision signals, and our reported ShipRSImageNet results appropriately reflect this standard benchmark configuration.</p>
                     </div>
 
 
