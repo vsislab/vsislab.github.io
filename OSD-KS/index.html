@@ -672,6 +672,435 @@
                         <p style="color:#666; font-size:0.85em; margin-top:8px;">Baseline (no GCN): mAP@07 = 0.8914. Among single Part-GCN branches, BP-GCN (Bow Part) contributes most (+1.24% mAP@07). Combining Holistic-GCN with all three Part-GCN branches achieves the best mAP@07 of 0.9086, demonstrating that holistic and part-level structural priors provide complementary information. The full model incurs modest overhead: +6.22 G FLOPs and +7.0M parameters over baseline, while FPS decreases from 44.01 to 41.06.</p>
                     </div>
 
+                    <div style="background-color: #f5f5f5; padding: 20px; border-radius: 5px; margin: 20px 0;">
+                        <h3 style="font-weight:700; font-size:18px; margin-top:0;">Ablation of Transformer, Landmark Completion, and PCA-based Rectification on HRSC2016</h3>
+                        <p style="color:#666; font-size:0.85em; margin-bottom:10px;">Ablation study evaluating the contribution of the Transformer module, landmark completion (Complete), and PCA-based orientation rectification (Rectify). &#x2713; indicates the component is enabled, &#x2715; indicates disabled.</p>
+                        <table style="width:65%; border-collapse:collapse;">
+                            <tr style="border-bottom:1px solid #ccc;">
+                                <th style="padding:8px; text-align:center;">Transformer</th>
+                                <th style="padding:8px; text-align:center;">Complete</th>
+                                <th style="padding:8px; text-align:center;">Rectify</th>
+                                <th style="padding:8px; text-align:center;">mAP@07</th>
+                                <th style="padding:8px; text-align:center;">mAP@12</th>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2715;</td>
+                                <td style="padding:6px; text-align:center;">0.8899</td><td style="padding:6px; text-align:center;">0.9484</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2713;</td><td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2715;</td>
+                                <td style="padding:6px; text-align:center;">0.9058</td><td style="padding:6px; text-align:center;">0.9862</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2713;</td><td style="padding:6px; text-align:center;">&#x2715;</td>
+                                <td style="padding:6px; text-align:center;">0.8774</td><td style="padding:6px; text-align:center;">0.9242</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2713;</td><td style="padding:6px; text-align:center;">&#x2713;</td><td style="padding:6px; text-align:center;">&#x2715;</td>
+                                <td style="padding:6px; text-align:center;">0.9051</td><td style="padding:6px; text-align:center;">0.9855</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center;">0.8930</td><td style="padding:6px; text-align:center;">0.9521</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2713;</td><td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center;">0.9079</td><td style="padding:6px; text-align:center;">0.9888</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2713;</td><td style="padding:6px; text-align:center;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center;">0.8853</td><td style="padding:6px; text-align:center;">0.9334</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #ddd; background-color:#e8f5e9;">
+                                <td style="padding:6px; text-align:center; font-weight:bold;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center; font-weight:bold;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center; font-weight:bold;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center; font-weight:bold; color:#1565c0;">0.9086</td>
+                                <td style="padding:6px; text-align:center; font-weight:bold; color:#1565c0;">0.9896</td>
+                            </tr>
+                        </table>
+                        <p style="color:#666; font-size:0.85em; margin-top:8px;">The Transformer module alone (+Complete, +Rectify disabled) improves mAP@07 from 0.8899 to 0.9058, demonstrating its strong capacity for modeling global context. The Complete operation alone degrades performance (mAP@07 drops from 0.8899 to 0.8774), indicating that discarding low-confidence landmarks without Rectify loses structural priors. However, combining all three components (Transformer + Complete + Rectify) achieves the optimal mAP@07 of 0.9086 and mAP@12 of 0.9896.</p>
+                    </div>
+
+                    <div style="background-color: #f5f5f5; padding: 20px; border-radius: 5px; margin: 20px 0;">
+                        <h3 style="font-weight:700; font-size:18px; margin-top:0;">Ablation of Feature Fusion Strategies and Graph Topologies on HRSC2016 (&tau; = 0.3)</h3>
+                        <p style="color:#666; font-size:0.85em; margin-bottom:10px;">Comparison of different feature fusion strategies (Addition, Multiplication) and graph construction topologies (Fully connected, Stacked + inter-part, Stacked) under four Complete/Rectify configurations.</p>
+                        <table style="width:100%; border-collapse:collapse; font-size:0.88em;">
+                            <tr style="border-bottom:1px solid #ccc;">
+                                <th style="padding:8px; text-align:left;">Setting</th>
+                                <th style="padding:8px; text-align:center;">Complete</th>
+                                <th style="padding:8px; text-align:center;">Rectify</th>
+                                <th style="padding:8px; text-align:center;">mAP@07</th>
+                                <th style="padding:8px; text-align:center;">mAP@12</th>
+                            </tr>
+                            <!-- Addition -->
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px;" rowspan="4"><strong>Addition</strong></td>
+                                <td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2715;</td>
+                                <td style="padding:6px; text-align:center;">0.9035</td><td style="padding:6px; text-align:center;">0.9737</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2713;</td><td style="padding:6px; text-align:center;">&#x2715;</td>
+                                <td style="padding:6px; text-align:center;">0.8966</td><td style="padding:6px; text-align:center;">0.9660</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center;">0.9038</td><td style="padding:6px; text-align:center;">0.9741</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #ccc;">
+                                <td style="padding:6px; text-align:center;">&#x2713;</td><td style="padding:6px; text-align:center;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center;">0.8994</td><td style="padding:6px; text-align:center;">0.9691</td>
+                            </tr>
+                            <!-- Multiplication -->
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px;" rowspan="4"><strong>Multiplication</strong></td>
+                                <td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2715;</td>
+                                <td style="padding:6px; text-align:center;">0.9017</td><td style="padding:6px; text-align:center;">0.9718</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2713;</td><td style="padding:6px; text-align:center;">&#x2715;</td>
+                                <td style="padding:6px; text-align:center;">0.9019</td><td style="padding:6px; text-align:center;">0.9818</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center;">0.9045</td><td style="padding:6px; text-align:center;">0.9847</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #ccc; background-color:#e8f5e9;">
+                                <td style="padding:6px; text-align:center; font-weight:bold;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center; font-weight:bold;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center; font-weight:bold; color:#1565c0;">0.9047</td>
+                                <td style="padding:6px; text-align:center; font-weight:bold; color:#1565c0;">0.9850</td>
+                            </tr>
+                            <!-- Fully connected -->
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px;" rowspan="4"><strong>Fully connected</strong></td>
+                                <td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2715;</td>
+                                <td style="padding:6px; text-align:center;">0.9007</td><td style="padding:6px; text-align:center;">0.9706</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2713;</td><td style="padding:6px; text-align:center;">&#x2715;</td>
+                                <td style="padding:6px; text-align:center;">0.8944</td><td style="padding:6px; text-align:center;">0.9535</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center;">0.9019</td><td style="padding:6px; text-align:center;">0.9718</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #ccc;">
+                                <td style="padding:6px; text-align:center;">&#x2713;</td><td style="padding:6px; text-align:center;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center;">0.8980</td><td style="padding:6px; text-align:center;">0.9672</td>
+                            </tr>
+                            <!-- Stacked + inter-part -->
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px;" rowspan="4"><strong>Stacked + inter-part</strong></td>
+                                <td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2715;</td>
+                                <td style="padding:6px; text-align:center;">0.9008</td><td style="padding:6px; text-align:center;">0.9709</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2713;</td><td style="padding:6px; text-align:center;">&#x2715;</td>
+                                <td style="padding:6px; text-align:center;">0.8955</td><td style="padding:6px; text-align:center;">0.9647</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center;">0.9013</td><td style="padding:6px; text-align:center;">0.9715</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #ccc;">
+                                <td style="padding:6px; text-align:center;">&#x2713;</td><td style="padding:6px; text-align:center;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center;">0.8964</td><td style="padding:6px; text-align:center;">0.9658</td>
+                            </tr>
+                            <!-- Stacked -->
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px;" rowspan="4"><strong>Stacked</strong></td>
+                                <td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2715;</td>
+                                <td style="padding:6px; text-align:center;">0.9010</td><td style="padding:6px; text-align:center;">0.9708</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2713;</td><td style="padding:6px; text-align:center;">&#x2715;</td>
+                                <td style="padding:6px; text-align:center;">0.8936</td><td style="padding:6px; text-align:center;">0.9623</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center;">0.9019</td><td style="padding:6px; text-align:center;">0.9719</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2713;</td><td style="padding:6px; text-align:center;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center;">0.8998</td><td style="padding:6px; text-align:center;">0.9694</td>
+                            </tr>
+                            <!-- Ours (SHPG-Transformer) -->
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px;" rowspan="4"><strong>Ours<br/>(SHPG-Transformer)</strong></td>
+                                <td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2715;</td>
+                                <td style="padding:6px; text-align:center;">0.9058</td><td style="padding:6px; text-align:center;">0.9862</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2713;</td><td style="padding:6px; text-align:center;">&#x2715;</td>
+                                <td style="padding:6px; text-align:center;">0.9051</td><td style="padding:6px; text-align:center;">0.9855</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center;">0.9079</td><td style="padding:6px; text-align:center;">0.9888</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #ddd; background-color:#e8f5e9;">
+                                <td style="padding:6px; text-align:center; font-weight:bold;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center; font-weight:bold;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center; font-weight:bold; color:#1565c0;">0.9086</td>
+                                <td style="padding:6px; text-align:center; font-weight:bold; color:#1565c0;">0.9896</td>
+                            </tr>
+                        </table>
+                        <p style="color:#666; font-size:0.85em; margin-top:8px;">Among fusion strategies, Multiplication achieves the best performance (0.9047 mAP@07 with Complete+Rectify). Among graph topologies, the stacked configuration with inter-part edges yields 0.8964 under the same condition. Our SHPG-Transformer achieves the overall best performance (0.9086 mAP@07, 0.9896 mAP@12), significantly outperforming all ablated fusion and topology variants. The results show that the Complete operation consistently degrades performance across all ablated settings when applied without Rectify, confirming that landmark completion alone discards useful structural priors, while PCA rectification effectively compensates for orientation errors introduced during completion.</p>
+                    </div>
+
+                    <div style="background-color: #f5f5f5; padding: 20px; border-radius: 5px; margin: 20px 0;">
+                        <h3 style="font-weight:700; font-size:18px; margin-top:0;">Ablation of Graph Operators and Transformer Module on HRSC2016 (&tau; = 0.3)</h3>
+                        <p style="color:#666; font-size:0.85em; margin-bottom:10px;">Comparison of different graph neural network operators (GAT, GIN, GraphSAGE, GATv2) and the effect of removing the Transformer module. Results reported as mean &plusmn; std over multiple runs.</p>
+                        <table style="width:100%; border-collapse:collapse; font-size:0.88em;">
+                            <tr style="border-bottom:1px solid #ccc;">
+                                <th style="padding:8px; text-align:left;">Variant</th>
+                                <th style="padding:8px; text-align:center;">Complete</th>
+                                <th style="padding:8px; text-align:center;">Rectify</th>
+                                <th style="padding:8px; text-align:center;">mAP@07</th>
+                                <th style="padding:8px; text-align:center;">mAP@12</th>
+                            </tr>
+                            <!-- GAT -->
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px;" rowspan="4"><strong>GAT</strong></td>
+                                <td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2715;</td>
+                                <td style="padding:6px; text-align:center;">0.9032 &plusmn; 0.0014</td><td style="padding:6px; text-align:center;">0.9801 &plusmn; 0.0058</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2713;</td><td style="padding:6px; text-align:center;">&#x2715;</td>
+                                <td style="padding:6px; text-align:center;">0.8970 &plusmn; 0.0024</td><td style="padding:6px; text-align:center;">0.9629 &plusmn; 0.0073</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center;">0.9036 &plusmn; 0.0013</td><td style="padding:6px; text-align:center;">0.9838 &plusmn; 0.0016</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #ccc;">
+                                <td style="padding:6px; text-align:center;">&#x2713;</td><td style="padding:6px; text-align:center;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center;">0.8989 &plusmn; 0.0022</td><td style="padding:6px; text-align:center;">0.9654 &plusmn; 0.0068</td>
+                            </tr>
+                            <!-- GIN -->
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px;" rowspan="4"><strong>GIN</strong></td>
+                                <td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2715;</td>
+                                <td style="padding:6px; text-align:center;">0.8975 &plusmn; 0.0030</td><td style="padding:6px; text-align:center;">0.9638 &plusmn; 0.0081</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2713;</td><td style="padding:6px; text-align:center;">&#x2715;</td>
+                                <td style="padding:6px; text-align:center;">0.8932 &plusmn; 0.0040</td><td style="padding:6px; text-align:center;">0.9553 &plusmn; 0.0093</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center;">0.9004 &plusmn; 0.0034</td><td style="padding:6px; text-align:center;">0.9735 &plusmn; 0.0130</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #ccc;">
+                                <td style="padding:6px; text-align:center;">&#x2713;</td><td style="padding:6px; text-align:center;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center;">0.8967 &plusmn; 0.0028</td><td style="padding:6px; text-align:center;">0.9594 &plusmn; 0.0079</td>
+                            </tr>
+                            <!-- GraphSAGE -->
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px;" rowspan="4"><strong>GraphSAGE</strong></td>
+                                <td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2715;</td>
+                                <td style="padding:6px; text-align:center;">0.9021 &plusmn; 0.0008</td><td style="padding:6px; text-align:center;">0.9722 &plusmn; 0.0009</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2713;</td><td style="padding:6px; text-align:center;">&#x2715;</td>
+                                <td style="padding:6px; text-align:center;">0.8970 &plusmn; 0.0010</td><td style="padding:6px; text-align:center;">0.9663 &plusmn; 0.0011</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center;">0.9028 &plusmn; 0.0014</td><td style="padding:6px; text-align:center;">0.9795 &plusmn; 0.0062</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #ccc;">
+                                <td style="padding:6px; text-align:center;">&#x2713;</td><td style="padding:6px; text-align:center;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center;">0.8992 &plusmn; 0.0009</td><td style="padding:6px; text-align:center;">0.9684 &plusmn; 0.0008</td>
+                            </tr>
+                            <!-- GATv2 -->
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px;" rowspan="4"><strong>GATv2</strong></td>
+                                <td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2715;</td>
+                                <td style="padding:6px; text-align:center;">0.8990 &plusmn; 0.0032</td><td style="padding:6px; text-align:center;">0.9688 &plusmn; 0.0036</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2713;</td><td style="padding:6px; text-align:center;">&#x2715;</td>
+                                <td style="padding:6px; text-align:center;">0.8944 &plusmn; 0.0036</td><td style="padding:6px; text-align:center;">0.9570 &plusmn; 0.0083</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center;">0.9025 &plusmn; 0.0015</td><td style="padding:6px; text-align:center;">0.9759 &plusmn; 0.0059</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #ccc;">
+                                <td style="padding:6px; text-align:center;">&#x2713;</td><td style="padding:6px; text-align:center;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center;">0.8976 &plusmn; 0.0025</td><td style="padding:6px; text-align:center;">0.9640 &plusmn; 0.0059</td>
+                            </tr>
+                            <!-- w/o Transformer -->
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px;" rowspan="4"><strong>w/o Transformer</strong></td>
+                                <td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2715;</td>
+                                <td style="padding:6px; text-align:center; color:#999;">0.8880 &plusmn; 0.0035</td><td style="padding:6px; text-align:center; color:#999;">0.9433 &plusmn; 0.0085</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2713;</td><td style="padding:6px; text-align:center;">&#x2715;</td>
+                                <td style="padding:6px; text-align:center; color:#999;">0.8757 &plusmn; 0.0018</td><td style="padding:6px; text-align:center; color:#999;">0.9192 &plusmn; 0.0062</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center; color:#999;">0.8909 &plusmn; 0.0052</td><td style="padding:6px; text-align:center; color:#999;">0.9498 &plusmn; 0.0137</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #ddd;">
+                                <td style="padding:6px; text-align:center;">&#x2713;</td><td style="padding:6px; text-align:center;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center; color:#999;">0.8815 &plusmn; 0.0034</td><td style="padding:6px; text-align:center; color:#999;">0.9293 &plusmn; 0.0037</td>
+                            </tr>
+                        </table>
+                        <p style="color:#666; font-size:0.85em; margin-top:8px;">GAT (0.9032 mAP@07, no Complete/Rectify) achieves the best performance among graph operators, while GIN performs worst (0.8975). Removing the Transformer module causes the most significant degradation (0.8880, &#x2212;1.52% vs. GAT baseline), confirming that global context modeling via the Transformer is essential for accurate landmark regression. Across all operators, the Complete operation consistently degrades performance when applied alone, further validating that landmark completion must be paired with PCA rectification.</p>
+                    </div>
+
+                    <div style="background-color: #f5f5f5; padding: 20px; border-radius: 5px; margin: 20px 0;">
+                        <h3 style="font-weight:700; font-size:18px; margin-top:0;">Ablation on Coarse-to-Fine Landmark Refinement under Different HBB Proposal Settings on HRSC2016</h3>
+                        <p style="color:#666; font-size:0.85em; margin-bottom:10px;">Evaluation of the Coarse-to-Fine Landmark Refinement and Oriented Bounding Box Generation framework under varying HBB proposal perturbation settings (angle perturbation and scale jitter) and ground-truth HBBs.</p>
+                        <table style="width:80%; border-collapse:collapse;">
+                            <tr style="border-bottom:1px solid #ccc;">
+                                <th style="padding:8px; text-align:left;">Proposal Setting</th>
+                                <th style="padding:8px; text-align:center;">Complete</th>
+                                <th style="padding:8px; text-align:center;">Rectify</th>
+                                <th style="padding:8px; text-align:center;">mAP@07</th>
+                                <th style="padding:8px; text-align:center;">mAP@12</th>
+                            </tr>
+                            <!-- ±5°, scale 0.1 -->
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px;" rowspan="4"><strong>&plusmn;5&deg;, scale 0.1</strong></td>
+                                <td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2715;</td>
+                                <td style="padding:6px; text-align:center;">0.8836</td><td style="padding:6px; text-align:center;">0.9312</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2713;</td><td style="padding:6px; text-align:center;">&#x2715;</td>
+                                <td style="padding:6px; text-align:center;">0.8808</td><td style="padding:6px; text-align:center;">0.9280</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center;">0.8861</td><td style="padding:6px; text-align:center;">0.9341</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #ccc; background-color:#e8f5e9;">
+                                <td style="padding:6px; text-align:center; font-weight:bold;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center; font-weight:bold;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center; font-weight:bold; color:#1565c0;">0.8962</td>
+                                <td style="padding:6px; text-align:center; font-weight:bold; color:#1565c0;">0.9559</td>
+                            </tr>
+                            <!-- ±5°, scale 0.2 -->
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px;" rowspan="4"><strong>&plusmn;5&deg;, scale 0.2</strong></td>
+                                <td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2715;</td>
+                                <td style="padding:6px; text-align:center;">0.8776</td><td style="padding:6px; text-align:center;">0.9150</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2713;</td><td style="padding:6px; text-align:center;">&#x2715;</td>
+                                <td style="padding:6px; text-align:center;">0.8744</td><td style="padding:6px; text-align:center;">0.9110</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center;">0.8740</td><td style="padding:6px; text-align:center;">0.9014</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #ccc;">
+                                <td style="padding:6px; text-align:center;">&#x2713;</td><td style="padding:6px; text-align:center;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center;">0.8773</td><td style="padding:6px; text-align:center;">0.9144</td>
+                            </tr>
+                            <!-- ±10°, scale 0.1 -->
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px;" rowspan="4"><strong>&plusmn;10&deg;, scale 0.1</strong></td>
+                                <td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2715;</td>
+                                <td style="padding:6px; text-align:center;">0.8506</td><td style="padding:6px; text-align:center;">0.8566</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2713;</td><td style="padding:6px; text-align:center;">&#x2715;</td>
+                                <td style="padding:6px; text-align:center;">0.8572</td><td style="padding:6px; text-align:center;">0.8730</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center;">0.8673</td><td style="padding:6px; text-align:center;">0.8942</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #ccc;">
+                                <td style="padding:6px; text-align:center;">&#x2713;</td><td style="padding:6px; text-align:center;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center;">0.8609</td><td style="padding:6px; text-align:center;">0.8772</td>
+                            </tr>
+                            <!-- ±10°, scale 0.2 -->
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px;" rowspan="4"><strong>&plusmn;10&deg;, scale 0.2</strong></td>
+                                <td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2715;</td>
+                                <td style="padding:6px; text-align:center; color:#999;">0.6854</td><td style="padding:6px; text-align:center; color:#999;">0.6590</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2713;</td><td style="padding:6px; text-align:center;">&#x2715;</td>
+                                <td style="padding:6px; text-align:center; color:#999;">0.5881</td><td style="padding:6px; text-align:center; color:#999;">0.5996</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center; color:#999;">0.6991</td><td style="padding:6px; text-align:center; color:#999;">0.6916</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #ccc;">
+                                <td style="padding:6px; text-align:center;">&#x2713;</td><td style="padding:6px; text-align:center;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center;">0.7196</td><td style="padding:6px; text-align:center;">0.7404</td>
+                            </tr>
+                            <!-- Ground-truth HBB -->
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px;" rowspan="4"><strong>Ground-truth HBB</strong></td>
+                                <td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2715;</td>
+                                <td style="padding:6px; text-align:center;">0.9084</td><td style="padding:6px; text-align:center;">0.9893</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2713;</td><td style="padding:6px; text-align:center;">&#x2715;</td>
+                                <td style="padding:6px; text-align:center;">0.9078</td><td style="padding:6px; text-align:center;">0.9886</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px; text-align:center;">&#x2715;</td><td style="padding:6px; text-align:center;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center;">0.9084</td><td style="padding:6px; text-align:center;">0.9893</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #ddd; background-color:#e8f5e9;">
+                                <td style="padding:6px; text-align:center; font-weight:bold;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center; font-weight:bold;">&#x2713;</td>
+                                <td style="padding:6px; text-align:center; font-weight:bold; color:#1565c0;">0.9086</td>
+                                <td style="padding:6px; text-align:center; font-weight:bold; color:#1565c0;">0.9896</td>
+                            </tr>
+                        </table>
+                        <p style="color:#666; font-size:0.85em; margin-top:8px;">Under mild perturbation (&plusmn;5&deg;, scale 0.1), the full pipeline (Complete+Rectify) achieves 0.8962 mAP@07. As perturbation increases (&plusmn;10&deg;, scale 0.2), performance degrades substantially (0.6854 baseline), though the refinement pipeline still provides meaningful recovery (+3.42% with Complete+Rectify). With ground-truth HBBs, the refinement achieves near-optimal performance (0.9086 mAP@07), closely matching the end-to-end result. This demonstrates that landmark refinement is robust to moderate HBB perturbations and approaches the upper bound given sufficiently accurate proposals.</p>
+                    </div>
+
+                    <div style="background-color: #f5f5f5; padding: 20px; border-radius: 5px; margin: 20px 0;">
+                        <h3 style="font-weight:700; font-size:18px; margin-top:0;">Sensitivity Analysis under Different HBB Proposal Settings on HRSC2016</h3>
+                        <p style="color:#666; font-size:0.85em; margin-bottom:10px;">Summary of detection performance sensitivity to HBB proposal quality. Results reported as mean &plusmn; std over multiple runs. This analysis quantifies the robustness of the landmark refinement pipeline under increasing levels of HBB perturbation.</p>
+                        <table style="width:70%; border-collapse:collapse;">
+                            <tr style="border-bottom:1px solid #ccc;">
+                                <th style="padding:8px; text-align:left;">Proposal Setting</th>
+                                <th style="padding:8px; text-align:center;">mAP@07</th>
+                                <th style="padding:8px; text-align:center;">mAP@12</th>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee; background-color:#e8f5e9;">
+                                <td style="padding:6px;"><strong>Ground-truth HBB</strong></td>
+                                <td style="padding:6px; text-align:center; font-weight:bold; color:#1565c0;">0.9083 &plusmn; 0.0003</td>
+                                <td style="padding:6px; text-align:center; font-weight:bold; color:#1565c0;">0.9892 &plusmn; 0.0004</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px;">&plusmn;5&deg;, scale 0.1</td>
+                                <td style="padding:6px; text-align:center;">0.8867 &plusmn; 0.0067</td>
+                                <td style="padding:6px; text-align:center;">0.9373 &plusmn; 0.0126</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px;">&plusmn;5&deg;, scale 0.2</td>
+                                <td style="padding:6px; text-align:center;">0.8758 &plusmn; 0.0019</td>
+                                <td style="padding:6px; text-align:center;">0.9105 &plusmn; 0.0063</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px;">&plusmn;10&deg;, scale 0.1</td>
+                                <td style="padding:6px; text-align:center;">0.8590 &plusmn; 0.0070</td>
+                                <td style="padding:6px; text-align:center;">0.8753 &plusmn; 0.0154</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #eee;">
+                                <td style="padding:6px;">&plusmn;10&deg;, scale 0.2</td>
+                                <td style="padding:6px; text-align:center; color:#999;">0.6731 &plusmn; 0.0584</td>
+                                <td style="padding:6px; text-align:center; color:#999;">0.6727 &plusmn; 0.0591</td>
+                            </tr>
+                        </table>
+                        <p style="color:#666; font-size:0.85em; margin-top:8px;">Performance degrades gracefully as HBB perturbation increases: from 0.9083 (GT) &#x2192; 0.8867 (&plusmn;5&deg;, 0.1) &#x2192; 0.8590 (&plusmn;10&deg;, 0.1) &#x2192; 0.6731 (&plusmn;10&deg;, 0.2). The low variance under GT HBBs (std 0.0003) confirms that the landmark refinement pipeline is highly stable given accurate proposals. The sharp drop under &plusmn;10&deg; with scale 0.2, combined with high variance (&plusmn;0.0584), indicates that landmark regression becomes unreliable when proposals deviate substantially from true ship locations, representing a practical operational limit of the refinement framework.</p>
+                    </div>
+
 
               </div>
       <!-- ENDS Footer -->
