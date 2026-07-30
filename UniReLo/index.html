@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="UniReLo: Learning a Unified Humanoid Policy from Fall Recovery to Locomotion across Diverse Terrains">
+  <meta name="keywords"
+    content="Humanoid Robot, Fall Recovery, Locomotion, Reinforcement Learning, Unitree G1, Legged Robotics">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UniReLo</title>
+
+  <link rel="icon" href="./static/images/Fig.1.png">
+  <!-- Optional analytics: replace G-XXXX with your own tag or remove -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXX');
+  </script>
+  -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <style>
+    /* Simulation clips are kept slightly smaller than the real-world videos */
+    .sim-grid { max-width: 780px; margin-left: auto; margin-right: auto; }
+  </style>
+
+  <meta property="og:title" content="UniReLo" />
+  <meta property="og:description"
+    content="Learning a Unified Humanoid Policy from Fall Recovery to Locomotion across Diverse Terrains" />
+  <meta property="og:image" content="https://vsislab.github.io/UniReLo/static/images/Fig.1.png" />
+</head>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero is-link is-fullheight video">
+  <div class="hero-video">
+    <video playsinline autoplay muted loop poster="./static/images/Fig.1.png">
+      <source src="./static/videos/hero_background.mp4?v=3" type="video/mp4">
+    </video>
+  </div>
+  <div class="overlay"></div>
+
+  <!-- Hero body: title block -->
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title is-1 publication-title is-size-1-mobile" style="font-size: 6rem;">
+        UniReLo
+      </h1>
+      <h1 class="subtitle is-1 publication-title is-size-4-mobile" style="font-size: 2.6rem; line-height:1.2;">
+        Learning a Unified Humanoid Policy from Fall Recovery<br>to Locomotion across Diverse Terrains
+      </h1>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== OVERVIEW / TEASER ===================== -->
+<section class="section" id="overview">
+  <div class="container" style="max-width: 1100px; margin: 0 auto;">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">
+          Overview
+        </h2>
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <img src="./static/images/Fig.1.png" alt="UniReLo overview" style="width: 100%; border-radius: 10px;" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== ABSTRACT ===================== -->
+<section class="section">
+  <div class="container" style="max-width: 960px; margin: 0 auto;">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-two-thirds">
+        <h2 class="title is-2">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Reliable fall recovery is essential for humanoid robots operating autonomously in unstructured environments.
+            Recent learning-based studies have advanced both standing-up across diverse terrain conditions and unified
+            recovery&ndash;locomotion control. However, these capabilities have largely been investigated as separate
+            settings, leaving sustained command-following locomotion after recovery on heterogeneous terrains
+            comparatively less explored. We present
+            <strong style="color:#13c253; font-weight:800;">UniReLo</strong> (Learning a Unified Humanoid Policy from Fall Recovery to Locomotion across Diverse Terrains), a unified framework for fall recovery and subsequent
+            velocity-commanded locomotion across heterogeneous terrains.
+            <strong style="color:#13c253; font-weight:800;">Terrain-Conditioned Stable-Region Guidance</strong> evaluates
+            recovery feasibility using terrain-relative support geometry and complementary stability factors, encouraging
+            support configurations suitable for subsequent locomotion rather than relying on upright posture alone.
+            <strong style="color:#13c253; font-weight:800;">Continuously Gated Multi-Scale Motion Priors</strong> use
+            quantified recovery progress to coordinate frame-, sequence-, and gait-level adversarial supervision throughout
+            recovery, transition, and locomotion. Simulation comparisons and controlled ablations on flat ground, gravel,
+            and 10&deg; and 15&deg; slopes demonstrate improved recovery success, support stability, and
+            recovery-to-locomotion transition continuity over the evaluated baselines. Hardware experiments using a 29-DoF
+            Unitree&nbsp;G1 humanoid cover the same terrain categories and additionally include outdoor grass, which is
+            absent from simulation training. The results demonstrate sustained command-following locomotion after
+            recovery, disturbance resistance during walking, and autonomous recovery from fall-inducing perturbations,
+            while indicating the cross-terrain generalization of the learned policy.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== REAL-WORLD RECOVERY-TO-LOCOMOTION ===================== -->
+<section class="section">
+  <div class="container" style="max-width: 1100px; margin: 0 auto;">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">
+          Recovery-to-Locomotion
+        </h2>
+        <p class="content is-medium" style="text-align: center; padding-bottom: 20px;">
+          Under external kicks and fall-inducing conditions, <strong style="color:#13c253; font-weight:800;">UniReLo</strong>
+          either absorbs a mild disturbance while maintaining stable locomotion (<em>Robustness</em>), or recovers from a
+          strong perturbation or fallen posture and seamlessly resumes walking (<em>Recovery-to-Locomotion</em>) &mdash;
+          across indoor, grass, and slope terrains.
+        </p>
+        <h3 class="title is-3" style="text-align: center; padding-bottom: 5px;">Recovery-to-Locomotion</h3>
+        <div class="columns">
+          <div class="column has-text-centered">
+            <h3 class="title is-3" style="margin-bottom: 10px; font-size: x-large;">Recovery-to-Locomotion &middot; Indoor</h3>
+            <video autoplay muted loop playsinline controls preload="auto"
+              src="./static/videos/recovery_to_locomotion_indoor.mp4" width="100%" style="border-radius:10px;"></video>
+          </div>
+          <div class="column has-text-centered">
+            <h3 class="title is-3" style="margin-bottom: 10px; font-size: x-large;">Recovery-to-Locomotion &middot; Grass</h3>
+            <video autoplay muted loop playsinline controls preload="auto"
+              src="./static/videos/recovery_to_locomotion_grass_new.mp4" width="100%" style="border-radius:10px;"></video>
+          </div>
+        </div>
+        <br>
+        <div class="columns">
+          <div class="column has-text-centered">
+            <h3 class="title is-3" style="margin-bottom: 10px; font-size: x-large;">Recovery-to-Locomotion &middot; Slope 5&deg;</h3>
+            <video autoplay muted loop playsinline controls preload="auto"
+              src="./static/videos/recovery_to_locomotion_slope5.mp4" width="100%" style="border-radius:10px;"></video>
+          </div>
+          <div class="column has-text-centered">
+            <h3 class="title is-3" style="margin-bottom: 10px; font-size: x-large;">Recovery-to-Locomotion &middot; Slope 10&deg;</h3>
+            <video autoplay muted loop playsinline controls preload="auto"
+              src="./static/videos/recovery_to_locomotion_slope10.mp4" width="100%" style="border-radius:10px;"></video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ===================== REAL-WORLD RECOVERY ACROSS TERRAINS ===================== -->
+<section class="section" id="results">
+  <div class="container" style="max-width: 1100px; margin: 0 auto;">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">
+          Real-World Recovery Across Challenging Terrains
+        </h2>
+        <div class="columns">
+          <div class="column has-text-centered">
+            <h3 class="title is-3" style="margin-bottom: 10px; font-size: x-large;">Locomotion &middot; Indoor</h3>
+            <video autoplay muted loop playsinline controls preload="auto"
+              src="./static/videos/locomotion_indoor.mp4" width="100%" style="border-radius:10px;"></video>
+          </div>
+          <div class="column has-text-centered">
+            <h3 class="title is-3" style="margin-bottom: 10px; font-size: x-large;">Locomotion &middot; Grass</h3>
+            <video autoplay muted loop playsinline controls preload="auto"
+              src="./static/videos/locomotion_grass.mp4" width="100%" style="border-radius:10px;"></video>
+          </div>
+        </div>
+        <br>
+        <div class="columns">
+          <div class="column has-text-centered">
+            <h3 class="title is-3" style="margin-bottom: 10px; font-size: x-large;">Locomotion &middot; Gravel</h3>
+            <video autoplay muted loop playsinline controls preload="auto"
+              src="./static/videos/locomotion_greval.mp4?v=2" width="100%" style="border-radius:10px;"></video>
+          </div>
+          <div class="column has-text-centered">
+            <h3 class="title is-3" style="margin-bottom: 10px; font-size: x-large;">Locomotion &middot; Slope 10&deg;</h3>
+            <video autoplay muted loop playsinline controls preload="auto"
+              src="./static/videos/locomotion_slope10.mp4?v=2" width="100%" style="border-radius:10px;"></video>
+          </div>
+        </div>
+        <br>
+        <div class="columns is-centered">
+          <div class="column has-text-centered is-half">
+            <h3 class="title is-3" style="margin-bottom: 10px; font-size: x-large;">Locomotion &middot; Slope 15&deg;</h3>
+            <video autoplay muted loop playsinline controls preload="auto"
+              src="./static/videos/locomotion_slope15.mp4?v=2" width="100%" style="border-radius:10px;"></video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== REAL-WORLD MULTI-POSTURE RECOVERY ===================== -->
+<section class="section">
+  <div class="container" style="max-width: 1100px; margin: 0 auto;">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">
+          Real-World Multi-Posture Recovery
+        </h2>
+        <p class="content is-medium" style="text-align: center; padding-bottom: 15px;">
+          The same <strong style="color:#13c253; font-weight:800;">UniReLo</strong> policy rises from a wide range of initial
+          fallen postures using a single deployable policy. Guided by
+          <strong style="color:#13c253; font-weight:800;">Terrain-Pose Plasticity-Aware Initialization</strong>, the policy
+          learns to stand up from supine, prone, side-lying, and curled configurations.
+        </p>
+        <div class="columns">
+          <div class="column has-text-centered">
+            <h3 class="title is-3" style="margin-bottom: 10px; font-size: x-large;">Stand Up from Supine</h3>
+            <video autoplay muted loop playsinline controls preload="auto"
+              src="./static/videos/recovery_supine.mp4" width="100%" style="border-radius:10px;"></video>
+          </div>
+          <div class="column has-text-centered">
+            <h3 class="title is-3" style="margin-bottom: 10px; font-size: x-large;">Stand Up from Side-Lying</h3>
+            <video autoplay muted loop playsinline controls preload="auto"
+              src="./static/videos/recovery_sidelying.mp4" width="100%" style="border-radius:10px;"></video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== REAL-WORLD ROBUSTNESS ===================== -->
+<section class="section">
+  <div class="container" style="max-width: 1100px; margin: 0 auto;">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">
+          Robustness
+        </h2>
+        <h3 class="title is-3" style="text-align: center; padding-bottom: 5px;">Robustness</h3>
+        <div class="columns">
+          <div class="column has-text-centered">
+            <h3 class="title is-3" style="margin-bottom: 10px; font-size: x-large;">Robustness &middot; Indoor</h3>
+            <video autoplay muted loop playsinline controls preload="auto"
+              src="./static/videos/Robustness_indoor.mp4" width="100%" style="border-radius:10px;"></video>
+          </div>
+          <div class="column has-text-centered">
+            <h3 class="title is-3" style="margin-bottom: 10px; font-size: x-large;">Robustness &middot; Grass</h3>
+            <video autoplay muted loop playsinline controls preload="auto"
+              src="./static/videos/Robustness_grass.mp4" width="100%" style="border-radius:10px;"></video>
+          </div>
+        </div>
+        <br>
+        <div class="columns is-centered">
+          <div class="column is-two-thirds has-text-centered">
+            <h3 class="title is-3" style="margin-bottom: 10px; font-size: x-large;">Robustness &middot; Slope 5&deg;</h3>
+            <video autoplay muted loop playsinline controls preload="auto"
+              src="./static/videos/Robustness_slope5.mp4" width="100%" style="border-radius:10px;"></video>
+          </div>
+        </div>
+
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- ===================== SIMULATION RESULTS ===================== -->
+<section class="section" id="simulation">
+  <div class="container" style="max-width: 1100px; margin: 0 auto;">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">
+          Simulation Results
+        </h2>
+        <p class="content is-medium" style="text-align: center; padding-bottom: 20px;">
+          Zero-shot MuJoCo simulation counterparts of the real-world experiments above, covering locomotion across
+          terrains, robustness/recovery-to-locomotion under perturbations, and multi-posture recovery.
+        </p>
+
+        <!-- Simulation Robustness & Recovery-to-Locomotion -->
+        <br><br>
+        <h3 class="title is-3" style="text-align: center; padding-bottom: 5px;">
+          Simulation Robustness &amp; Recovery-to-Locomotion
+        </h3>
+        <p class="content is-medium" style="text-align: center; padding-bottom: 15px;">
+          MuJoCo simulation of the same external-kick conditions.
+        </p>
+        <div class="columns sim-grid">
+          <div class="column has-text-centered">
+            <h4 class="title is-4" style="margin-bottom: 8px; font-size: large;">Robustness</h4>
+            <video autoplay muted loop playsinline controls preload="auto"
+              src="./static/videos/sim_Robustness_indoor.mp4" width="100%" style="border-radius:10px;"></video>
+          </div>
+          <div class="column has-text-centered">
+            <h4 class="title is-4" style="margin-bottom: 8px; font-size: large;">Recovery-to-Locomotion</h4>
+            <video autoplay muted loop playsinline controls preload="auto"
+              src="./static/videos/sim_recovery_to_locomotion_indoor.mp4" width="100%" style="border-radius:10px;"></video>
+          </div>
+        </div>
+
+        <!-- Simulation Locomotion Across Terrains -->
+        <h3 class="title is-3" style="text-align: center; padding-bottom: 5px;">
+          Simulation Locomotion Across Terrains
+        </h3>
+        <div class="columns sim-grid">
+          <div class="column has-text-centered">
+            <h4 class="title is-4" style="margin-bottom: 8px; font-size: large;">Locomotion &middot; Flat</h4>
+            <video autoplay muted loop playsinline controls preload="auto"
+              src="./static/videos/sim_locomotion_indoor.mp4" width="100%" style="border-radius:10px;"></video>
+          </div>
+          <div class="column has-text-centered">
+            <h4 class="title is-4" style="margin-bottom: 8px; font-size: large;">Locomotion &middot; Gravel</h4>
+            <video autoplay muted loop playsinline controls preload="auto"
+              src="./static/videos/sim_locomotion_greval.mp4" width="100%" style="border-radius:10px;"></video>
+          </div>
+        </div>
+        <br>
+        <div class="columns sim-grid">
+          <div class="column has-text-centered">
+            <h4 class="title is-4" style="margin-bottom: 8px; font-size: large;">Locomotion &middot; Slope 10&deg;</h4>
+            <video autoplay muted loop playsinline controls preload="auto"
+              src="./static/videos/sim_locomotion_slope10.mp4" width="100%" style="border-radius:10px;"></video>
+          </div>
+          <div class="column has-text-centered">
+            <h4 class="title is-4" style="margin-bottom: 8px; font-size: large;">Locomotion &middot; Slope 15&deg;</h4>
+            <video autoplay muted loop playsinline controls preload="auto"
+              src="./static/videos/sim_locomotion_slope15.mp4" width="100%" style="border-radius:10px;"></video>
+          </div>
+        </div>
+
+        <!-- Simulation Multi-Posture Recovery -->
+        <br><br>
+        <h3 class="title is-3" style="text-align: center; padding-bottom: 5px;">
+          Simulation Multi-Posture Recovery
+        </h3>
+        <div class="columns sim-grid">
+          <div class="column has-text-centered">
+            <video autoplay muted loop playsinline controls preload="auto"
+              src="./static/videos/sim_recovery_to_locomotion_1.mp4" width="100%" style="border-radius:10px;"></video>
+            <p style="margin-top: 8px; font-weight: 600;">Stand Up from Supine</p>
+          </div>
+          <div class="column has-text-centered">
+            <video autoplay muted loop playsinline controls preload="auto"
+              src="./static/videos/sim_recovery_to_locomotion_2.mp4" width="100%" style="border-radius:10px;"></video>
+            <p style="margin-top: 8px; font-weight: 600;">Stand Up from Prone</p>
+          </div>
+        </div>
+        <br>
+        <div class="columns sim-grid">
+          <div class="column has-text-centered">
+            <video autoplay muted loop playsinline controls preload="auto"
+              src="./static/videos/sim_recovery_to_locomotion_3.mp4" width="100%" style="border-radius:10px;"></video>
+            <p style="margin-top: 8px; font-weight: 600;">Stand Up from Side-Lying</p>
+          </div>
+          <div class="column has-text-centered">
+            <video autoplay muted loop playsinline controls preload="auto"
+              src="./static/videos/sim_recovery_to_locomotion_4.mp4" width="100%" style="border-radius:10px;"></video>
+            <p style="margin-top: 8px; font-weight: 600;">Stand Up from Curled</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== BIBTEX ===================== -->
+<section class="section" id="BibTeX">
+  <div class="container content" style="max-width: 960px; margin: 0 auto;">
+    <h2 class="title is-2" style="text-align:center;">BibTeX</h2>
+    <pre style="background:#f5f5f5; padding:1.25rem; border-radius:8px; overflow-x:auto;"><code>@article{xu2026unirelo,
+  title   = {{UniReLo}: Learning a Unified Humanoid Policy from Fall Recovery to Locomotion across Diverse Terrains},
+  author  = {Xu, Xiaoyu and Chen, Zhiming and Zhao, Yuenan and Zhang, Xiang and Song, Ran and Zhang, Wei},
+  journal = {arXiv preprint arXiv:2606.08922},
+  year    = {2026}
+}</code></pre>
+  </div>
+</section>
+
+</body>
+
+</html>
