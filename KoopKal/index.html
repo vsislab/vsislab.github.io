@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="KoopKal: Koopman-Kalman Probabilistic Dynamics for Egocentric Hand Trajectory Forecasting.">
+  <title>KoopKal: Koopman-Kalman Probabilistic Dynamics for Egocentric Hand Trajectory Forecasting</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232f2f2f'/%3E%3Cpath d='M16 42c10-14 18-20 32-20M16 29c8 7 17 10 32 9' fill='none' stroke='%23e85d45' stroke-width='6' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='42' r='4' fill='%2377b99d'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css?v=method-v1">
+</head>
+<body>
+  <main class="publication">
+    <header class="publication-header">
+      <h1><span class="title-line">KoopKal: Koopman-Kalman Probabilistic Dynamics</span> <span class="title-line">for Egocentric Hand Trajectory Forecasting</span></h1>
+      <p class="authors">
+        <span>Dayou Li</span>
+        <span>Lin Zhang</span>
+        <span>Shuo Yang</span>
+        <span>Wei Zhang</span>
+      </p>
+      <p class="affiliation">School of Control Science and Engineering, Shandong University</p>
+      <nav class="page-nav" aria-label="Page sections">
+        <a href="#abstract">Abstract</a>
+        <a href="#method">Method</a>
+        <a href="#results">Results</a>
+      </nav>
+    </header>
+
+    <section id="abstract" class="block">
+      <figure class="teaser">
+        <a href="assets/teaser-v28.png" target="_blank" rel="noopener" aria-label="View the teaser at full resolution">
+          <img src="assets/teaser-v28.png" alt="Diffusion-based forecasting with MADiff compared with Koopman-Kalman forecasting with KoopKal: error over forecast steps, model size, inference time, and 2-D and 3-D trajectories for one example." width="2600" height="1366" fetchpriority="high">
+        </a>
+        <figcaption>
+          <strong>Diffusion vs. Koopman–Kalman forecasting.</strong>
+          (a) MADiff denoises the whole future jointly, so motion dynamics and context are modeled implicitly and errors grow along the horizon.
+          (b) KoopKal propagates an explicit Koopman motion prior and corrects it step by step through uncertainty-aware Kalman fusion.
+          In this example, KoopKal reduces the final displacement error from 23.8&nbsp;cm to 3.0&nbsp;cm, with 38.0% fewer parameters and 1.24× faster inference.
+        </figcaption>
+      </figure>
+
+      <div class="prose">
+        <h2>Abstract</h2>
+        <p class="abstract">
+          Egocentric hand trajectory forecasting aims to predict future hand motion from an observed history of egocentric video and hand waypoints, where the observed trajectory is jointly influenced by intrinsic hand motion, human–object interactions, and camera egomotion.
+          Recent methods have achieved promising performance by modeling observed hand motion and egocentric visual context through autoregressive trajectory forecasting or diffusion-based trajectory generation.
+          However, these approaches typically model trajectory evolution implicitly within the single prediction process, without explicitly characterizing how the hand state propagates over time.
+          Consequently, local prediction deviations may propagate to subsequent steps, causing errors to accumulate over long forecasting horizons and eventually leading to trajectory drift.
+          To address this issue, we propose KoopKal for egocentric hand trajectory forecasting, a Koopman-Kalman state-space model that establishes future motion prediction upon structured Koopman latent-state evolution and recursively refines the predicted states through context-conditioned corrections within an uncertainty-aware filtering framework.
+          Specifically, KoopKal introduces a Koopman-inspired latent transition model that captures underlying hand-motion dynamics through compact linear evolution in a lifted state space, providing a structured motion prior for globally coherent forecasting.
+          To capture context-dependent motion variations beyond the Koopman prior, we further introduce a context-conditioned residual motion correction module to adaptively refine the prior prediction.
+          Finally, KoopKal integrates the Koopman prior and context-conditioned corrections within a probabilistic Kalman filtering framework, enabling recursive latent-state refinement and uncertainty propagation.
+          Extensive experiments on four public egocentric benchmarks demonstrate that KoopKal achieves superior performance compared with state-of-the-art methods across 2-D, metric 3-D, and multi-joint hand trajectory forecasting, while requiring substantially fewer parameters and enabling faster inference.
+        </p>
+      </div>
+    </section>
+
+    <section id="method" class="block">
+      <div class="prose">
+        <h2>Method</h2>
+        <p>
+          KoopKal forecasts one step at a time.
+          At every future step, the Koopman operator predicts where the hand state goes next, a contextual branch predicts how that prediction should be corrected, and a Kalman update decides how much of the correction to trust.
+        </p>
+      </div>
+
+      <figure class="pipeline">
+        <a href="assets/pipeline.png" target="_blank" rel="noopener" aria-label="View the pipeline figure at full resolution">
+          <img src="assets/pipeline.png" alt="KoopKal pipeline: observed motion and context are lifted into a Koopman state; recursive forecasting combines a Koopman rollout with contextual residual dynamics through Kalman fusion; the lifted posterior is projected to probabilistic waypoints and a future trajectory." width="2884" height="1412" loading="lazy">
+        </a>
+        <figcaption>
+          <strong>Overview of the KoopKal framework.</strong>
+          The observed trajectory is mapped to a position-preserving lifted state.
+          At each forecasting step, the Koopman rollout supplies a motion prior, the contextual residual branch predicts a correction, and Kalman fusion yields the posterior state and covariance, which are projected to probabilistic waypoints.
+        </figcaption>
+      </figure>
+
+      <ol class="steps">
+        <li>
+          <h3>Position-preserving Koopman lift</h3>
+          <p>
+            Each observed waypoint is combined with its velocity, acceleration, and a few nonlinear kinematic terms, then lifted into a latent state that still contains the hand position itself.
+            Any predicted state therefore maps straight back to 2-D or 3-D coordinates through a fixed projection, with no trajectory decoder.
+            Comparing each observed state with its one-step Koopman prediction gives a <em>Koopman innovation</em>, which records how the hand departs from nominal motion.
+          </p>
+        </li>
+        <li>
+          <h3>Koopman prior and contextual residuals</h3>
+          <p>
+            From the last observed state, the learned Koopman operator propagates the state and its covariance step by step, giving a coherent motion prior over the whole horizon.
+            In parallel, a Residual Mamba reads visual features, hand positions, camera egomotion, and the Koopman innovations, and predicts for every future step a correction to the prior together with its uncertainty.
+            The branch never outputs a separate trajectory; it only says how the prior should change.
+          </p>
+        </li>
+        <li>
+          <h3>Uncertainty-aware Kalman fusion</h3>
+          <p>
+            A Kalman update weighs the Koopman prior against the contextual correction.
+            A confident correction moves the state; an uncertain one is damped, and the prior dominates.
+            The fused state is projected to a Gaussian waypoint for each future step, and an uncertainty-weighted, smoothness-regularized readout turns these waypoints into one temporally coherent trajectory.
+          </p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="results" class="block">
+      <div class="prose">
+        <h2>Results</h2>
+        <p>
+          We evaluate KoopKal on four egocentric benchmarks (EgoPAT3D-DT, H2O-PT, HOT3D-Clips, and CABH), covering 2-D, metric 3-D, and five-joint hand trajectory forecasting under seen- and unseen-environment protocols.
+          For example, in 2-D on EgoPAT3D-DT, KoopKal reaches an ADE/FDE of 0.053/0.093 on seen scenes and 0.042/0.075 on unseen scenes, compared with 0.064/0.109 and 0.052/0.087 for Uni-Hand.
+        </p>
+      </div>
+
+      <div class="prose subsection">
+        <h3>2-D forecasting in egocentric video</h3>
+        <p>
+          Each animation plays the observed clip and then draws the forecasts step by step on the reference frame, with MADiff and Uni-Hand for comparison.
+          Samples come from EgoPAT3D-DT, including one unseen scene, and H2O-PT. Click any animation to open it at full size.
+        </p>
+      </div>
+    </section>
+
+    <section class="animations" aria-label="Animated 2D forecasting results">
+      <figure>
+        <a href="assets/koopkal-egopat.gif" target="_blank" rel="noopener" aria-label="Open EgoPAT3D 2D case 349">
+          <picture>
+            <source media="(prefers-reduced-motion: reduce)" srcset="assets/koopkal-egopat-poster.png">
+            <img src="assets/koopkal-egopat.gif" alt="EgoPAT3D 2D trajectory forecasting, case 349." width="640" height="539" loading="lazy" decoding="async">
+          </picture>
+        </a>
+      </figure>
+      <figure>
+        <a href="assets/koopkal-egopat-1569.gif" target="_blank" rel="noopener" aria-label="Open EgoPAT3D 2D case 1569">
+          <picture>
+            <source media="(prefers-reduced-motion: reduce)" srcset="assets/koopkal-egopat-1569-poster.png">
+            <img src="assets/koopkal-egopat-1569.gif" alt="EgoPAT3D 2D trajectory forecasting, case 1569." width="640" height="542" loading="lazy" decoding="async">
+          </picture>
+        </a>
+      </figure>
+      <figure>
+        <a href="assets/koopkal-egopat-unseen-1744.gif" target="_blank" rel="noopener" aria-label="Open EgoPAT3D unseen 2D case 1744">
+          <picture>
+            <source media="(prefers-reduced-motion: reduce)" srcset="assets/koopkal-egopat-unseen-1744-poster.png">
+            <img src="assets/koopkal-egopat-unseen-1744.gif" alt="EgoPAT3D unseen 2D trajectory forecasting, case 1744." width="640" height="540" loading="lazy" decoding="async">
+          </picture>
+        </a>
+      </figure>
+      <figure>
+        <a href="assets/koopkal-h2o.gif" target="_blank" rel="noopener" aria-label="Open H2O 2D case 464">
+          <picture>
+            <source media="(prefers-reduced-motion: reduce)" srcset="assets/koopkal-h2o-poster.png">
+            <img src="assets/koopkal-h2o.gif" alt="H2O 2D trajectory forecasting, case 464." width="640" height="542" loading="lazy" decoding="async">
+          </picture>
+        </a>
+      </figure>
+      <figure>
+        <a href="assets/koopkal-h2o-1353.gif" target="_blank" rel="noopener" aria-label="Open H2O 2D case 1353">
+          <picture>
+            <source media="(prefers-reduced-motion: reduce)" srcset="assets/koopkal-h2o-1353-poster.png">
+            <img src="assets/koopkal-h2o-1353.gif" alt="H2O 2D trajectory forecasting, case 1353." width="640" height="542" loading="lazy" decoding="async">
+          </picture>
+        </a>
+      </figure>
+      <figure>
+        <a href="assets/koopkal-egopat-0898.gif" target="_blank" rel="noopener" aria-label="Open EgoPAT3D 2D case 898">
+          <picture>
+            <source media="(prefers-reduced-motion: reduce)" srcset="assets/koopkal-egopat-0898-poster.png">
+            <img src="assets/koopkal-egopat-0898.gif" alt="EgoPAT3D 2D trajectory forecasting, case 898." width="640" height="540" loading="lazy" decoding="async">
+          </picture>
+        </a>
+      </figure>
+      <figure>
+        <a href="assets/koopkal-egopat-0926.gif" target="_blank" rel="noopener" aria-label="Open EgoPAT3D 2D case 926">
+          <picture>
+            <source media="(prefers-reduced-motion: reduce)" srcset="assets/koopkal-egopat-0926-poster.png">
+            <img src="assets/koopkal-egopat-0926.gif" alt="EgoPAT3D 2D trajectory forecasting, case 926." width="640" height="540" loading="lazy" decoding="async">
+          </picture>
+        </a>
+      </figure>
+      <figure>
+        <a href="assets/koopkal-h2o-0533.gif" target="_blank" rel="noopener" aria-label="Open H2O 2D case 533">
+          <picture>
+            <source media="(prefers-reduced-motion: reduce)" srcset="assets/koopkal-h2o-0533-poster.png">
+            <img src="assets/koopkal-h2o-0533.gif" alt="H2O 2D trajectory forecasting, case 533." width="640" height="542" loading="lazy" decoding="async">
+          </picture>
+        </a>
+      </figure>
+      <figure>
+        <a href="assets/koopkal-h2o-1075.gif" target="_blank" rel="noopener" aria-label="Open H2O 2D case 1075">
+          <picture>
+            <source media="(prefers-reduced-motion: reduce)" srcset="assets/koopkal-h2o-1075-poster.png">
+            <img src="assets/koopkal-h2o-1075.gif" alt="H2O 2D trajectory forecasting, case 1075." width="640" height="535" loading="lazy" decoding="async">
+          </picture>
+        </a>
+      </figure>
+      <figure>
+        <a href="assets/koopkal-h2o-3347.gif" target="_blank" rel="noopener" aria-label="Open H2O 2D case 3347">
+          <picture>
+            <source media="(prefers-reduced-motion: reduce)" srcset="assets/koopkal-h2o-3347-poster.png">
+            <img src="assets/koopkal-h2o-3347.gif" alt="H2O 2D trajectory forecasting, case 3347." width="640" height="542" loading="lazy" decoding="async">
+          </picture>
+        </a>
+      </figure>
+    </section>
+
+    <section class="results results-2d" aria-label="2D trajectory comparisons">
+      <figure>
+        <a href="assets/results-2d-a.png" target="_blank" rel="noopener" aria-label="View 2D comparisons at full resolution">
+          <img src="assets/results-2d-a.png" alt="2D forecasting comparisons on EgoPAT3D seen, EgoPAT3D unseen, and H2O." width="1526" height="1384" loading="lazy">
+        </a>
+      </figure>
+      <figure>
+        <a href="assets/results-2d-b.png" target="_blank" rel="noopener" aria-label="View additional 2D comparisons at full resolution">
+          <img src="assets/results-2d-b.png" alt="Additional 2D forecasting comparisons on EgoPAT3D, H2O, and HOT3D." width="1526" height="1384" loading="lazy">
+        </a>
+        <figcaption>
+          <strong>2-D comparisons with MADiff and Uni-Hand.</strong>
+          Top: EgoPAT3D-DT seen, EgoPAT3D-DT unseen, and H2O-PT. Bottom: EgoPAT3D-DT seen, H2O-PT, and HOT3D-Clips.
+          KoopKal follows the future motion direction and endpoint more closely across different hand motions.
+        </figcaption>
+      </figure>
+    </section>
+
+    <div class="prose subsection">
+      <h3>Metric 3-D forecasting</h3>
+      <p>
+        Hand-center trajectories in meters on EgoPAT3D-DT and HOT3D-Clips, plotted from a fixed viewpoint with equal axis scales.
+        Each animation draws the observed trajectory, then the ground-truth future and the KoopKal forecast, using the paper's exported coordinates without interpolation.
+      </p>
+    </div>
+
+    <section class="animations" aria-label="Animated 3D forecasting results">
+      <figure>
+        <a href="assets/koopkal-3d-egopat-0104.gif" target="_blank" rel="noopener" aria-label="Open EgoPAT3D 3D case 104">
+          <picture>
+            <source media="(prefers-reduced-motion: reduce)" srcset="assets/koopkal-3d-egopat-0104-poster.png">
+            <img src="assets/koopkal-3d-egopat-0104.gif" alt="EgoPAT3D 3D trajectory forecasting, case 104." width="640" height="540" loading="lazy" decoding="async">
+          </picture>
+        </a>
+      </figure>
+      <figure>
+        <a href="assets/koopkal-3d-egopat-1060.gif" target="_blank" rel="noopener" aria-label="Open EgoPAT3D 3D case 1060">
+          <picture>
+            <source media="(prefers-reduced-motion: reduce)" srcset="assets/koopkal-3d-egopat-1060-poster.png">
+            <img src="assets/koopkal-3d-egopat-1060.gif" alt="EgoPAT3D 3D trajectory forecasting, case 1060." width="640" height="540" loading="lazy" decoding="async">
+          </picture>
+        </a>
+      </figure>
+      <figure>
+        <a href="assets/koopkal-3d-egopat-1244.gif" target="_blank" rel="noopener" aria-label="Open EgoPAT3D 3D case 1244">
+          <picture>
+            <source media="(prefers-reduced-motion: reduce)" srcset="assets/koopkal-3d-egopat-1244-poster.png">
+            <img src="assets/koopkal-3d-egopat-1244.gif" alt="EgoPAT3D 3D trajectory forecasting, case 1244." width="640" height="540" loading="lazy" decoding="async">
+          </picture>
+        </a>
+      </figure>
+      <figure>
+        <a href="assets/koopkal-3d-hot3d-0117.gif" target="_blank" rel="noopener" aria-label="Open HOT3D 3D case 117">
+          <picture>
+            <source media="(prefers-reduced-motion: reduce)" srcset="assets/koopkal-3d-hot3d-0117-poster.png">
+            <img src="assets/koopkal-3d-hot3d-0117.gif" alt="HOT3D 3D trajectory forecasting, case 117." width="640" height="540" loading="lazy" decoding="async">
+          </picture>
+        </a>
+      </figure>
+      <figure>
+        <a href="assets/koopkal-3d-hot3d-0186.gif" target="_blank" rel="noopener" aria-label="Open HOT3D 3D case 186">
+          <picture>
+            <source media="(prefers-reduced-motion: reduce)" srcset="assets/koopkal-3d-hot3d-0186-poster.png">
+            <img src="assets/koopkal-3d-hot3d-0186.gif" alt="HOT3D 3D trajectory forecasting, case 186." width="640" height="540" loading="lazy" decoding="async">
+          </picture>
+        </a>
+      </figure>
+      <figure>
+        <a href="assets/koopkal-3d-hot3d-0213.gif" target="_blank" rel="noopener" aria-label="Open HOT3D 3D case 213">
+          <picture>
+            <source media="(prefers-reduced-motion: reduce)" srcset="assets/koopkal-3d-hot3d-0213-poster.png">
+            <img src="assets/koopkal-3d-hot3d-0213.gif" alt="HOT3D 3D trajectory forecasting, case 213." width="640" height="540" loading="lazy" decoding="async">
+          </picture>
+        </a>
+      </figure>
+    </section>
+
+    <section class="results results-3d" aria-label="3D trajectory comparisons">
+      <figure>
+        <a href="assets/results-3d.png" target="_blank" rel="noopener" aria-label="View 3D trajectory comparisons at full resolution">
+          <img src="assets/results-3d.png" alt="Metric 3D trajectories from KoopKal, UniHand, and MADiff on EgoPAT3D and HOT3D." width="2151" height="945" loading="lazy">
+        </a>
+        <figcaption>
+          <strong>Metric 3-D comparisons.</strong>
+          Each column is one test sequence from EgoPAT3D-DT (left three) or HOT3D-Clips (right three), with rows for KoopKal, Uni-Hand, and MADiff.
+          Each panel shows the observed trajectory, the ground-truth future, and the method's prediction.
+        </figcaption>
+      </figure>
+      <figure>
+        <a href="assets/results-3d-multijoint.png" target="_blank" rel="noopener" aria-label="View 3D multi-joint comparisons at full resolution">
+          <img src="assets/results-3d-multijoint.png" alt="H2O 3D multi-joint trajectories: ground truth and KoopKal predictions." width="2151" height="735" loading="lazy">
+        </a>
+        <figcaption>
+          <strong>Five-joint 3-D forecasting on H2O-PT.</strong>
+          Ground truth (top) and KoopKal predictions (bottom) for the wrist, thumb CMC, thumb tip, index MCP, and index tip.
+          On H2O-PT, KoopKal reaches a five-joint ADE/FDE of 0.028/0.051&nbsp;m, compared with 0.036/0.066&nbsp;m for Uni-Hand.
+        </figcaption>
+      </figure>
+    </section>
+  </main>
+</body>
+</html>
