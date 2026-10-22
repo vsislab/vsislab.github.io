@@ -1194,6 +1194,249 @@
                       </tr>
                   </table>
               </div>
+              <div style="background-color: #f5f5f5; padding: 20px; border-radius: 5px; margin: 20px 0;">
+                  <h3 style="font-weight:700; font-size:18px; margin-top:0;">Evaluation protocol for the comparison among direct OBB regression, generic point-based representations, LM3, LM5, and LM9.</h3>
+                  <p style="color:#666; font-size:0.85em; margin-bottom:10px;">Comparison results of direct OBB regression, generic point-based representations, and landmark-based methods under the same evaluation protocol.</p>
+                  <table style="width:70%; border-collapse:collapse; margin:0 auto;">
+                      <tr style="border-bottom:1px solid #ccc;">
+                          <th style="padding:8px; text-align:left;">Name</th>
+                          <th style="padding:8px; text-align:center;">mAP@07</th>
+                          <th style="padding:8px; text-align:center;">mAP@12</th>
+                      </tr>
+                      <tr style="border-bottom:1px solid #eee;">
+                          <td style="padding:6px;">Direct OBB regression</td>
+                          <td style="padding:6px; text-align:center;">0.8707</td>
+                          <td style="padding:6px; text-align:center;">0.9068</td>
+                      </tr>
+                      <tr style="border-bottom:1px solid #eee;">
+                          <td style="padding:6px;">Generic Point-based Representations</td>
+                          <td style="padding:6px; text-align:center;">0.8747</td>
+                          <td style="padding:6px; text-align:center;">0.9117</td>
+                      </tr>
+                      <tr style="border-bottom:1px solid #eee;">
+                          <td style="padding:6px;">LM<sup>3</sup></td>
+                          <td style="padding:6px; text-align:center;">0.5504</td>
+                          <td style="padding:6px; text-align:center;">0.5176</td>
+                      </tr>
+                      <tr style="border-bottom:1px solid #eee;">
+                          <td style="padding:6px;">LM<sup>5</sup></td>
+                          <td style="padding:6px; text-align:center;">0.9059</td>
+                          <td style="padding:6px; text-align:center;">0.9862</td>
+                      </tr>
+                      <tr style="border-bottom:1px solid #ccc;">
+                          <td style="padding:6px;">LM<sup>9</sup></td>
+                          <td style="padding:6px; text-align:center;">0.9086</td>
+                          <td style="padding:6px; text-align:center;">0.9896</td>
+                      </tr>
+                  </table>
+              </div>
+
+
+              <div style="background-color: #f5f5f5; padding: 20px; border-radius: 5px; margin: 20px 0;">
+                  <h3 style="font-weight:700; font-size:18px; margin-top:0;">Comparing the impacts of landmark completion and PCA-based orientation rectification on prediction results for individual landmarks.</h3>
+                  <p style="color:#666; font-size:0.85em; margin-bottom:10px;">The results are organized in a 3&times;3 layout, where each landmark occupies four consecutive rows corresponding to the four combinations of completion and rectification.</p>
+                  <div style="overflow-x:auto;">
+                      <table style="width:100%; min-width:980px; border-collapse:collapse; margin:0 auto; font-size:0.85em;">
+                          <tr style="border-bottom:1px solid #ccc;">
+                              <th style="padding:8px; text-align:left;"></th>
+                              <th style="padding:8px; text-align:center;">Complete</th>
+                              <th style="padding:8px; text-align:center;">Rectify</th>
+                              <th style="padding:8px; text-align:center;">mAP@07</th>
+                              <th style="padding:8px; text-align:center;">mAP@12</th>
+                              <th class="group-sep" style="padding:8px; text-align:center; border-left:1px solid #bbb;"></th>
+                              <th style="padding:8px; text-align:center;">Complete</th>
+                              <th style="padding:8px; text-align:center;">Rectify</th>
+                              <th style="padding:8px; text-align:center;">mAP@07</th>
+                              <th style="padding:8px; text-align:center;">mAP@12</th>
+                              <th class="group-sep" style="padding:8px; text-align:center; border-left:1px solid #bbb;"></th>
+                              <th style="padding:8px; text-align:center;">Complete</th>
+                              <th style="padding:8px; text-align:center;">Rectify</th>
+                              <th style="padding:8px; text-align:center;">mAP@07</th>
+                              <th style="padding:8px; text-align:center;">mAP@12</th>
+                          </tr>
+              
+                          <tr style="border-bottom:1px solid #eee;">
+                              <td rowspan="4" style="padding:6px; text-align:left; white-space:nowrap; vertical-align:middle;"><strong>LM<sub>1</sub></strong></td>
+                              <td style="padding:6px; text-align:center;">&times;</td>
+                              <td style="padding:6px; text-align:center;">&times;</td>
+                              <td style="padding:6px; text-align:center;">1</td>
+                              <td style="padding:6px; text-align:center;">1</td>
+                              <td rowspan="4" class="group-sep" style="padding:6px; text-align:left; white-space:nowrap; vertical-align:middle; border-left:1px solid #bbb;"><strong>LM<sub>2</sub></strong></td>
+                              <td style="padding:6px; text-align:center;">&times;</td>
+                              <td style="padding:6px; text-align:center;">&times;</td>
+                              <td style="padding:6px; text-align:center;">0.6545</td>
+                              <td style="padding:6px; text-align:center;">0.6416</td>
+                              <td rowspan="4" class="group-sep" style="padding:6px; text-align:left; white-space:nowrap; vertical-align:middle; border-left:1px solid #bbb;"><strong>LM<sub>3</sub></strong></td>
+                              <td style="padding:6px; text-align:center;">&times;</td>
+                              <td style="padding:6px; text-align:center;">&times;</td>
+                              <td style="padding:6px; text-align:center;">0.6545</td>
+                              <td style="padding:6px; text-align:center;">0.6416</td>
+                          </tr>
+                          <tr style="border-bottom:1px solid #eee;">
+                              <td style="padding:6px; text-align:center;">&#10003;</td>
+                              <td style="padding:6px; text-align:center;">&times;</td>
+                              <td style="padding:6px; text-align:center;">1</td>
+                              <td style="padding:6px; text-align:center;">1</td>
+                              <td class="group-sep" style="padding:6px; text-align:center; border-left:1px solid #bbb;">&#10003;</td>
+                              <td style="padding:6px; text-align:center;">&times;</td>
+                              <td style="padding:6px; text-align:center;">0.6545</td>
+                              <td style="padding:6px; text-align:center;">0.6416</td>
+                              <td class="group-sep" style="padding:6px; text-align:center; border-left:1px solid #bbb;">&#10003;</td>
+                              <td style="padding:6px; text-align:center;">&times;</td>
+                              <td style="padding:6px; text-align:center;">0.6545</td>
+                              <td style="padding:6px; text-align:center;">0.6416</td>
+                          </tr>
+                          <tr style="border-bottom:1px solid #eee;">
+                              <td style="padding:6px; text-align:center;">&times;</td>
+                              <td style="padding:6px; text-align:center;">&#10003;</td>
+                              <td style="padding:6px; text-align:center;">1</td>
+                              <td style="padding:6px; text-align:center;">1</td>
+                              <td class="group-sep" style="padding:6px; text-align:center; border-left:1px solid #bbb;">&times;</td>
+                              <td style="padding:6px; text-align:center;">&#10003;</td>
+                              <td style="padding:6px; text-align:center;">0.6545</td>
+                              <td style="padding:6px; text-align:center;">0.6416</td>
+                              <td class="group-sep" style="padding:6px; text-align:center; border-left:1px solid #bbb;">&times;</td>
+                              <td style="padding:6px; text-align:center;">&#10003;</td>
+                              <td style="padding:6px; text-align:center;">0.6545</td>
+                              <td style="padding:6px; text-align:center;">0.6416</td>
+                          </tr>
+                          <tr style="border-bottom:1px solid #ccc;">
+                              <td style="padding:6px; text-align:center;">&#10003;</td>
+                              <td style="padding:6px; text-align:center;">&#10003;</td>
+                              <td style="padding:6px; text-align:center;">1</td>
+                              <td style="padding:6px; text-align:center;">1</td>
+                              <td class="group-sep" style="padding:6px; text-align:center; border-left:1px solid #bbb;">&#10003;</td>
+                              <td style="padding:6px; text-align:center;">&#10003;</td>
+                              <td style="padding:6px; text-align:center;">1</td>
+                              <td style="padding:6px; text-align:center;">1</td>
+                              <td class="group-sep" style="padding:6px; text-align:center; border-left:1px solid #bbb;">&#10003;</td>
+                              <td style="padding:6px; text-align:center;">&#10003;</td>
+                              <td style="padding:6px; text-align:center;">1</td>
+                              <td style="padding:6px; text-align:center;">1</td>
+                          </tr>
+              
+                          <tr style="border-bottom:1px solid #eee;">
+                              <td rowspan="4" style="padding:6px; text-align:left; white-space:nowrap; vertical-align:middle;"><strong>LM<sub>4</sub></strong></td>
+                              <td style="padding:6px; text-align:center;">&times;</td>
+                              <td style="padding:6px; text-align:center;">&times;</td>
+                              <td style="padding:6px; text-align:center;">0.7792</td>
+                              <td style="padding:6px; text-align:center;">0.8119</td>
+                              <td rowspan="4" class="group-sep" style="padding:6px; text-align:left; white-space:nowrap; vertical-align:middle; border-left:1px solid #bbb;"><strong>LM<sub>5</sub></strong></td>
+                              <td style="padding:6px; text-align:center;">&times;</td>
+                              <td style="padding:6px; text-align:center;">&times;</td>
+                              <td style="padding:6px; text-align:center;">0.7792</td>
+                              <td style="padding:6px; text-align:center;">0.8119</td>
+                              <td rowspan="4" class="group-sep" style="padding:6px; text-align:left; white-space:nowrap; vertical-align:middle; border-left:1px solid #bbb;"><strong>LM<sub>6</sub></strong></td>
+                              <td style="padding:6px; text-align:center;">&times;</td>
+                              <td style="padding:6px; text-align:center;">&times;</td>
+                              <td style="padding:6px; text-align:center;">0.7273</td>
+                              <td style="padding:6px; text-align:center;">0.7525</td>
+                          </tr>
+                          <tr style="border-bottom:1px solid #eee;">
+                              <td style="padding:6px; text-align:center;">&#10003;</td>
+                              <td style="padding:6px; text-align:center;">&times;</td>
+                              <td style="padding:6px; text-align:center;">0.5812</td>
+                              <td style="padding:6px; text-align:center;">0.5615</td>
+                              <td class="group-sep" style="padding:6px; text-align:center; border-left:1px solid #bbb;">&#10003;</td>
+                              <td style="padding:6px; text-align:center;">&times;</td>
+                              <td style="padding:6px; text-align:center;">0.5812</td>
+                              <td style="padding:6px; text-align:center;">0.5615</td>
+                              <td class="group-sep" style="padding:6px; text-align:center; border-left:1px solid #bbb;">&#10003;</td>
+                              <td style="padding:6px; text-align:center;">&times;</td>
+                              <td style="padding:6px; text-align:center;">0.3636</td>
+                              <td style="padding:6px; text-align:center;">0.3366</td>
+                          </tr>
+                          <tr style="border-bottom:1px solid #eee;">
+                              <td style="padding:6px; text-align:center;">&times;</td>
+                              <td style="padding:6px; text-align:center;">&#10003;</td>
+                              <td style="padding:6px; text-align:center;">0.7792</td>
+                              <td style="padding:6px; text-align:center;">0.8119</td>
+                              <td class="group-sep" style="padding:6px; text-align:center; border-left:1px solid #bbb;">&times;</td>
+                              <td style="padding:6px; text-align:center;">&#10003;</td>
+                              <td style="padding:6px; text-align:center;">0.7792</td>
+                              <td style="padding:6px; text-align:center;">0.8119</td>
+                              <td class="group-sep" style="padding:6px; text-align:center; border-left:1px solid #bbb;">&times;</td>
+                              <td style="padding:6px; text-align:center;">&#10003;</td>
+                              <td style="padding:6px; text-align:center;">0.7273</td>
+                              <td style="padding:6px; text-align:center;">0.7525</td>
+                          </tr>
+                          <tr style="border-bottom:1px solid #ccc;">
+                              <td style="padding:6px; text-align:center;">&#10003;</td>
+                              <td style="padding:6px; text-align:center;">&#10003;</td>
+                              <td style="padding:6px; text-align:center;">1</td>
+                              <td style="padding:6px; text-align:center;">1</td>
+                              <td class="group-sep" style="padding:6px; text-align:center; border-left:1px solid #bbb;">&#10003;</td>
+                              <td style="padding:6px; text-align:center;">&#10003;</td>
+                              <td style="padding:6px; text-align:center;">1</td>
+                              <td style="padding:6px; text-align:center;">1</td>
+                              <td class="group-sep" style="padding:6px; text-align:center; border-left:1px solid #bbb;">&#10003;</td>
+                              <td style="padding:6px; text-align:center;">&#10003;</td>
+                              <td style="padding:6px; text-align:center;">1</td>
+                              <td style="padding:6px; text-align:center;">1</td>
+                          </tr>
+              
+                          <tr style="border-bottom:1px solid #eee;">
+                              <td rowspan="4" style="padding:6px; text-align:left; white-space:nowrap; vertical-align:middle;"><strong>LM<sub>7</sub></strong></td>
+                              <td style="padding:6px; text-align:center;">&times;</td>
+                              <td style="padding:6px; text-align:center;">&times;</td>
+                              <td style="padding:6px; text-align:center;">0.7273</td>
+                              <td style="padding:6px; text-align:center;">0.7525</td>
+                              <td rowspan="4" class="group-sep" style="padding:6px; text-align:left; white-space:nowrap; vertical-align:middle; border-left:1px solid #bbb;"><strong>LM<sub>8</sub></strong></td>
+                              <td style="padding:6px; text-align:center;">&times;</td>
+                              <td style="padding:6px; text-align:center;">&times;</td>
+                              <td style="padding:6px; text-align:center;">0.8182</td>
+                              <td style="padding:6px; text-align:center;">0.802</td>
+                              <td rowspan="4" class="group-sep" style="padding:6px; text-align:left; white-space:nowrap; vertical-align:middle; border-left:1px solid #bbb;"><strong>LM<sub>9</sub></strong></td>
+                              <td style="padding:6px; text-align:center;">&times;</td>
+                              <td style="padding:6px; text-align:center;">&times;</td>
+                              <td style="padding:6px; text-align:center;">0.8182</td>
+                              <td style="padding:6px; text-align:center;">0.802</td>
+                          </tr>
+                          <tr style="border-bottom:1px solid #eee;">
+                              <td style="padding:6px; text-align:center;">&#10003;</td>
+                              <td style="padding:6px; text-align:center;">&times;</td>
+                              <td style="padding:6px; text-align:center;">0.3636</td>
+                              <td style="padding:6px; text-align:center;">0.3366</td>
+                              <td class="group-sep" style="padding:6px; text-align:center; border-left:1px solid #bbb;">&#10003;</td>
+                              <td style="padding:6px; text-align:center;">&times;</td>
+                              <td style="padding:6px; text-align:center;">0.4773</td>
+                              <td style="padding:6px; text-align:center;">0.505</td>
+                              <td class="group-sep" style="padding:6px; text-align:center; border-left:1px solid #bbb;">&#10003;</td>
+                              <td style="padding:6px; text-align:center;">&times;</td>
+                              <td style="padding:6px; text-align:center;">0.4773</td>
+                              <td style="padding:6px; text-align:center;">0.505</td>
+                          </tr>
+                          <tr style="border-bottom:1px solid #eee;">
+                              <td style="padding:6px; text-align:center;">&times;</td>
+                              <td style="padding:6px; text-align:center;">&#10003;</td>
+                              <td style="padding:6px; text-align:center;">0.7273</td>
+                              <td style="padding:6px; text-align:center;">0.7525</td>
+                              <td class="group-sep" style="padding:6px; text-align:center; border-left:1px solid #bbb;">&times;</td>
+                              <td style="padding:6px; text-align:center;">&#10003;</td>
+                              <td style="padding:6px; text-align:center;">0.8182</td>
+                              <td style="padding:6px; text-align:center;">0.802</td>
+                              <td class="group-sep" style="padding:6px; text-align:center; border-left:1px solid #bbb;">&times;</td>
+                              <td style="padding:6px; text-align:center;">&#10003;</td>
+                              <td style="padding:6px; text-align:center;">0.8182</td>
+                              <td style="padding:6px; text-align:center;">0.802</td>
+                          </tr>
+                          <tr style="border-bottom:1px solid #ccc;">
+                              <td style="padding:6px; text-align:center;">&#10003;</td>
+                              <td style="padding:6px; text-align:center;">&#10003;</td>
+                              <td style="padding:6px; text-align:center;">1</td>
+                              <td style="padding:6px; text-align:center;">1</td>
+                              <td class="group-sep" style="padding:6px; text-align:center; border-left:1px solid #bbb;">&#10003;</td>
+                              <td style="padding:6px; text-align:center;">&#10003;</td>
+                              <td style="padding:6px; text-align:center;">1</td>
+                              <td style="padding:6px; text-align:center;">1</td>
+                              <td class="group-sep" style="padding:6px; text-align:center; border-left:1px solid #bbb;">&#10003;</td>
+                              <td style="padding:6px; text-align:center;">&#10003;</td>
+                              <td style="padding:6px; text-align:center;">1</td>
+                              <td style="padding:6px; text-align:center;">1</td>
+                          </tr>
+                      </table>
+                  </div>
+              </div>
       <!-- ENDS Footer -->
   </body>
 </html>
