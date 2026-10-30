@@ -6,7 +6,7 @@
   <meta name="description" content="KoopKal: Koopman-Kalman Probabilistic Dynamics for Egocentric Hand Trajectory Forecasting.">
   <title>KoopKal: Koopman-Kalman Probabilistic Dynamics for Egocentric Hand Trajectory Forecasting</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232f2f2f'/%3E%3Cpath d='M16 42c10-14 18-20 32-20M16 29c8 7 17 10 32 9' fill='none' stroke='%23e85d45' stroke-width='6' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='42' r='4' fill='%2377b99d'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="styles.css?v=method-v1">
+  <link rel="stylesheet" href="styles.css?v=fast-v1">
 </head>
 <body>
   <main class="publication">
@@ -29,7 +29,7 @@
     <section id="abstract" class="block">
       <figure class="teaser">
         <a href="assets/teaser-v28.png" target="_blank" rel="noopener" aria-label="View the teaser at full resolution">
-          <img src="assets/teaser-v28.png" alt="Diffusion-based forecasting with MADiff compared with Koopman-Kalman forecasting with KoopKal: error over forecast steps, model size, inference time, and 2-D and 3-D trajectories for one example." width="2600" height="1366" fetchpriority="high">
+          <img src="assets/teaser-v28.webp" alt="Diffusion-based forecasting with MADiff compared with Koopman-Kalman forecasting with KoopKal: error over forecast steps, model size, inference time, and 2-D and 3-D trajectories for one example." width="2240" height="1177" fetchpriority="high">
         </a>
         <figcaption>
           <strong>Diffusion vs. Koopman–Kalman forecasting.</strong>
@@ -66,7 +66,7 @@
 
       <figure class="pipeline">
         <a href="assets/pipeline.png" target="_blank" rel="noopener" aria-label="View the pipeline figure at full resolution">
-          <img src="assets/pipeline.png" alt="KoopKal pipeline: observed motion and context are lifted into a Koopman state; recursive forecasting combines a Koopman rollout with contextual residual dynamics through Kalman fusion; the lifted posterior is projected to probabilistic waypoints and a future trajectory." width="2884" height="1412" loading="lazy">
+          <img src="assets/pipeline.webp" alt="KoopKal pipeline: observed motion and context are lifted into a Koopman state; recursive forecasting combines a Koopman rollout with contextual residual dynamics through Kalman fusion; the lifted posterior is projected to probabilistic waypoints and a future trajectory." width="2240" height="1097" loading="lazy">
         </a>
         <figcaption>
           <strong>Overview of the KoopKal framework.</strong>
@@ -116,103 +116,53 @@
         <h3>2-D forecasting in egocentric video</h3>
         <p>
           Each animation plays the observed clip and then draws the forecasts step by step on the reference frame, with MADiff and Uni-Hand for comparison.
-          Samples come from EgoPAT3D-DT, including one unseen scene, and H2O-PT. Click any animation to open it at full size.
+          Samples come from EgoPAT3D-DT, including one unseen scene, and H2O-PT.
         </p>
       </div>
     </section>
 
     <section class="animations" aria-label="Animated 2D forecasting results">
       <figure>
-        <a href="assets/koopkal-egopat.gif" target="_blank" rel="noopener" aria-label="Open EgoPAT3D 2D case 349">
-          <picture>
-            <source media="(prefers-reduced-motion: reduce)" srcset="assets/koopkal-egopat-poster.png">
-            <img src="assets/koopkal-egopat.gif" alt="EgoPAT3D 2D trajectory forecasting, case 349." width="640" height="539" loading="lazy" decoding="async">
-          </picture>
-        </a>
+        <video muted loop playsinline preload="none" width="640" height="540" data-src="assets/koopkal-egopat.mp4" data-poster="assets/koopkal-egopat-poster.webp" aria-label="EgoPAT3D 2D trajectory forecasting, case 349."></video>
       </figure>
       <figure>
-        <a href="assets/koopkal-egopat-1569.gif" target="_blank" rel="noopener" aria-label="Open EgoPAT3D 2D case 1569">
-          <picture>
-            <source media="(prefers-reduced-motion: reduce)" srcset="assets/koopkal-egopat-1569-poster.png">
-            <img src="assets/koopkal-egopat-1569.gif" alt="EgoPAT3D 2D trajectory forecasting, case 1569." width="640" height="542" loading="lazy" decoding="async">
-          </picture>
-        </a>
+        <video muted loop playsinline preload="none" width="640" height="542" data-src="assets/koopkal-egopat-1569.mp4" data-poster="assets/koopkal-egopat-1569-poster.webp" aria-label="EgoPAT3D 2D trajectory forecasting, case 1569."></video>
       </figure>
       <figure>
-        <a href="assets/koopkal-egopat-unseen-1744.gif" target="_blank" rel="noopener" aria-label="Open EgoPAT3D unseen 2D case 1744">
-          <picture>
-            <source media="(prefers-reduced-motion: reduce)" srcset="assets/koopkal-egopat-unseen-1744-poster.png">
-            <img src="assets/koopkal-egopat-unseen-1744.gif" alt="EgoPAT3D unseen 2D trajectory forecasting, case 1744." width="640" height="540" loading="lazy" decoding="async">
-          </picture>
-        </a>
+        <video muted loop playsinline preload="none" width="640" height="540" data-src="assets/koopkal-egopat-unseen-1744.mp4" data-poster="assets/koopkal-egopat-unseen-1744-poster.webp" aria-label="EgoPAT3D unseen 2D trajectory forecasting, case 1744."></video>
       </figure>
       <figure>
-        <a href="assets/koopkal-h2o.gif" target="_blank" rel="noopener" aria-label="Open H2O 2D case 464">
-          <picture>
-            <source media="(prefers-reduced-motion: reduce)" srcset="assets/koopkal-h2o-poster.png">
-            <img src="assets/koopkal-h2o.gif" alt="H2O 2D trajectory forecasting, case 464." width="640" height="542" loading="lazy" decoding="async">
-          </picture>
-        </a>
+        <video muted loop playsinline preload="none" width="640" height="542" data-src="assets/koopkal-h2o.mp4" data-poster="assets/koopkal-h2o-poster.webp" aria-label="H2O 2D trajectory forecasting, case 464."></video>
       </figure>
       <figure>
-        <a href="assets/koopkal-h2o-1353.gif" target="_blank" rel="noopener" aria-label="Open H2O 2D case 1353">
-          <picture>
-            <source media="(prefers-reduced-motion: reduce)" srcset="assets/koopkal-h2o-1353-poster.png">
-            <img src="assets/koopkal-h2o-1353.gif" alt="H2O 2D trajectory forecasting, case 1353." width="640" height="542" loading="lazy" decoding="async">
-          </picture>
-        </a>
+        <video muted loop playsinline preload="none" width="640" height="542" data-src="assets/koopkal-h2o-1353.mp4" data-poster="assets/koopkal-h2o-1353-poster.webp" aria-label="H2O 2D trajectory forecasting, case 1353."></video>
       </figure>
       <figure>
-        <a href="assets/koopkal-egopat-0898.gif" target="_blank" rel="noopener" aria-label="Open EgoPAT3D 2D case 898">
-          <picture>
-            <source media="(prefers-reduced-motion: reduce)" srcset="assets/koopkal-egopat-0898-poster.png">
-            <img src="assets/koopkal-egopat-0898.gif" alt="EgoPAT3D 2D trajectory forecasting, case 898." width="640" height="540" loading="lazy" decoding="async">
-          </picture>
-        </a>
+        <video muted loop playsinline preload="none" width="640" height="540" data-src="assets/koopkal-egopat-0898.mp4" data-poster="assets/koopkal-egopat-0898-poster.webp" aria-label="EgoPAT3D 2D trajectory forecasting, case 898."></video>
       </figure>
       <figure>
-        <a href="assets/koopkal-egopat-0926.gif" target="_blank" rel="noopener" aria-label="Open EgoPAT3D 2D case 926">
-          <picture>
-            <source media="(prefers-reduced-motion: reduce)" srcset="assets/koopkal-egopat-0926-poster.png">
-            <img src="assets/koopkal-egopat-0926.gif" alt="EgoPAT3D 2D trajectory forecasting, case 926." width="640" height="540" loading="lazy" decoding="async">
-          </picture>
-        </a>
+        <video muted loop playsinline preload="none" width="640" height="540" data-src="assets/koopkal-egopat-0926.mp4" data-poster="assets/koopkal-egopat-0926-poster.webp" aria-label="EgoPAT3D 2D trajectory forecasting, case 926."></video>
       </figure>
       <figure>
-        <a href="assets/koopkal-h2o-0533.gif" target="_blank" rel="noopener" aria-label="Open H2O 2D case 533">
-          <picture>
-            <source media="(prefers-reduced-motion: reduce)" srcset="assets/koopkal-h2o-0533-poster.png">
-            <img src="assets/koopkal-h2o-0533.gif" alt="H2O 2D trajectory forecasting, case 533." width="640" height="542" loading="lazy" decoding="async">
-          </picture>
-        </a>
+        <video muted loop playsinline preload="none" width="640" height="542" data-src="assets/koopkal-h2o-0533.mp4" data-poster="assets/koopkal-h2o-0533-poster.webp" aria-label="H2O 2D trajectory forecasting, case 533."></video>
       </figure>
       <figure>
-        <a href="assets/koopkal-h2o-1075.gif" target="_blank" rel="noopener" aria-label="Open H2O 2D case 1075">
-          <picture>
-            <source media="(prefers-reduced-motion: reduce)" srcset="assets/koopkal-h2o-1075-poster.png">
-            <img src="assets/koopkal-h2o-1075.gif" alt="H2O 2D trajectory forecasting, case 1075." width="640" height="535" loading="lazy" decoding="async">
-          </picture>
-        </a>
+        <video muted loop playsinline preload="none" width="640" height="536" data-src="assets/koopkal-h2o-1075.mp4" data-poster="assets/koopkal-h2o-1075-poster.webp" aria-label="H2O 2D trajectory forecasting, case 1075."></video>
       </figure>
       <figure>
-        <a href="assets/koopkal-h2o-3347.gif" target="_blank" rel="noopener" aria-label="Open H2O 2D case 3347">
-          <picture>
-            <source media="(prefers-reduced-motion: reduce)" srcset="assets/koopkal-h2o-3347-poster.png">
-            <img src="assets/koopkal-h2o-3347.gif" alt="H2O 2D trajectory forecasting, case 3347." width="640" height="542" loading="lazy" decoding="async">
-          </picture>
-        </a>
+        <video muted loop playsinline preload="none" width="640" height="542" data-src="assets/koopkal-h2o-3347.mp4" data-poster="assets/koopkal-h2o-3347-poster.webp" aria-label="H2O 2D trajectory forecasting, case 3347."></video>
       </figure>
     </section>
 
     <section class="results results-2d" aria-label="2D trajectory comparisons">
       <figure>
         <a href="assets/results-2d-a.png" target="_blank" rel="noopener" aria-label="View 2D comparisons at full resolution">
-          <img src="assets/results-2d-a.png" alt="2D forecasting comparisons on EgoPAT3D seen, EgoPAT3D unseen, and H2O." width="1526" height="1384" loading="lazy">
+          <img src="assets/results-2d-a.webp" alt="2D forecasting comparisons on EgoPAT3D seen, EgoPAT3D unseen, and H2O." width="1526" height="1384" loading="lazy">
         </a>
       </figure>
       <figure>
         <a href="assets/results-2d-b.png" target="_blank" rel="noopener" aria-label="View additional 2D comparisons at full resolution">
-          <img src="assets/results-2d-b.png" alt="Additional 2D forecasting comparisons on EgoPAT3D, H2O, and HOT3D." width="1526" height="1384" loading="lazy">
+          <img src="assets/results-2d-b.webp" alt="Additional 2D forecasting comparisons on EgoPAT3D, H2O, and HOT3D." width="1526" height="1384" loading="lazy">
         </a>
         <figcaption>
           <strong>2-D comparisons with MADiff and Uni-Hand.</strong>
@@ -232,59 +182,29 @@
 
     <section class="animations" aria-label="Animated 3D forecasting results">
       <figure>
-        <a href="assets/koopkal-3d-egopat-0104.gif" target="_blank" rel="noopener" aria-label="Open EgoPAT3D 3D case 104">
-          <picture>
-            <source media="(prefers-reduced-motion: reduce)" srcset="assets/koopkal-3d-egopat-0104-poster.png">
-            <img src="assets/koopkal-3d-egopat-0104.gif" alt="EgoPAT3D 3D trajectory forecasting, case 104." width="640" height="540" loading="lazy" decoding="async">
-          </picture>
-        </a>
+        <video muted loop playsinline preload="none" width="640" height="540" data-src="assets/koopkal-3d-egopat-0104.mp4" data-poster="assets/koopkal-3d-egopat-0104-poster.webp" aria-label="EgoPAT3D 3D trajectory forecasting, case 104."></video>
       </figure>
       <figure>
-        <a href="assets/koopkal-3d-egopat-1060.gif" target="_blank" rel="noopener" aria-label="Open EgoPAT3D 3D case 1060">
-          <picture>
-            <source media="(prefers-reduced-motion: reduce)" srcset="assets/koopkal-3d-egopat-1060-poster.png">
-            <img src="assets/koopkal-3d-egopat-1060.gif" alt="EgoPAT3D 3D trajectory forecasting, case 1060." width="640" height="540" loading="lazy" decoding="async">
-          </picture>
-        </a>
+        <video muted loop playsinline preload="none" width="640" height="540" data-src="assets/koopkal-3d-egopat-1060.mp4" data-poster="assets/koopkal-3d-egopat-1060-poster.webp" aria-label="EgoPAT3D 3D trajectory forecasting, case 1060."></video>
       </figure>
       <figure>
-        <a href="assets/koopkal-3d-egopat-1244.gif" target="_blank" rel="noopener" aria-label="Open EgoPAT3D 3D case 1244">
-          <picture>
-            <source media="(prefers-reduced-motion: reduce)" srcset="assets/koopkal-3d-egopat-1244-poster.png">
-            <img src="assets/koopkal-3d-egopat-1244.gif" alt="EgoPAT3D 3D trajectory forecasting, case 1244." width="640" height="540" loading="lazy" decoding="async">
-          </picture>
-        </a>
+        <video muted loop playsinline preload="none" width="640" height="540" data-src="assets/koopkal-3d-egopat-1244.mp4" data-poster="assets/koopkal-3d-egopat-1244-poster.webp" aria-label="EgoPAT3D 3D trajectory forecasting, case 1244."></video>
       </figure>
       <figure>
-        <a href="assets/koopkal-3d-hot3d-0117.gif" target="_blank" rel="noopener" aria-label="Open HOT3D 3D case 117">
-          <picture>
-            <source media="(prefers-reduced-motion: reduce)" srcset="assets/koopkal-3d-hot3d-0117-poster.png">
-            <img src="assets/koopkal-3d-hot3d-0117.gif" alt="HOT3D 3D trajectory forecasting, case 117." width="640" height="540" loading="lazy" decoding="async">
-          </picture>
-        </a>
+        <video muted loop playsinline preload="none" width="640" height="540" data-src="assets/koopkal-3d-hot3d-0117.mp4" data-poster="assets/koopkal-3d-hot3d-0117-poster.webp" aria-label="HOT3D 3D trajectory forecasting, case 117."></video>
       </figure>
       <figure>
-        <a href="assets/koopkal-3d-hot3d-0186.gif" target="_blank" rel="noopener" aria-label="Open HOT3D 3D case 186">
-          <picture>
-            <source media="(prefers-reduced-motion: reduce)" srcset="assets/koopkal-3d-hot3d-0186-poster.png">
-            <img src="assets/koopkal-3d-hot3d-0186.gif" alt="HOT3D 3D trajectory forecasting, case 186." width="640" height="540" loading="lazy" decoding="async">
-          </picture>
-        </a>
+        <video muted loop playsinline preload="none" width="640" height="540" data-src="assets/koopkal-3d-hot3d-0186.mp4" data-poster="assets/koopkal-3d-hot3d-0186-poster.webp" aria-label="HOT3D 3D trajectory forecasting, case 186."></video>
       </figure>
       <figure>
-        <a href="assets/koopkal-3d-hot3d-0213.gif" target="_blank" rel="noopener" aria-label="Open HOT3D 3D case 213">
-          <picture>
-            <source media="(prefers-reduced-motion: reduce)" srcset="assets/koopkal-3d-hot3d-0213-poster.png">
-            <img src="assets/koopkal-3d-hot3d-0213.gif" alt="HOT3D 3D trajectory forecasting, case 213." width="640" height="540" loading="lazy" decoding="async">
-          </picture>
-        </a>
+        <video muted loop playsinline preload="none" width="640" height="540" data-src="assets/koopkal-3d-hot3d-0213.mp4" data-poster="assets/koopkal-3d-hot3d-0213-poster.webp" aria-label="HOT3D 3D trajectory forecasting, case 213."></video>
       </figure>
     </section>
 
     <section class="results results-3d" aria-label="3D trajectory comparisons">
       <figure>
         <a href="assets/results-3d.png" target="_blank" rel="noopener" aria-label="View 3D trajectory comparisons at full resolution">
-          <img src="assets/results-3d.png" alt="Metric 3D trajectories from KoopKal, UniHand, and MADiff on EgoPAT3D and HOT3D." width="2151" height="945" loading="lazy">
+          <img src="assets/results-3d.webp" alt="Metric 3D trajectories from KoopKal, UniHand, and MADiff on EgoPAT3D and HOT3D." width="2151" height="945" loading="lazy">
         </a>
         <figcaption>
           <strong>Metric 3-D comparisons.</strong>
@@ -294,7 +214,7 @@
       </figure>
       <figure>
         <a href="assets/results-3d-multijoint.png" target="_blank" rel="noopener" aria-label="View 3D multi-joint comparisons at full resolution">
-          <img src="assets/results-3d-multijoint.png" alt="H2O 3D multi-joint trajectories: ground truth and KoopKal predictions." width="2151" height="735" loading="lazy">
+          <img src="assets/results-3d-multijoint.webp" alt="H2O 3D multi-joint trajectories: ground truth and KoopKal predictions." width="2151" height="735" loading="lazy">
         </a>
         <figcaption>
           <strong>Five-joint 3-D forecasting on H2O-PT.</strong>
@@ -304,5 +224,37 @@
       </figure>
     </section>
   </main>
+  <script>
+    (() => {
+      const videos = document.querySelectorAll("video[data-src]");
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        // Reduced motion: show the final-result poster as a still image instead of the animation.
+        videos.forEach((v) => {
+          const img = document.createElement("img");
+          img.src = v.dataset.poster;
+          img.alt = v.getAttribute("aria-label");
+          img.width = v.width;
+          img.height = v.height;
+          img.loading = "lazy";
+          img.decoding = "async";
+          v.replaceWith(img);
+        });
+        return;
+      }
+      const show = (v) => {
+        if (!v.getAttribute("poster")) v.poster = v.dataset.poster;
+        if (!v.getAttribute("src")) v.src = v.dataset.src;
+        v.play().catch(() => {});
+      };
+      if (!("IntersectionObserver" in window)) { videos.forEach(show); return; }
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) show(e.target);
+          else if (!e.target.paused) e.target.pause();
+        }
+      }, { rootMargin: "400px 0px" });
+      videos.forEach((v) => io.observe(v));
+    })();
+  </script>
 </body>
 </html>
