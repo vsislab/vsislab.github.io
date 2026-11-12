@@ -6,7 +6,7 @@
   <meta name="description" content="KoopKal: Koopman-Kalman Probabilistic Dynamics for Egocentric Hand Trajectory Forecasting.">
   <title>KoopKal: Koopman-Kalman Probabilistic Dynamics for Egocentric Hand Trajectory Forecasting</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232f2f2f'/%3E%3Cpath d='M16 42c10-14 18-20 32-20M16 29c8 7 17 10 32 9' fill='none' stroke='%23e85d45' stroke-width='6' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='42' r='4' fill='%2377b99d'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="styles.css?v=fast-v1">
+  <link rel="stylesheet" href="styles.css?v=paper8">
 </head>
 <body>
   <main class="publication">
@@ -29,8 +29,8 @@
 
     <section id="abstract" class="block">
       <figure class="teaser">
-        <a href="assets/teaser-v28.png" target="_blank" rel="noopener" aria-label="View the teaser at full resolution">
-          <img src="assets/teaser-v28.webp" alt="Diffusion-based forecasting with MADiff compared with Koopman-Kalman forecasting with KoopKal: error over forecast steps, model size, inference time, and 2-D and 3-D trajectories for one example." width="2240" height="1177" fetchpriority="high">
+        <a href="assets/teaser.png" target="_blank" rel="noopener" aria-label="View the teaser at full resolution">
+          <img src="assets/teaser.webp" alt="Diffusion-based forecasting with MADiff compared with Koopman-Kalman forecasting with KoopKal: error over forecast steps, model size, inference time, and 2-D and 3-D trajectories for one example." width="2240" height="1175" fetchpriority="high">
         </a>
         <figcaption>
           <strong>Diffusion vs. Koopman–Kalman forecasting.</strong>
@@ -43,15 +43,15 @@
       <div class="prose">
         <h2>Abstract</h2>
         <p class="abstract">
-          Egocentric hand trajectory forecasting aims to predict future hand motion from an observed history of egocentric video and hand waypoints, where the observed trajectory is jointly influenced by intrinsic hand motion, human–object interactions, and camera egomotion.
-          Recent methods have achieved promising performance by modeling observed hand motion and egocentric visual context through autoregressive trajectory forecasting or diffusion-based trajectory generation.
-          However, these approaches typically model trajectory evolution implicitly within the single prediction process, without explicitly characterizing how the hand state propagates over time.
-          Consequently, local prediction deviations may propagate to subsequent steps, causing errors to accumulate over long forecasting horizons and eventually leading to trajectory drift.
-          To address this issue, we propose KoopKal for egocentric hand trajectory forecasting, a Koopman-Kalman state-space model that establishes future motion prediction upon structured Koopman latent-state evolution and recursively refines the predicted states through context-conditioned corrections within an uncertainty-aware filtering framework.
-          Specifically, KoopKal introduces a Koopman-inspired latent transition model that captures underlying hand-motion dynamics through compact linear evolution in a lifted state space, providing a structured motion prior for globally coherent forecasting.
-          To capture context-dependent motion variations beyond the Koopman prior, we further introduce a context-conditioned residual motion correction module to adaptively refine the prior prediction.
-          Finally, KoopKal integrates the Koopman prior and context-conditioned corrections within a probabilistic Kalman filtering framework, enabling recursive latent-state refinement and uncertainty propagation.
-          Extensive experiments on four public egocentric benchmarks demonstrate that KoopKal achieves superior performance compared with state-of-the-art methods across 2-D, metric 3-D, and multi-joint hand trajectory forecasting, while requiring substantially fewer parameters and enabling faster inference.
+          Egocentric hand trajectory forecasting predicts future hand motion from past egocentric video and hand waypoints, which are influenced by hand dynamics, human–object interactions, and camera motion.
+          Recent methods have achieved promising performance by modeling past hand motion and visual context through autoregressive forecasting or diffusion-based generation.
+          However, these methods lack an explicit dynamical prior to constrain hand-state transitions, relying mainly on data-driven modeling or iterative denoising.
+          Consequently, prediction deviations become increasingly difficult to track and correct over the forecasting horizon, potentially leading to trajectory drift.
+          To address this issue, we propose Koopman–Kalman Probabilistic Dynamics for Egocentric Hand Trajectory Forecasting (KoopKal), a probabilistic state-space framework that models egocentric hand motion using structured Koopman dynamics and recursively predicts future trajectories and uncertainties through Kalman filtering.
+          Specifically, KoopKal uses a shared Koopman operator to model hand-motion dynamics in a lifted state space, providing a structured dynamical prior for future trajectory forecasting.
+          To account for camera motion and hand–object interactions, we introduce a camera-aware residual module that integrates historical Koopman innovations and camera-motion cues to capture context-dependent variations and generate step-wise controls for future latent-state evolution.
+          Finally, we develop a Kalman filtering framework that propagates future latent states using generated controls and incorporates Koopman predictions for recursive state estimation and uncertainty quantification.
+          Experiments on four public egocentric benchmarks show that KoopKal achieves state-of-the-art performance in 2-D, metric 3-D, and multi-joint forecasting, with 38.0% fewer parameters and 1.24× faster inference than the latest baseline.
         </p>
       </div>
     </section>
@@ -60,45 +60,47 @@
       <div class="prose">
         <h2>Method</h2>
         <p>
-          KoopKal forecasts one step at a time.
-          At every future step, the Koopman operator predicts where the hand state goes next, a contextual branch predicts how that prediction should be corrected, and a Kalman update decides how much of the correction to trust.
+          KoopKal formulates egocentric hand trajectory forecasting as Koopman-guided recursive state estimation.
+          At each future step, camera-aware latent controls drive the state prediction, and future Koopman predictions serve as pseudo-observations for uncertainty-aware Kalman updates.
         </p>
       </div>
 
       <figure class="pipeline">
         <a href="assets/pipeline.png" target="_blank" rel="noopener" aria-label="View the pipeline figure at full resolution">
-          <img src="assets/pipeline.webp" alt="KoopKal pipeline: observed motion and context are lifted into a Koopman state; recursive forecasting combines a Koopman rollout with contextual residual dynamics through Kalman fusion; the lifted posterior is projected to probabilistic waypoints and a future trajectory." width="2240" height="1097" loading="lazy">
+          <img src="assets/pipeline.webp" alt="KoopKal pipeline: observed motion and context are mapped to a position-preserving lifted state; a Koopman rollout supplies pseudo-observations while camera-aware Koopman residual modeling predicts latent controls and their uncertainties; Kalman prediction and update steps yield the lifted posterior, which is projected to probabilistic waypoints and a future trajectory." width="2240" height="1083" loading="lazy">
         </a>
         <figcaption>
-          <strong>Overview of the KoopKal framework.</strong>
-          The observed trajectory is mapped to a position-preserving lifted state.
-          At each forecasting step, the Koopman rollout supplies a motion prior, the contextual residual branch predicts a correction, and Kalman fusion yields the posterior state and covariance, which are projected to probabilistic waypoints.
+          <strong>Overview of the proposed KoopKal framework.</strong>
+          KoopKal forecasts egocentric hand trajectories through a Koopman–Kalman recursive framework.
+          It maps the hand trajectory into a position-preserving lifted state that retains hand coordinates and encodes motion information.
+          At each forecasting step, a camera-aware residual modeling module processes historical Koopman innovations, camera-motion descriptors, and RGB features to generate context-conditioned latent control inputs, while the Koopman operator provides future pseudo-observations.
+          Kalman filtering uses these control inputs to predict latent states and the Koopman pseudo-observations to perform uncertainty-aware updates, yielding posterior state estimates and their covariances.
+          Finally, posterior states are projected to hand coordinates, yielding probabilistic waypoints and a predicted trajectory.
         </figcaption>
       </figure>
 
       <ol class="steps">
         <li>
-          <h3>Position-preserving Koopman lift</h3>
+          <h3>Position-preserving Koopman dynamics</h3>
           <p>
-            Each observed waypoint is combined with its velocity, acceleration, and a few nonlinear kinematic terms, then lifted into a latent state that still contains the hand position itself.
-            Any predicted state therefore maps straight back to 2-D or 3-D coordinates through a fixed projection, with no trajectory decoder.
-            Comparing each observed state with its one-step Koopman prediction gives a <em>Koopman innovation</em>, which records how the hand departs from nominal motion.
+            KoopKal lifts each observed hand position, together with its velocity, acceleration, and nonlinear kinematic terms, into a position-preserving state, so hand waypoints are recovered directly without an additional trajectory decoder.
+            A shared Koopman operator captures nominal hand-motion evolution through linear dynamics in this lifted space, providing a structured dynamical prior.
+            Historical <em>Koopman innovations</em> are the discrepancies between observed lifted states and their one-step predictions.
           </p>
         </li>
         <li>
-          <h3>Koopman prior and contextual residuals</h3>
+          <h3>Camera-aware Koopman residual modeling</h3>
           <p>
-            From the last observed state, the learned Koopman operator propagates the state and its covariance step by step, giving a coherent motion prior over the whole horizon.
-            In parallel, a Residual Mamba reads visual features, hand positions, camera egomotion, and the Koopman innovations, and predicts for every future step a correction to the prior together with its uncertainty.
-            The branch never outputs a separate trajectory; it only says how the prior should change.
+            A camera-aware residual modeling module integrates historical Koopman innovations, lifted hand states, camera-egomotion descriptors, and RGB visual features to capture variations arising from hand–object interactions and viewpoint changes.
+            It generates horizon-dependent latent control inputs and input-dependent uncertainties of the Koopman pseudo-observations, using only observed frames.
           </p>
         </li>
         <li>
-          <h3>Uncertainty-aware Kalman fusion</h3>
+          <h3>Recursive Kalman filtering</h3>
           <p>
-            A Kalman update weighs the Koopman prior against the contextual correction.
-            A confident correction moves the state; an uncertain one is damped, and the prior dominates.
-            The fused state is projected to a Gaussian waypoint for each future step, and an uncertainty-weighted, smoothness-regularized readout turns these waypoints into one temporally coherent trajectory.
+            Starting from the last observed lifted state, each future step runs a control-driven Prediction Step followed by a Koopman-guided Update Step, in which future Koopman predictions act as pseudo-observations.
+            The Kalman gain balances the two estimates according to their uncertainties.
+            The posterior states and covariances are projected to hand coordinates, yielding probabilistic waypoints and a predicted trajectory.
           </p>
         </li>
       </ol>
